@@ -1,11 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900");
 @import url("fontawesome-all.min.css");
 
-/*
-	Aerial by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
 
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
@@ -384,6 +379,19 @@ input, select, textarea {
 			width: 1px;
 		}
 
+/* remove default margin and padding from body
+body {
+	padding: 0;
+	margin: 0;
+  }
+  
+  /* set map, body, and html to 100% of the screen size */
+  /* #map,
+  body,
+  html {
+	height: 90%;
+  } */
+   */
 /* Header */
 
 	@-moz-keyframes header {
@@ -529,7 +537,7 @@ input, select, textarea {
 			opacity: 1;
 		}
 	}
-
+	
 	#header {
 		-moz-animation: header 1s 2.25s forwards;
 		-webkit-animation: header 1s 2.25s forwards;
