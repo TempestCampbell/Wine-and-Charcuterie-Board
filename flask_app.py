@@ -11,5 +11,8 @@ db = SQLAlchemy(app)
 
 
 if __name__ == '__main__':
+<<<<<<< HEAD
    db.create_all()
+=======
+>>>>>>> mk/coding
    app.run(debug = True)
