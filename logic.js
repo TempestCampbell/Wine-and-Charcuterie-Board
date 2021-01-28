@@ -11,3 +11,16 @@ var myMap = L.map("map", {
     id: "mapbox/streets-v11",
     accessToken: API_KEY
   }).addTo(myMap);
+
+
+// Create the function for the initial data rendering
+function init() {
+
+    // Read the csv file to get data
+    d3.csv("CleanedCSVs/WorldMeatsCleaned.csv").then(function(data) {
+        console.log(data)
+    
+    });
+}
+
+init();
