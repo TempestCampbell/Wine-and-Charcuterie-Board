@@ -26,8 +26,6 @@ CREATE TABLE `Wineries` (
 CREATE TABLE `Wines` (
     `Vintage` int  NOT NULL ,
     `Country` varchar  NOT NULL ,
-    `Country_Lookup` varchar  NOT NULL ,
-    `Continent` varchar  NOT NULL ,
     `County` varchar  NULL ,
     `Designation` varchar  NULL ,
     `Points` int  NOT NULL ,
@@ -70,9 +68,6 @@ CREATE TABLE `Countries` (
 ALTER TABLE `WorldMeats` ADD CONSTRAINT `fk_WorldMeats_Country` FOREIGN KEY(`Country`)
 REFERENCES `Countries` (`Country`);
 
-ALTER TABLE `Wineries` ADD CONSTRAINT `fk_Wineries_Country` FOREIGN KEY(`Country`)
-REFERENCES `Countries` (`Country`);
-
 ALTER TABLE `Wines` ADD CONSTRAINT `fk_Wines_Country` FOREIGN KEY(`Country`)
 REFERENCES `Countries` (`Country`);
 
@@ -84,7 +79,4 @@ REFERENCES `Wineries` (`Winery`);
 
 ALTER TABLE `WineCheesePairingData` ADD CONSTRAINT `fk_WineCheesePairingData_PopularCheese` FOREIGN KEY(`PopularCheese`)
 REFERENCES `Cheese` (`Name`);
-
-ALTER TABLE `Cheese` ADD CONSTRAINT `fk_Cheese_Country` FOREIGN KEY(`Country`)
-REFERENCES `Countries` (`Country`);
 
