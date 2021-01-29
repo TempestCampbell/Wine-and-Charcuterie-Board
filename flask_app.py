@@ -6,7 +6,7 @@ from config import pw
 app = Flask(__name__)
 
 # Use flask_sqlalchemy to set up sql connection locally
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://postgres:{pw}@localhost:5432/WineCharcuteriedb'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://postgres:{pw}@localhost:5432/WineCharcuterie'
 db = SQLAlchemy(app)
 
 
