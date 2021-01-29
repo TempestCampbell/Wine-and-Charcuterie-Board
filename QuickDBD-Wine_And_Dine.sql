@@ -59,17 +59,6 @@ CREATE TABLE `Cheese` (
     )
 );
 
-CREATE TABLE `Countries` (
-    `Country` varchar  NOT NULL ,
-    `Title` varchar  NOT NULL ,
-    PRIMARY KEY (
-        `Country`
-    )
-);
-
-ALTER TABLE `WorldMeats` ADD CONSTRAINT `fk_WorldMeats_Country` FOREIGN KEY(`Country`)
-REFERENCES `Countries` (`Country`);
-
 ALTER TABLE `Wines` ADD CONSTRAINT `fk_Wines_Variety` FOREIGN KEY(`Variety`)
 REFERENCES `WineCheesePairingData` (`WineExamples`);
 
@@ -78,7 +67,4 @@ REFERENCES `Wineries` (`Winery`);
 
 ALTER TABLE `WineCheesePairingData` ADD CONSTRAINT `fk_WineCheesePairingData_PopularCheese` FOREIGN KEY(`PopularCheese`)
 REFERENCES `Cheese` (`Name`);
-
-ALTER TABLE `Countries` ADD CONSTRAINT `fk_Countries_Title` FOREIGN KEY(`Title`)
-REFERENCES `Wines` (`Title`);
 
