@@ -70,9 +70,6 @@ CREATE TABLE `Countries` (
 ALTER TABLE `WorldMeats` ADD CONSTRAINT `fk_WorldMeats_Country` FOREIGN KEY(`Country`)
 REFERENCES `Countries` (`Country`);
 
-ALTER TABLE `Wineries` ADD CONSTRAINT `fk_Wineries_Country` FOREIGN KEY(`Country`)
-REFERENCES `Countries` (`Country`);
-
 ALTER TABLE `Wines` ADD CONSTRAINT `fk_Wines_Country` FOREIGN KEY(`Country`)
 REFERENCES `Countries` (`Country`);
 
@@ -84,7 +81,4 @@ REFERENCES `Wineries` (`Winery`);
 
 ALTER TABLE `WineCheesePairingData` ADD CONSTRAINT `fk_WineCheesePairingData_PopularCheese` FOREIGN KEY(`PopularCheese`)
 REFERENCES `Cheese` (`Name`);
-
-ALTER TABLE `Cheese` ADD CONSTRAINT `fk_Cheese_Country` FOREIGN KEY(`Country`)
-REFERENCES `Countries` (`Country`);
 
