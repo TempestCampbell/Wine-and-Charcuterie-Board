@@ -26,8 +26,6 @@ CREATE TABLE `Wineries` (
 CREATE TABLE `Wines` (
     `Vintage` int  NOT NULL ,
     `Country` varchar  NOT NULL ,
-    `Country_Lookup` varchar  NOT NULL ,
-    `Continent` varchar  NOT NULL ,
     `County` varchar  NULL ,
     `Designation` varchar  NULL ,
     `Points` int  NOT NULL ,
