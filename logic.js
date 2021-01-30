@@ -16,9 +16,44 @@ var myMap = L.map("map", {
 // Create the function for the initial data rendering
 function init() {
 
+
     // Read the csv file to get data
-    d3.csv("CleanedCSVs/WorldMeatsCleaned.csv").then(function(data) {
+    d3.json("https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson").then(function(data) {
         console.log(data)
+
+        // Create a new choropleth layer
+        geojson = L.choropleth(data, {
+
+            // Fetch api from flasks
+            var winereviews = fetch('http://http://127.0.0.1:5000//api/v1.0/scatter')
+            .then(response => response.json())  
+            .then(json => console.log(json)),
+
+            // Define what  property in the features to use
+            valueProperty: winereviews,
+
+            // Set color scale
+            scale: ["#fff7f3", "#49006a"],
+
+            // Number of breaks in step range
+            steps: 10,
+
+            // q for quartile, e for equidistant, k for k-means
+            mode: "q",
+            style: {
+            // Border color
+            color: "#fff",
+            weight: 1,
+            fillOpacity: 0.8
+            },
+
+            // Binding a pop-up to each layer
+            onEachFeature: function(feature, layer) {
+            layer.bindPopup().on('dblclick', function(ev) {
+                var countrySelect = winereviews
+            });
+            }
+        }).addTo(myMap);
     
     });
 }
