@@ -25,7 +25,7 @@ function init() {
         geojson = L.choropleth(data, {
 
             // Fetch api from flasks
-            var :winereviews = fetch('http://http://127.0.0.1:5000//api/v1.0/scatter')
+            var winereviews = fetch('http://http://127.0.0.1:5000//api/v1.0/scatter')
             .then(response => response.json())  
             .then(json => console.log(json)),
 
@@ -49,7 +49,9 @@ function init() {
 
             // Binding a pop-up to each layer
             onEachFeature: function(feature, layer) {
-            layer.bindPopup();
+            layer.bindPopup().on('dblclick', function(ev) {
+                var countrySelect = winereviews
+            });
             }
         }).addTo(myMap);
     
