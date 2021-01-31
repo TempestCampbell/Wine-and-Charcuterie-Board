@@ -40,43 +40,50 @@ CREATE TABLE `Wines` (
 );
 
 CREATE TABLE `WineCheesePairingData` (
-    `WineExamples` varchar  NOT NULL ,
-    `PopularCheese` varchar  NOT NULL ,
+    `Wine` varchar  NOT NULL ,
+    `CheeseName` varchar  NOT NULL ,
     PRIMARY KEY (
-        `WineExamples`
+        `Wine`
     )
 );
 
-CREATE TABLE `Cheese` (
+CREATE TABLE `CheeseData` (
+    `Cheeseid` serial  NOT NULL ,
     `Name` varchar  NOT NULL ,
-    `Type` varchar  NOT NULL ,
-    `Country` varchar  NULL ,
-    `Region` varchar  NULL ,
+    `Regionid` int  NULL ,
     PRIMARY KEY (
         `Name`
     )
 );
 
-CREATE TABLE `Countries` (
-    `CountryID` int  NOT NULL ,
-    `Country` varchar  NOT NULL ,
+CREATE TABLE `Flavorlookups` (
+    `Cheeseid` int  NOT NULL ,
+    `Flavorid` int  NOT NULL ,
     PRIMARY KEY (
-        `Country`
+        `Cheeseid`
     )
 );
 
-ALTER TABLE `WorldMeats` ADD CONSTRAINT `fk_WorldMeats_Country` FOREIGN KEY(`Country`)
-REFERENCES `Countries` (`Country`);
-
-ALTER TABLE `Wines` ADD CONSTRAINT `fk_Wines_Country` FOREIGN KEY(`Country`)
-REFERENCES `Countries` (`Country`);
+CREATE TABLE `CheeseFlavors` (
+    `Flavorid` serial  NOT NULL ,
+    `Name` varchar  NOT NULL ,
+    PRIMARY KEY (
+        `Flavorid`
+    )
+);
 
 ALTER TABLE `Wines` ADD CONSTRAINT `fk_Wines_Variety` FOREIGN KEY(`Variety`)
-REFERENCES `WineCheesePairingData` (`WineExamples`);
+REFERENCES `WineCheesePairingData` (`Wine`);
 
 ALTER TABLE `Wines` ADD CONSTRAINT `fk_Wines_Winery` FOREIGN KEY(`Winery`)
 REFERENCES `Wineries` (`Winery`);
 
-ALTER TABLE `WineCheesePairingData` ADD CONSTRAINT `fk_WineCheesePairingData_PopularCheese` FOREIGN KEY(`PopularCheese`)
-REFERENCES `Cheese` (`Name`);
+ALTER TABLE `WineCheesePairingData` ADD CONSTRAINT `fk_WineCheesePairingData_CheeseName` FOREIGN KEY(`CheeseName`)
+REFERENCES `CheeseData` (`Name`);
+
+ALTER TABLE `CheeseData` ADD CONSTRAINT `fk_CheeseData_Cheeseid` FOREIGN KEY(`Cheeseid`)
+REFERENCES `Flavorlookups` (`Cheeseid`);
+
+ALTER TABLE `Flavorlookups` ADD CONSTRAINT `fk_Flavorlookups_Flavorid` FOREIGN KEY(`Flavorid`)
+REFERENCES `CheeseFlavors` (`Flavorid`);
 
