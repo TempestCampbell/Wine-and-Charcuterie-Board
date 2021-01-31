@@ -25,27 +25,28 @@ function init() {
         geojson = L.choropleth(data, {
 
             // Fetch api from flasks
-            var winereviews = fetch(`http://127.0.0.1:5000/api/v1.0/scatter/${countrySelect}`)
-            .then(response => response.json(){ 
-            // .then(json => console.log(json)),
+            fetch("http://127.0.0.1:5000/api/v1.0/world/")
+            .then(response => response.json())
+            .then(function() { 
+            
 
             // Define what  property in the features to use
-            valueProperty: response.countrySelect,
+            valueProperty: response.country;
 
             // Set color scale
-            scale: ["#fff7f3", "#49006a"],
+            scale: ["#fff7f3", "#49006a"];
 
             // Number of breaks in step range
-            steps: 10,
+            steps: 10;
 
             // q for quartile, e for equidistant, k for k-means
-            mode: "q",
+            mode: "q";
             style: {
             // Border color
-            color: "#fff",
-            weight: 1,
+            color: "#fff";
+            weight: 1;
             fillOpacity: 0.8
-            },
+            };
 
             // Binding a pop-up to each layer
             onEachFeature: function(feature, layer) {
@@ -57,6 +58,35 @@ function init() {
         }).addTo(myMap);
     
     });
-}
+};
+
+function updateTable(countrySelect) {
+    
+    fetch(`http://127.0.0.1:5000/api/v1.0/world/${countrySelect}`)
+    .then(response => response.json())
+    .then(function(data) {
+
+        // from data.js
+        var tableData = data,
+
+        // Get a reference to the table body
+        var tbody = d3.select("tbody");
+
+        // Loop through each wine object in the data array
+        tableData.forEach((wineObject) => {
+
+            // Append one table row for each wine object
+            var row = tbody.append("tr");
+
+            // Use `Object.entries` and forEach to iterate through keys and values of wine object
+            Object.entries(wineObject).forEach(([key, value]) => {
+
+                // Append one cell per wine object value 
+                var cell = row.append("td");
+                cell.text(value);
+            });
+        }),
+    });
+};
 
 init();
