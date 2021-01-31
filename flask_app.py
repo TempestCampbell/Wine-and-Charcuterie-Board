@@ -36,13 +36,14 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://postgres:{pw}@localhost:5432/WineCharcuterie'
 db = SQLAlchemy(app)
 
-@app.route("/api/v1.0/scatter")
-def scatter():
+@app.route("/api/v1.0/world")
+def scatter(country):
+    print("Hello")
     @after_this_request
     def add_header(response):
         response.headers.add('Access-Control-Allow-Origin', '*')
         return response
-        
+
     # Create our session from Python to the DB
     session = Session(engine)
 
