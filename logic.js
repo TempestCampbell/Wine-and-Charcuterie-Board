@@ -25,12 +25,12 @@ function init() {
         geojson = L.choropleth(data, {
 
             // Fetch api from flasks
-            var winereviews = fetch('http://http://127.0.0.1:5000//api/v1.0/scatter')
-            .then(response => response.json())  
-            .then(json => console.log(json)),
+            var winereviews = fetch(`http://127.0.0.1:5000/api/v1.0/scatter/${countrySelect}`)
+            .then(response => response.json(){ 
+            // .then(json => console.log(json)),
 
             // Define what  property in the features to use
-            valueProperty: winereviews,
+            valueProperty: response.countrySelect,
 
             // Set color scale
             scale: ["#fff7f3", "#49006a"],
@@ -53,6 +53,7 @@ function init() {
                 var countrySelect = winereviews
             });
             }
+            })
         }).addTo(myMap);
     
     });
