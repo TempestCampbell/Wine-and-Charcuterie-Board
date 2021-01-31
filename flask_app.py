@@ -42,6 +42,7 @@ def scatter():
     def add_header(response):
         response.headers.add('Access-Control-Allow-Origin', '*')
         return response
+        
     # Create our session from Python to the DB
     session = Session(engine)
 
