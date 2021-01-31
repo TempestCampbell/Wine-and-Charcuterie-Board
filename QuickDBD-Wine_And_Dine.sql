@@ -48,7 +48,7 @@ CREATE TABLE `WineCheesePairingData` (
 );
 
 CREATE TABLE `CheeseData` (
-    `Cheeseid` int  NOT NULL ,
+    `Cheeseid` serial  NOT NULL ,
     `Name` varchar  NOT NULL ,
     `Regionid` int  NULL ,
     PRIMARY KEY (
@@ -65,7 +65,7 @@ CREATE TABLE `Flavorlookups` (
 );
 
 CREATE TABLE `CheeseFlavors` (
-    `Flavorid` int  NOT NULL ,
+    `Flavorid` serial  NOT NULL ,
     `Name` varchar  NOT NULL ,
     PRIMARY KEY (
         `Flavorid`
