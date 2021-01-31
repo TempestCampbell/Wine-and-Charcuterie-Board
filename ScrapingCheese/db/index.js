@@ -14,7 +14,21 @@ const sequelize = new Sequelize(dbname, username, password, {
         idle: 100000
     }
 });
-const CheeseURL = sequelize.define("cheeseurls", {
+const urlDB = new Sequelize("WineCharcuterieDB", username, password, {
+    host: "localhost",
+    dialect: "postgres",
+    define: {
+        timestamps: false
+    },
+    pool: {
+        max: 50,
+        min: 0,
+        acquire: 300000,
+        idle: 100000
+    }
+});
+
+const CheeseURL = urlDB.define("cheeseurls", {
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -182,7 +196,7 @@ async function checkIfDbConnected() {
 }
 //get all cheeseurls
 const selectAllUrls = async function () {
-    return sequelize.query("SELECT * FROM cheeseurls");
+    return urlDB.query("SELECT * FROM cheeseurls");
 };
 
 checkIfDbConnected();
