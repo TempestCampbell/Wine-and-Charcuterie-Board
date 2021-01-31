@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, jsonify
+from flask import Flask, render_template, redirect, request, jsonify, make_response, after_this_request, response
 from flask_sqlalchemy import SQLAlchemy
 import numpy as np
 import sqlalchemy
@@ -38,14 +38,14 @@ db = SQLAlchemy(app)
 
 @app.route("/api/v1.0/scatter")
 def scatter():
-
+    @after_this_request
+    def add_header(response):
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        return response
+        
     # Create our session from Python to the DB
     session = Session(engine)
 
 
 if __name__ == '__main__':
-<<<<<<< HEAD
-   db.create_all()
-=======
->>>>>>> mk/coding
-   app.run(debug = True)
+    app.run(debug=True)
