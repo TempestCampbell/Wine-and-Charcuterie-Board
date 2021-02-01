@@ -245,7 +245,6 @@
 243,1999,Australia,Coonawarra,,84,30,South Australia,Balnaves of Coonawarra 1999 Chardonnay (Coonawarra),Chardonnay,Balnaves of Coonawarra
 244,1999,France,Bordeaux Blanc,Reserve,84,9,Bordeaux,Marquis de Chasse 1999 Reserve (Bordeaux Blanc),Bordeaux-style White Blend,Marquis de Chasse
 245,1999,US,Western Connecticut Highlands,Estate Bottled,84,15,Connecticut,Hopkins Vineyard 1999 Estate Bottled Chardonnay (Western Connecticut Highlands),Chardonnay,Hopkins Vineyard
-246,1999,France,Champagne,Grand Cru Brut,86,,Champagne,Pommery 1999 Grand Cru Brut (Champagne),Champagne Blend,Pommery
 247,1999,Portugal,,Colheita,90,137,Moscatel do Douro,Adega de Favaios 1999 Colheita (Moscatel do Douro),Moscatel,Adega de Favaios
 248,1999,US,Willamette Valley,Croft Vineyard,91,40,Oregon,King Estate 1999 Croft Vineyard Pinot Noir (Willamette Valley),Pinot Noir,King Estate
 249,1999,US,Sonoma Coast,Great Estates,88,22,California,Kendall-Jackson 1999 Great Estates Chardonnay (Sonoma Coast),Chardonnay,Kendall-Jackson
@@ -693,7 +692,6 @@
 691,2002,Spain,Navarra,Coleccion 125 Reserva,87,47,Northern Spain,Bodegas Julián Chivite 2002 Coleccion 125 Reserva Red (Navarra),Tempranillo Blend,Bodegas Julián Chivite
 692,2002,France,Côtes de Saint-Mont,Château du Bascou,84,42,Southwest France,Producteurs Plaimont 2002 Château du Bascou Red (Côtes de Saint-Mont),Red Blend,Producteurs Plaimont
 693,2002,US,Sonoma Valley,Monte Rosso,92,30,California,Moon Mountain Vineyard 2002 Monte Rosso Zinfandel (Sonoma Valley),Zinfandel,Moon Mountain Vineyard
-694,2002,Spain,Cariñena,Crianza Grenache-Tempranillo,83,13,Northern Spain,Valle Rojo 2002 Crianza Grenache-Tempranillo Red (Cariñena),Red Blend,Valle Rojo
 695,2002,Italy,Lugana,San Benedetto,86,,Lombardy,Zenato 2002 San Benedetto (Lugana),White Blend,Zenato
 696,2002,Australia,Adelaide Hills,,91,16,South Australia,Groom 2002 Sauvignon Blanc (Adelaide Hills),Sauvignon Blanc,Groom
 697,2002,France,Montravel,,86,25,Southwest France,Château le Raz 2002 Montravel,Bordeaux-style Red Blend,Château le Raz
@@ -726,7 +724,6 @@
 724,2002,Italy,Friuli Venezia Giulia,,88,22,Northeastern Italy,Livio Felluga 2002 Tocai (Friuli Venezia Giulia),Tocai,Livio Felluga
 725,2003,Portugal,,Colheita Single Harvest,92,50,Madeira,Blandy's 2003 Colheita Single Harvest Bual (Madeira),Bual,Blandy's
 726,2003,Italy,Salento,Graticciaia,88,,Southern Italy,Agricole Vallone 2003 Graticciaia Red (Salento),Red Blend,Agricole Vallone
-727,2003,Spain,Priorat,Mas de Masos,91,70,Catalonia,Capafons-Ossó 2003 Mas de Masos Red (Priorat),Red Blend,Capafons-Ossó
 728,2003,Italy,Barolo,,83,47,Piedmont,Tenimenti Ca' Bianca 2003 Barolo,Nebbiolo,Tenimenti Ca' Bianca
 729,2003,Spain,Ribera del Duero,Crianza,86,25,Northern Spain,Campos Góticos 2003 Crianza (Ribera del Duero),Tempranillo,Campos Góticos
 730,2003,Italy,Toscana,Vin San Laurentino,93,95,Tuscany,Castello di Bossi 2003 Vin San Laurentino White (Toscana),White Blend,Castello di Bossi
@@ -806,7 +803,6 @@
 804,2003,US,Paso Robles,Destiny Vineyards Rhapsody Reserve,86,50,California,Hunt Cellars 2003 Destiny Vineyards Rhapsody Reserve Sangiovese (Paso Robles),Sangiovese,Hunt Cellars
 805,2003,US,Paso Robles,Dante Dusi Vineyard,85,30,California,Martin & Weyrich 2003 Dante Dusi Vineyard Zinfandel (Paso Robles),Zinfandel,Martin & Weyrich
 806,2003,South Africa,,,90,33,Simonsberg-Stellenbosch,Kanonkop 2003 Cabernet Sauvignon (Simonsberg-Stellenbosch),Cabernet Sauvignon,Kanonkop
-807,2003,Spain,Priorat,Masos d'en Cubells,86,55,Catalonia,Capafons-Ossó 2003 Masos d'en Cubells Red (Priorat),Red Blend,Capafons-Ossó
 808,2003,France,Coteaux du Layon,Cuvée le Paon,93,,Loire Valley,Domaine des Baumard 2003 Cuvée le Paon Chenin Blanc (Coteaux du Layon),Chenin Blanc,Domaine des Baumard
 809,2003,Italy,Colli Orientali del Friuli,Riserva,88,,Northeastern Italy,Le Vigne di Zamò 2003 Riserva Picolit (Colli Orientali del Friuli),Picolit,Le Vigne di Zamò
 810,2003,Italy,Toscana,Castello di Nipozzano Mormoreto,90,50,Tuscany,Marchesi de' Frescobaldi 2003 Castello di Nipozzano Mormoreto Red (Toscana),Red Blend,Marchesi de' Frescobaldi
