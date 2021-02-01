@@ -235,70 +235,6 @@
 233,1999,US,Rogue Valley,50% CH / 50% SEM,84,15.0,Oregon,Weisinger's of Ashland 1999 50% CH / 50% SEM Semillon-Chardonnay (Rogue Valley),Semillon-Chardonnay,Weisinger's of Ashland
 234,1999,Italy,Bolgheri,Guado Al Tasso,95,80.0,Tuscany,Antinori 1999 Guado Al Tasso (Bolgheri),Red Blend,Antinori
 235,1999,New Zealand,,,85,,Canterbury,Morworth Estate 1999 Riesling (Canterbury),Riesling,Morworth Estate
-<<<<<<< HEAD
-236,1999,Portugal,,Late Bottled Vintage,91,35,Port,Smith Woodhouse 1999 Late Bottled Vintage (Port),Port,Smith Woodhouse
-237,1999,Chile,,Reserva,84,9,Colchagua Valley,Santa Carolina 1999 Reserva Cabernet Sauvignon (Colchagua Valley),Cabernet Sauvignon,Santa Carolina
-238,1999,South Africa,,,87,14,Coastal Region,Glen Carlou 1999 Chardonnay (Coastal Region),Chardonnay,Glen Carlou
-239,1999,US,Napa Valley,Reserve,87,70,California,Sterling 1999 Reserve Cabernet Sauvignon (Napa Valley),Cabernet Sauvignon,Sterling
-240,1999,US,Yakima Valley,,86,15,Washington,Tefft Cellars 1999 Merlot (Yakima Valley),Merlot,Tefft Cellars
-241,1999,France,Hermitage,Chevalier de Sterimberg,94,75,Rhône Valley,Paul Jaboulet Aîné 1999 Chevalier de Sterimberg White (Hermitage),Rhône-style White Blend,Paul Jaboulet Aîné
-242,1999,France,Champagne,Grand Cru Brut,88,,Champagne,Pommery 1999 Grand Cru Brut (Champagne),Champagne Blend,Pommery
-243,1999,Australia,Coonawarra,,84,30,South Australia,Balnaves of Coonawarra 1999 Chardonnay (Coonawarra),Chardonnay,Balnaves of Coonawarra
-244,1999,France,Bordeaux Blanc,Reserve,84,9,Bordeaux,Marquis de Chasse 1999 Reserve (Bordeaux Blanc),Bordeaux-style White Blend,Marquis de Chasse
-245,1999,US,Western Connecticut Highlands,Estate Bottled,84,15,Connecticut,Hopkins Vineyard 1999 Estate Bottled Chardonnay (Western Connecticut Highlands),Chardonnay,Hopkins Vineyard
-247,1999,Portugal,,Colheita,90,137,Moscatel do Douro,Adega de Favaios 1999 Colheita (Moscatel do Douro),Moscatel,Adega de Favaios
-248,1999,US,Willamette Valley,Croft Vineyard,91,40,Oregon,King Estate 1999 Croft Vineyard Pinot Noir (Willamette Valley),Pinot Noir,King Estate
-249,1999,US,Sonoma Coast,Great Estates,88,22,California,Kendall-Jackson 1999 Great Estates Chardonnay (Sonoma Coast),Chardonnay,Kendall-Jackson
-250,1999,Italy,Toscana,Ceccante,90,43,Tuscany,Il Grillesino 1999 Ceccante Sangiovese (Toscana),Sangiovese,Il Grillesino
-251,1999,US,Napa Valley,,92,40,California,Surh Luchtel 1999 Cabernet Sauvignon (Napa Valley),Cabernet Sauvignon,Surh Luchtel
-252,1999,Canada,Niagara Peninsula,Icewine,91,50,Ontario,Henry of Pelham 1999 Icewine Riesling (Niagara Peninsula),Riesling,Henry of Pelham
-253,1999,Australia,Piccadilly Valley,Tiers Vineyard,89,120,South Australia,Petaluma 1999 Tiers Vineyard Chardonnay (Piccadilly Valley),Chardonnay,Petaluma
-254,1999,US,Carneros,,85,32,California,Domaine Danica 1999 Pinot Noir (Carneros),Pinot Noir,Domaine Danica
-255,1999,Chile,,Prima Reserva,80,13,Maipo Valley,De Martino 1999 Prima Reserva Merlot (Maipo Valley),Merlot,De Martino
-256,1999,France,Champagne,Extra Cuvée de Réserve Vintage Brut,93,103,Champagne,Pol Roger 1999 Extra Cuvée de Réserve Vintage Brut (Champagne),Champagne Blend,Pol Roger
-257,1999,US,Napa Valley,Peterson Family Vineyard,92,48,California,Switchback Ridge 1999 Peterson Family Vineyard Merlot (Napa Valley),Merlot,Switchback Ridge
-258,1999,US,Napa Valley,Tresca,86,60,California,Allora 1999 Tresca Cabernet Sauvignon (Napa Valley),Cabernet Sauvignon,Allora
-259,1999,US,California,Collage - Zinfandel/Shiraz,87,9,California,Kendall-Jackson 1999 Collage - Zinfandel/Shiraz Red (California),Red Blend,Kendall-Jackson
-260,1999,US,El Dorado,,88,20,California,Granite Springs 1999 Petite Sirah (El Dorado),Petite Sirah,Granite Springs
-261,1999,Chile,,,82,10,Casablanca Valley,Veramonte 1999 Merlot (Casablanca Valley),Merlot,Veramonte
-262,1999,US,North Coast,J. Schram 50 Late Disgorged,97,175,California,Schramsberg 1999 J. Schram 50 Late Disgorged (North Coast),Champagne Blend,Schramsberg
-263,1999,US,Russian River Valley,Dutton Ranch-Sanchietti Vineyard,94,50,California,Hartford 1999 Dutton Ranch-Sanchietti Vineyard Pinot Noir (Russian River Valley),Pinot Noir,Hartford
-264,1999,US,Sonoma Valley,Cherryblock,90,70,California,Sebastiani 1999 Cherryblock Cabernet Sauvignon (Sonoma Valley),Cabernet Sauvignon,Sebastiani
-265,1999,Italy,Sardinia,Le Arenarie,88,12,Sicily & Sardinia,Sella & Mosca 1999 Le Arenarie Sauvignon Blanc (Sardinia),Sauvignon Blanc,Sella & Mosca
-266,1999,US,Carneros,Sevens Bench,91,50,California,Hartford 1999 Sevens Bench Pinot Noir (Carneros),Pinot Noir,Hartford
-267,1999,Australia,Australia,Bridgewater Mill,88,15,Australia Other,Petaluma 1999 Bridgewater Mill Shiraz (Australia),Shiraz,Petaluma
-268,1999,Spain,Valdepeñas,Gran Reserva,84,15,Central Spain,Viña Albali 1999 Gran Reserva Tempranillo (Valdepeñas),Tempranillo,Viña Albali
-269,1999,US,Napa Valley,,86,30,California,Stonehedge 1999 Zinfandel (Napa Valley),Zinfandel,Stonehedge
-270,1999,US,Sonoma County,Sin Zin,82,18,California,Alexander Valley Vineyards 1999 Sin Zin Zinfandel (Sonoma County),Zinfandel,Alexander Valley Vineyards
-271,1999,US,California,Reserve,89,22,California,Merryvale 1999 Reserve Sauvignon Blanc (California),Sauvignon Blanc,Merryvale
-272,1999,South Africa,,Chameleon,83,16,Stellenbosch,Jardin 1999 Chameleon White (Stellenbosch),White Blend,Jardin
-273,1999,US,Columbia Valley (WA),,87,18,Washington,Bookwalter 1999 Chardonnay (Columbia Valley (WA)),Chardonnay,Bookwalter
-274,1999,South Africa,,Estate,90,12,Stellenbosch,Morgenhof 1999 Estate Chardonnay (Stellenbosch),Chardonnay,Morgenhof
-275,1999,South Africa,,Bayview,86,10,South Africa,Longridge 1999 Bayview Pinotage (South Africa),Pinotage,Longridge
-276,1999,US,California,Reserve,84,7,California,Corbett Canyon 1999 Reserve Syrah (California),Syrah,Corbett Canyon
-277,1999,Australia,Western Australia,Mount Barker,85,21,Western Australia,Plantagenet 1999 Mount Barker Chardonnay (Western Australia),Chardonnay,Plantagenet
-278,1999,Italy,Sant'Antimo,Cum Laude,87,35,Tuscany,Castello Banfi 1999 Cum Laude Sangiovese (Sant'Antimo),Sangiovese,Castello Banfi
-279,1999,Australia,Orange,,84,17,New South Wales,Logan Australia 1999 Chardonnay (Orange),Chardonnay,Logan Australia
-280,1999,US,Napa Valley,,85,27,California,Surh Luchtel 1999 Zinfandel (Napa Valley),Zinfandel,Surh Luchtel
-281,1999,Chile,,,84,8,Central Valley,Caliterra 1999 Sauvignon Blanc (Central Valley),Sauvignon Blanc,Caliterra
-282,1999,US,Umpqua Valley,,90,27,Oregon,Abacela 1999 Syrah (Umpqua Valley),Syrah,Abacela
-283,1999,US,Oregon,La Cave Blanche,86,10,Oregon,Siskiyou Vineyards 1999 La Cave Blanche White (Oregon),White Blend,Siskiyou Vineyards
-284,1999,France,Champagne,Cuvée William Deutz Rosé Brut,94,170,Champagne,Deutz 1999 Cuvée William Deutz Rosé Brut (Champagne),Champagne Blend,Deutz
-285,1999,US,Umpqua Valley,Vintners Blend Red Table Wine,86,11,Oregon,Abacela 1999 Vintners Blend Red Table Wine Red (Umpqua Valley),Red Blend,Abacela
-286,1999,US,Umpqua Valley,,89,29,Oregon,Abacela 1999 Tempranillo (Umpqua Valley),Tempranillo,Abacela
-287,1999,Australia,Limestone Coast,,89,17,South Australia,Stonehaven 1999 Chardonnay (Limestone Coast),Chardonnay,Stonehaven
-288,1999,US,Oregon,Reserve,90,35,Oregon,King Estate 1999 Reserve Pinot Noir (Oregon),Pinot Noir,King Estate
-289,1999,US,Oregon,Eco Wine Cattrall Brothers,80,14,Oregon,Amity 1999 Eco Wine Cattrall Brothers Pinot Noir (Oregon),Pinot Noir,Amity
-290,1999,Chile,,Reserve,83,14,Maipo Valley,Santa Ema 1999 Reserve Chardonnay (Maipo Valley),Chardonnay,Santa Ema
-291,1999,US,Napa Valley,Hudson T Reserve,93,45,California,Havens 1999 Hudson T Reserve Syrah (Napa Valley),Syrah,Havens
-292,1999,France,Muscadet Sèvre et Maine,Elevé en FÃ»ts de ChÃªne Neufs,88,30,Loire Valley,Château du Coing de Saint-Fiacre 1999 Elevé en FÃ»ts de ChÃªne Neufs (Muscadet Sèvre et Maine),Melon,Château du Coing de Saint-Fiacre
-293,1999,France,Champagne,Millesimé Brut,92,65,Champagne,Ayala 1999 Millesimé Brut (Champagne),Champagne Blend,Ayala
-294,1999,US,California,Forest Fire,84,8,California,Forest Glen 1999 Forest Fire Chardonnay (California),Chardonnay,Forest Glen
-295,1999,US,Columbia Valley (WA),Grand Estates,87,11,Washington,Columbia Crest 1999 Grand Estates Merlot (Columbia Valley (WA)),Merlot,Columbia Crest
-296,1999,France,Nuits-St.-Georges,Les Chaliots,87,37,Burgundy,Michel Gros 1999 Les Chaliots (Nuits-St.-Georges),Pinot Noir,Michel Gros
-297,1999,Chile,,Xplorador,85,8,Rapel Valley,Concha y Toro 1999 Xplorador Merlot (Rapel Valley),Merlot,Concha y Toro
-298,1999,US,Willamette Valley,,88,17,Oregon,Rex Hill 1999 Chardonnay (Willamette Valley),Chardonnay,Rex Hill
-=======
 236,1999,Portugal,,Late Bottled Vintage,91,35.0,Port,Smith Woodhouse 1999 Late Bottled Vintage (Port),Port,Smith Woodhouse
 237,1999,Chile,,Reserva,84,9.0,Colchagua Valley,Santa Carolina 1999 Reserva Cabernet Sauvignon (Colchagua Valley),Cabernet Sauvignon,Santa Carolina
 238,1999,South Africa,,,87,14.0,Coastal Region,Glen Carlou 1999 Chardonnay (Coastal Region),Chardonnay,Glen Carlou
@@ -361,7 +297,6 @@
 296,1999,France,Nuits-St.-Georges,Les Chaliots,87,37.0,Burgundy,Michel Gros 1999 Les Chaliots (Nuits-St.-Georges),Pinot Noir,Michel Gros
 297,1999,Chile,,Xplorador,85,8.0,Rapel Valley,Concha y Toro 1999 Xplorador Merlot (Rapel Valley),Merlot,Concha y Toro
 298,1999,US,Willamette Valley,,88,17.0,Oregon,Rex Hill 1999 Chardonnay (Willamette Valley),Chardonnay,Rex Hill
->>>>>>> rblCoding
 299,1999,Italy,Colli Orientali del Friuli,Superiore,91,,Northeastern Italy,Ronchi di Manzano 1999 Superiore Tocai (Colli Orientali del Friuli),Tocai,Ronchi di Manzano
 300,1999,US,Columbia Valley (WA),,88,15.0,Washington,Columbia Winery 1999 Cabernet Sauvignon (Columbia Valley (WA)),Cabernet Sauvignon,Columbia Winery
 301,1999,US,Santa Barbara County,Bien Nacido Vineyard,86,30.0,California,Jaffurs 1999 Bien Nacido Vineyard Syrah (Santa Barbara County),Syrah,Jaffurs
@@ -738,26 +673,6 @@
 673,2002,Spain,Rioja,Reserva,87,27.0,Northern Spain,Montecillo 2002 Reserva (Rioja),Tempranillo,Montecillo
 674,2002,Italy,Friuli Venezia Giulia,,90,23.0,Northeastern Italy,Livio Felluga 2002 Pinot Grigio (Friuli Venezia Giulia),Pinot Grigio,Livio Felluga
 675,2002,France,Champagne,Cuvée Symphorine Blanc de Blancs Brut,93,,Champagne,Jean Milan 2002 Cuvée Symphorine Blanc de Blancs Brut Chardonnay (Champagne),Chardonnay,Jean Milan
-<<<<<<< HEAD
-676,2002,France,Vin de Pays d'Oc,Nid D'Abeille,82,8,Languedoc-Roussillon,Mommessin 2002 Nid D'Abeille Chardonnay (Vin de Pays d'Oc),Chardonnay,Mommessin
-677,2002,Chile,,Maquehua,88,19,Curicó Valley,Miguel Torres 2002 Maquehua Chardonnay (Curicó Valley),Chardonnay,Miguel Torres
-678,2002,US,Finger Lakes,Dry,86,13,New York,Sheldrake Point 2002 Dry Riesling (Finger Lakes),Riesling,Sheldrake Point
-679,2002,Italy,Trentino,Vino Santo,89,35,Northeastern Italy,Pisoni 2002 Vino Santo Nosiola (Trentino),Nosiola,Pisoni
-680,2002,Italy,Alto Adige,,85,12,Northeastern Italy,Elena Walch 2002 Pinot Grigio (Alto Adige),Pinot Grigio,Elena Walch
-681,2002,Australia,Clare Valley,,86,14,South Australia,Annie's Lane 2002 Riesling (Clare Valley),Riesling,Annie's Lane
-682,2002,Austria,,Gaisberg,90,46,Kamptal,Hirsch 2002 Gaisberg Riesling (Kamptal),Riesling,Hirsch
-683,2002,Chile,,Gato Negro,82,5,Lontué Valley,San Pedro 2002 Gato Negro Merlot (Lontué Valley),Merlot,San Pedro
-684,2002,Portugal,,Garrafeira,90,22,Alentejo,Adega Cooperativa de Borba 2002 Garrafeira Red (Alentejo),Portuguese Red,Adega Cooperativa de Borba
-685,2002,Australia,Hunter Valley,Old Winery,88,14,New South Wales,Tyrrell's 2002 Old Winery Chardonnay (Hunter Valley),Chardonnay,Tyrrell's
-686,2002,US,Finger Lakes,Brut,81,25,New York,Glenora 2002 Brut (Finger Lakes),Champagne Blend,Glenora
-687,2002,Chile,,Estate Bottled,88,12,Rapel Valley,Lapostolle 2002 Estate Bottled Merlot (Rapel Valley),Merlot,Lapostolle
-688,2002,Italy,Delle Venezie,,85,12,Northeastern Italy,Campanile 2002 Pinot Grigio (Delle Venezie),Pinot Grigio,Campanile
-689,2002,Chile,,Santa Digna,86,10,Curicó Valley,Miguel Torres 2002 Santa Digna Chardonnay (Curicó Valley),Chardonnay,Miguel Torres
-690,2002,Australia,Clare Valley,The Lodge Hill,90,15,South Australia,Jim Barry 2002 The Lodge Hill Riesling (Clare Valley),Riesling,Jim Barry
-691,2002,Spain,Navarra,Coleccion 125 Reserva,87,47,Northern Spain,Bodegas Julián Chivite 2002 Coleccion 125 Reserva Red (Navarra),Tempranillo Blend,Bodegas Julián Chivite
-692,2002,France,Côtes de Saint-Mont,Château du Bascou,84,42,Southwest France,Producteurs Plaimont 2002 Château du Bascou Red (Côtes de Saint-Mont),Red Blend,Producteurs Plaimont
-693,2002,US,Sonoma Valley,Monte Rosso,92,30,California,Moon Mountain Vineyard 2002 Monte Rosso Zinfandel (Sonoma Valley),Zinfandel,Moon Mountain Vineyard
-=======
 676,2002,France,Vin de Pays d'Oc,Nid D'Abeille,82,8.0,Languedoc-Roussillon,Mommessin 2002 Nid D'Abeille Chardonnay (Vin de Pays d'Oc),Chardonnay,Mommessin
 677,2002,Chile,,Maquehua,88,19.0,Curicó Valley,Miguel Torres 2002 Maquehua Chardonnay (Curicó Valley),Chardonnay,Miguel Torres
 678,2002,US,Finger Lakes,Dry,86,13.0,New York,Sheldrake Point 2002 Dry Riesling (Finger Lakes),Riesling,Sheldrake Point
@@ -777,7 +692,6 @@
 692,2002,France,Côtes de Saint-Mont,Château du Bascou,84,42.0,Southwest France,Producteurs Plaimont 2002 Château du Bascou Red (Côtes de Saint-Mont),Red Blend,Producteurs Plaimont
 693,2002,US,Sonoma Valley,Monte Rosso,92,30.0,California,Moon Mountain Vineyard 2002 Monte Rosso Zinfandel (Sonoma Valley),Zinfandel,Moon Mountain Vineyard
 694,2002,Spain,Cariñena,Crianza Grenache-Tempranillo,83,13.0,Northern Spain,Valle Rojo 2002 Crianza Grenache-Tempranillo Red (Cariñena),Red Blend,Valle Rojo
->>>>>>> rblCoding
 695,2002,Italy,Lugana,San Benedetto,86,,Lombardy,Zenato 2002 San Benedetto (Lugana),White Blend,Zenato
 696,2002,Australia,Adelaide Hills,,91,16.0,South Australia,Groom 2002 Sauvignon Blanc (Adelaide Hills),Sauvignon Blanc,Groom
 697,2002,France,Montravel,,86,25.0,Southwest France,Château le Raz 2002 Montravel,Bordeaux-style Red Blend,Château le Raz
@@ -810,16 +724,6 @@
 724,2002,Italy,Friuli Venezia Giulia,,88,22.0,Northeastern Italy,Livio Felluga 2002 Tocai (Friuli Venezia Giulia),Tocai,Livio Felluga
 725,2003,Portugal,,Colheita Single Harvest,92,50.0,Madeira,Blandy's 2003 Colheita Single Harvest Bual (Madeira),Bual,Blandy's
 726,2003,Italy,Salento,Graticciaia,88,,Southern Italy,Agricole Vallone 2003 Graticciaia Red (Salento),Red Blend,Agricole Vallone
-<<<<<<< HEAD
-728,2003,Italy,Barolo,,83,47,Piedmont,Tenimenti Ca' Bianca 2003 Barolo,Nebbiolo,Tenimenti Ca' Bianca
-729,2003,Spain,Ribera del Duero,Crianza,86,25,Northern Spain,Campos Góticos 2003 Crianza (Ribera del Duero),Tempranillo,Campos Góticos
-730,2003,Italy,Toscana,Vin San Laurentino,93,95,Tuscany,Castello di Bossi 2003 Vin San Laurentino White (Toscana),White Blend,Castello di Bossi
-731,2003,France,Madiran,Cuvée Greenwich,92,30,Southwest France,Château Peyros 2003 Cuvée Greenwich Tannat (Madiran),Tannat,Château Peyros
-732,2003,France,Haut-Médoc,,86,25,Bordeaux,Château le Grand Paroissien 2003 Haut-Médoc,Bordeaux-style Red Blend,Château le Grand Paroissien
-733,2003,Italy,Toscana,Veneroso,89,35,Tuscany,Tenuta di Ghizzano 2003 Veneroso Red (Toscana),Red Blend,Tenuta di Ghizzano
-734,2003,Italy,Aglianico del Taburno,,83,16,Southern Italy,Ocone 2003 Aglianico del Taburno,Aglianico,Ocone
-735,2003,Italy,Nebbiolo d'Alba,,84,30,Piedmont,Pio Cesare 2003 Nebbiolo d'Alba,Nebbiolo,Pio Cesare
-=======
 728,2003,Italy,Barolo,,83,47.0,Piedmont,Tenimenti Ca' Bianca 2003 Barolo,Nebbiolo,Tenimenti Ca' Bianca
 729,2003,Spain,Ribera del Duero,Crianza,86,25.0,Northern Spain,Campos Góticos 2003 Crianza (Ribera del Duero),Tempranillo,Campos Góticos
 730,2003,Italy,Toscana,Vin San Laurentino,93,95.0,Tuscany,Castello di Bossi 2003 Vin San Laurentino White (Toscana),White Blend,Castello di Bossi
@@ -828,7 +732,6 @@
 733,2003,Italy,Toscana,Veneroso,89,35.0,Tuscany,Tenuta di Ghizzano 2003 Veneroso Red (Toscana),Red Blend,Tenuta di Ghizzano
 734,2003,Italy,Aglianico del Taburno,,83,16.0,Southern Italy,Ocone 2003 Aglianico del Taburno,Aglianico,Ocone
 735,2003,Italy,Nebbiolo d'Alba,,84,30.0,Piedmont,Pio Cesare 2003 Nebbiolo d'Alba,Nebbiolo,Pio Cesare
->>>>>>> rblCoding
 736,2003,Portugal,,Vintage,87,,Port,Butler Nephew & Co 2003 Vintage (Port),Port,Butler Nephew & Co
 737,2003,Hungary,,Essencia,94,764.0,Tokaji,Royal Tokaji 2003 Essencia (Tokaji),Furmint,Royal Tokaji
 738,2003,Italy,Brunello di Montalcino,Soccorso,90,,Tuscany,Tiezzi 2003 Soccorso (Brunello di Montalcino),Sangiovese Grosso,Tiezzi
@@ -895,20 +798,12 @@
 799,2003,Australia,Tasmania,Brut,89,32.0,Tasmania,Clover Hill 2003 Brut (Tasmania),Champagne Blend,Clover Hill
 800,2003,Italy,Lago di Corbara,Villa Monticelli,91,30.0,Central Italy,Barberani 2003 Villa Monticelli Red (Lago di Corbara),Red Blend,Barberani
 801,2003,Austria,,Umriss,89,,Burgenland,Feiler-Artinger 2003 Umriss Blaufränkisch (Burgenland),Blaufränkisch,Feiler-Artinger
-<<<<<<< HEAD
-802,2003,Spain,Cariñena,Oak Aged,80,17,Northern Spain,Reula 2003 Oak Aged Tempranillo-Merlot (Cariñena),Tempranillo-Merlot,Reula
-803,2003,Spain,Valdepeñas,Reserva,86,12,Central Spain,Anciano 2003 Reserva Tempranillo (Valdepeñas),Tempranillo,Anciano
-804,2003,US,Paso Robles,Destiny Vineyards Rhapsody Reserve,86,50,California,Hunt Cellars 2003 Destiny Vineyards Rhapsody Reserve Sangiovese (Paso Robles),Sangiovese,Hunt Cellars
-805,2003,US,Paso Robles,Dante Dusi Vineyard,85,30,California,Martin & Weyrich 2003 Dante Dusi Vineyard Zinfandel (Paso Robles),Zinfandel,Martin & Weyrich
-806,2003,South Africa,,,90,33,Simonsberg-Stellenbosch,Kanonkop 2003 Cabernet Sauvignon (Simonsberg-Stellenbosch),Cabernet Sauvignon,Kanonkop
-=======
 802,2003,Spain,Cariñena,Oak Aged,80,17.0,Northern Spain,Reula 2003 Oak Aged Tempranillo-Merlot (Cariñena),Tempranillo-Merlot,Reula
 803,2003,Spain,Valdepeñas,Reserva,86,12.0,Central Spain,Anciano 2003 Reserva Tempranillo (Valdepeñas),Tempranillo,Anciano
 804,2003,US,Paso Robles,Destiny Vineyards Rhapsody Reserve,86,50.0,California,Hunt Cellars 2003 Destiny Vineyards Rhapsody Reserve Sangiovese (Paso Robles),Sangiovese,Hunt Cellars
 805,2003,US,Paso Robles,Dante Dusi Vineyard,85,30.0,California,Martin & Weyrich 2003 Dante Dusi Vineyard Zinfandel (Paso Robles),Zinfandel,Martin & Weyrich
 806,2003,South Africa,,,90,33.0,Simonsberg-Stellenbosch,Kanonkop 2003 Cabernet Sauvignon (Simonsberg-Stellenbosch),Cabernet Sauvignon,Kanonkop
 807,2003,Spain,Priorat,Masos d'en Cubells,86,55.0,Catalonia,Capafons-Ossó 2003 Masos d'en Cubells Red (Priorat),Red Blend,Capafons-Ossó
->>>>>>> rblCoding
 808,2003,France,Coteaux du Layon,Cuvée le Paon,93,,Loire Valley,Domaine des Baumard 2003 Cuvée le Paon Chenin Blanc (Coteaux du Layon),Chenin Blanc,Domaine des Baumard
 809,2003,Italy,Colli Orientali del Friuli,Riserva,88,,Northeastern Italy,Le Vigne di Zamò 2003 Riserva Picolit (Colli Orientali del Friuli),Picolit,Le Vigne di Zamò
 810,2003,Italy,Toscana,Castello di Nipozzano Mormoreto,90,50.0,Tuscany,Marchesi de' Frescobaldi 2003 Castello di Nipozzano Mormoreto Red (Toscana),Red Blend,Marchesi de' Frescobaldi
@@ -14898,7 +14793,6 @@ Merlot-Cabernet Franc Red (Paarl)",Bordeaux-style Red Blend,Glen Carlou
 15001,2012,Spain,Ribera del Duero,Viñas Viejas,93,69.0,Northern Spain,García Figuero 2012 Viñas Viejas (Ribera del Duero),Tempranillo,García Figuero
 15002,2012,Morocco,,Aït Soula,89,25.0,Morocco,Ouled Thaleb 2012 Aït Soula Red (Morocco),Red Blend,Ouled Thaleb
 15003,2012,France,Pouilly-Fuissé,,86,,Burgundy,Chanson Père et Fils 2012 Pouilly-Fuissé,Chardonnay,Chanson Père et Fils
-15004,2012,,,Theopetra Estate,87,37.0,,Tsililis 2012 Theopetra Estate Red,Red Blend,Tsililis
 15005,2012,Portugal,,Monsaraz,88,12.0,Alentejo,Cooperativa Reguengos de Monsaraz 2012 Monsaraz Red (Alentejo),Portuguese Red,Cooperativa Reguengos de Monsaraz
 15006,2012,US,Napa Valley,,90,45.0,California,La Sirena 2012 Grenache (Napa Valley),Grenache,La Sirena
 15007,2012,US,Napa Valley,Estate Grown Cave Fermented,91,95.0,California,Jarvis 2012 Estate Grown Cave Fermented Merlot (Napa Valley),Merlot,Jarvis
@@ -19156,7 +19050,6 @@ Merlot-Cabernet Franc Red (Paarl)",Bordeaux-style Red Blend,Glen Carlou
 19338,2014,Portugal,,,88,12.0,Lisboa,Quinta de Chocapalha 2014 Castelão (Lisboa),Castelão,Quinta de Chocapalha
 19339,2014,US,Finger Lakes,Dry,86,17.0,New York,Rooster Hill 2014 Dry Riesling (Finger Lakes),Riesling,Rooster Hill
 19340,2014,US,Finger Lakes,Ice Wine,90,60.0,New York,Sheldrake Point 2014 Ice Wine Riesling (Finger Lakes),Riesling,Sheldrake Point
-19341,2014,,,,88,36.0,,Lismore 2014 Chardonnay,Chardonnay,Lismore
 19342,2014,US,Columbia Valley (WA),,89,42.0,Washington,Swiftwater Cellars 2014 Malbec (Columbia Valley (WA)),Malbec,Swiftwater Cellars
 19343,2014,US,Oregon,,88,18.0,Oregon,Jezebel 2014 Pinot Noir (Oregon),Pinot Noir,Jezebel
 19344,2014,US,Red Mountain,Estate Grown Parvata,91,65.0,Washington,Force Majeure 2014 Estate Grown Parvata Red (Red Mountain),Rhône-style Red Blend,Force Majeure
@@ -19508,7 +19401,6 @@ Merlot-Cabernet Franc Red (Paarl)",Bordeaux-style Red Blend,Glen Carlou
 19701,2014,US,Napa Valley,,93,67.0,California,Maxville 2014 Petite Sirah (Napa Valley),Petite Sirah,Maxville
 19702,2014,Chile,,Reserve,87,16.0,Maule Valley,Finca Patagonia 2014 Reserve Merlot (Maule Valley),Merlot,Finca Patagonia
 19703,2014,France,Côtes de Provence,Cuvée Clarendon,90,30.0,Provence,Domaine Gavoty 2014 Cuvée Clarendon Rosé (Côtes de Provence),Rosé,Domaine Gavoty
-19704,2014,,,Estate,89,21.0,,St. Donat 2014 Estate Furmint,Furmint,St. Donat
 19705,2014,France,Gaillac,Les Gravels,91,26.0,Southwest France,Domaine Rotier 2014 Les Gravels White (Gaillac),White Blend,Domaine Rotier
 19706,2014,Spain,Alicante,Tarima,84,12.0,Levante,Volver 2014 Tarima Sparkling (Alicante),Sparkling Blend,Volver
 19707,2014,US,Russian River Valley,Leras Vineyard,91,28.0,California,Monte Smith 2014 Leras Vineyard Pinot Noir (Russian River Valley),Pinot Noir,Monte Smith
@@ -21494,7 +21386,6 @@ Merlot-Cabernet Franc Red (Paarl)",Bordeaux-style Red Blend,Glen Carlou
 21731,2014,US,Fort Ross-Seaview,Seven Pillars Jess' Block,93,60.0,California,Hard Six Cellars 2014 Seven Pillars Jess' Block Syrah (Fort Ross-Seaview),Syrah,Hard Six Cellars
 21732,2014,Spain,Sierra de Salamanca,La Moza Suelo de Pizarra,86,35.0,Central Spain,La Zorra 2014 La Moza Suelo de Pizarra Rufete (Sierra de Salamanca),Rufete,La Zorra
 21733,2014,France,Bergerac Rosé,Bélingard,85,12.0,Southwest France,Château Bélingard 2014 Bélingard (Bergerac Rosé),Rosé,Château Bélingard
-21734,2014,,,,86,19.0,,Mt. Beautiful 2014 Pinot Gris,Pinot Gris,Mt. Beautiful
 21735,2014,US,Calistoga,Estate Reserve,90,30.0,California,Madrigal 2014 Estate Reserve Sauvignon Blanc (Calistoga),Sauvignon Blanc,Madrigal
 21736,2014,US,Santa Lucia Highlands,Twelve Clones,91,34.0,California,Morgan 2014 Twelve Clones Pinot Noir (Santa Lucia Highlands),Pinot Noir,Morgan
 21737,2014,Italy,Barbera d'Asti,Baby,86,,Piedmont,Cantine Sant'Agata 2014 Baby (Barbera d'Asti),Barbera,Cantine Sant'Agata
@@ -23322,7 +23213,6 @@ Merlot-Cabernet Franc Red (Paarl)",Bordeaux-style Red Blend,Glen Carlou
 23607,2015,Italy,Valdobbiadene Superiore di Cartizze,Cartizze Vigna La Rivetta,91,45.0,Veneto,Villa Sandi 2015 Cartizze Vigna La Rivetta (Valdobbiadene Superiore di Cartizze),Glera,Villa Sandi
 23608,2015,US,Russian River Valley,,91,42.0,California,Bruliam 2015 Pinot Noir (Russian River Valley),Pinot Noir,Bruliam
 23609,2015,US,Santa Barbara County,Bien Nacido Vineyard,93,40.0,California,Fess Parker 2015 Bien Nacido Vineyard Chardonnay (Santa Barbara County),Chardonnay,Fess Parker
-23610,2015,,,Reserve,90,22.0,,El Capricho 2015 Reserve Tannat,Tannat,El Capricho
 23611,2015,Argentina,Mendoza,,85,14.0,Mendoza Province,Tercos 2015 Malbec (Mendoza),Malbec,Tercos
 23612,2015,France,Blaye Côtes de Bordeaux,Château la Croix Saint-Pierre Blanc de la Croix Saint-Pierre,84,15.0,Bordeaux,Vignobles Carreau Selection 2015 Château la Croix Saint-Pierre Blanc de la Croix Saint-Pierre (Blaye Côtes de Bordeaux),Bordeaux-style White Blend,Vignobles Carreau Selection
 23613,2015,US,Russian River Valley,Estate Grown,90,34.0,California,J Vineyards & Winery 2015 Estate Grown Pinot Gris (Russian River Valley),Pinot Gris,J Vineyards & Winery
@@ -23450,7 +23340,6 @@ Merlot-Cabernet Franc Red (Paarl)",Bordeaux-style Red Blend,Glen Carlou
 23737,2015,France,Madiran,Aydie L'Origine,90,14.0,Southwest France,Famille Laplace 2015 Aydie L'Origine Tannat-Cabernet Franc (Madiran),Tannat-Cabernet Franc,Famille Laplace
 23738,2015,Germany,,Erdener Herzlei Spätlese,92,40.0,Mosel,Dr. Hermann 2015 Erdener Herzlei Spätlese Riesling (Mosel),Riesling,Dr. Hermann
 23739,2015,Italy,Toscana,Dinostro,87,20.0,Tuscany,Podere Il Castellaccio 2015 Dinostro Sangiovese (Toscana),Sangiovese,Podere Il Castellaccio
-23740,2015,,,Valle de los Manantiales Vineyard,86,40.0,,Familia Deicas 2015 Valle de los Manantiales Vineyard Tannat,Tannat,Familia Deicas
 23741,2015,Argentina,Mendoza,Armando,88,15.0,Mendoza Province,La Posta 2015 Armando Bonarda (Mendoza),Bonarda,La Posta
 23742,2015,US,Columbia Gorge (OR),Reserve Barrel Fermented,89,,Oregon,Phelps Creek 2015 Reserve Barrel Fermented Pinot Gris (Columbia Gorge (OR)),Pinot Gris,Phelps Creek
 23743,2015,France,Quincy,,88,19.0,Loire Valley,Domaine Adèle Rouzé 2015 Quincy,Sauvignon Blanc,Domaine Adèle Rouzé
@@ -23591,7 +23480,6 @@ Merlot-Cabernet Franc Red (Paarl)",Bordeaux-style Red Blend,Glen Carlou
 23881,2015,US,Finger Lakes,Estate Bottled,88,18.0,New York,Sheldrake Point 2015 Estate Bottled Gamay Noir (Finger Lakes),Gamay Noir,Sheldrake Point
 23882,2015,France,Alsace,Cuvée Laurence,91,40.0,Alsace,Domaine Weinbach 2015 Cuvée Laurence Gewurztraminer (Alsace),Gewürztraminer,Domaine Weinbach
 23883,2015,US,Ribbon Ridge,Toro y Scorpio,94,25.0,Oregon,Ovum 2015 Toro y Scorpio Riesling (Ribbon Ridge),Riesling,Ovum
-23884,2015,,,,87,14.0,,Teliani Valley 2015 Tsolikouri,Tsolikouri,Teliani Valley
 23885,2015,France,Beaujolais,Quatre Saisons,87,23.0,Beaujolais,Domaine Chasselay 2015 Quatre Saisons (Beaujolais),Gamay,Domaine Chasselay
 23886,2015,New Zealand,,The First Paddock Proprietor's Reserve,91,79.0,Central Otago,Two Paddocks 2015 The First Paddock Proprietor's Reserve Pinot Noir (Central Otago),Pinot Noir,Two Paddocks
 23887,2015,Spain,Cariñena,Corona de Aragón,86,16.0,Northern Spain,Grandes Vinos y Viñedos 2015 Corona de Aragón Garnacha (Cariñena),Garnacha,Grandes Vinos y Viñedos
