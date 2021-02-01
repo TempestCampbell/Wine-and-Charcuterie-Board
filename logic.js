@@ -67,7 +67,8 @@ function init() {
                 // Binding a pop-up to each layer
                 onEachFeature: function(feature, layer) {
                 layer.bindPopup().on('dblclick', function(ev) {
-                    var countrySelect = winereviews
+                    var countrySelect = winereviews;
+                    updateTable;
                 });
                 }
             }).addTo(myMap);
@@ -104,16 +105,18 @@ function init() {
     });
 
     // select the user input field
-    var dropDownMenu = d3.select("#selDataset");
-    dropDownMenu.append("option").text(idNumber[i]);
-    dropDownMenu.append("option").text(idNumber[i]);
-    dropDownMenu.append("option").text(idNumber[i]);
-    dropDownMenu.append("option").text(idNumber[i]);
+    var dropDownMenu = d3.select("#selSort");
+    dropDownMenu.append("option").text("Highest Rated");
+    dropDownMenu.append("option").text("Lowest Rated");
+    dropDownMenu.append("option").text("Most Expensive");
+    dropDownMenu.append("option").text("Cheapest");
+    dropDownMenu.append("option").text("Newest Vintage");
+    dropDownMenu.append("option").text("Oldest Vintage");
 };
 
 // Create map event handler
-var mapSelect = d3.select("#map");
-mapSelect.on("click", updateTable);
+// var mapSelect = d3.select("#map");
+// mapSelect.on("click", updateTable);
 
 function updateTable(countrySelect) {
     
