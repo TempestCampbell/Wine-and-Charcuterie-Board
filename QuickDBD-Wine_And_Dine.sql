@@ -29,7 +29,7 @@ CREATE TABLE `Wines` (
     `County` varchar  NULL ,
     `Designation` varchar  NULL ,
     `Points` int  NOT NULL ,
-    `Price` float  NOT NULL ,
+    `Price` float  NULL ,
     `Province` varchar  NOT NULL ,
     `Title` varchar  NOT NULL ,
     `Variety` varchar  NOT NULL ,
@@ -42,7 +42,8 @@ CREATE TABLE `Wines` (
 CREATE TABLE `WineCheesePairingData` (
     `Wine` varchar  NOT NULL ,
     `CheeseName` varchar  NOT NULL ,
-    PRIMARY KEY (
+
+    CONSTRAINT `uc_WineCheesePairingData_Wine` UNIQUE (
         `Wine`
     )
 );
@@ -51,17 +52,18 @@ CREATE TABLE `CheeseData` (
     `Cheeseid` serial  NOT NULL ,
     `Name` varchar  NOT NULL ,
     `Regionid` int  NULL ,
-    PRIMARY KEY (
+
+    CONSTRAINT `uc_CheeseData_Cheeseid` UNIQUE (
+        `Cheeseid`
+    ),
+    CONSTRAINT `uc_CheeseData_Name` UNIQUE (
         `Name`
     )
 );
 
 CREATE TABLE `Flavorlookups` (
-    `Cheeseid` int  NOT NULL ,
-    `Flavorid` int  NOT NULL ,
-    PRIMARY KEY (
-        `Cheeseid`
-    )
+    `Cheeseid` serial  NOT NULL ,
+    `Flavorid` serial  NOT NULL 
 );
 
 CREATE TABLE `CheeseFlavors` (
@@ -72,17 +74,11 @@ CREATE TABLE `CheeseFlavors` (
     )
 );
 
-ALTER TABLE `Wines` ADD CONSTRAINT `fk_Wines_Variety` FOREIGN KEY(`Variety`)
-REFERENCES `WineCheesePairingData` (`Wine`);
-
-ALTER TABLE `Wines` ADD CONSTRAINT `fk_Wines_Winery` FOREIGN KEY(`Winery`)
-REFERENCES `Wineries` (`Winery`);
-
 ALTER TABLE `WineCheesePairingData` ADD CONSTRAINT `fk_WineCheesePairingData_CheeseName` FOREIGN KEY(`CheeseName`)
 REFERENCES `CheeseData` (`Name`);
 
-ALTER TABLE `CheeseData` ADD CONSTRAINT `fk_CheeseData_Cheeseid` FOREIGN KEY(`Cheeseid`)
-REFERENCES `Flavorlookups` (`Cheeseid`);
+ALTER TABLE `Flavorlookups` ADD CONSTRAINT `fk_Flavorlookups_Cheeseid` FOREIGN KEY(`Cheeseid`)
+REFERENCES `CheeseData` (`Cheeseid`);
 
 ALTER TABLE `Flavorlookups` ADD CONSTRAINT `fk_Flavorlookups_Flavorid` FOREIGN KEY(`Flavorid`)
 REFERENCES `CheeseFlavors` (`Flavorid`);
