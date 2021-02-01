@@ -48,6 +48,8 @@ def welcome():
         f"Available Routes:<br/>"
         f"For country and recurrence number:<br/>"
         f"/api/v1.0/world<br/>"
+        f"For top 100 of 'filter' for 'country': <br/>"
+        f"/api/v1.0/buildtable/<countryIn>/<dropDown><br/>"
     )
 
 @app.route("/api/v1.0/world")
@@ -67,8 +69,35 @@ def world():
     #    response.headers.add('Access-Control-Allow-Origin', '*')
     #    return response
 
-#@app.route("/api/v1.0/buildtable/<country>/<filter>")
-#def buildtable(country,filter)
+@app.route("/api/v1.0/buildtable/<countryIn>/<dropDown>")
+def buildtable(countryIn,dropDown):
+    """Return Wine country, points, price, title, variety, and vintage for a specified country and filter."""
+
+    if dropDown == "HighestRated":
+        tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.points.desc()).limit(100)
+    elif dropDown == "LowestRated":
+        tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.points).limit(100)
+    elif dropDown == "Cheapest":
+        tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.price).limit(100)
+    elif dropDown == "MostExpensive":
+        tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.price.desc()).limit(100)
+    elif dropDown == "NewestVintage":
+        tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.vintage.desc()).limit(100)
+    elif dropDown == "OldestVintage":
+        tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.vintage).limit(100)
+
+    # Set up dictionary
+    orderDict=[]
+    for country, points, price, title, variety, vintage in tableQ:
+        order_dict={}
+        order_dict["country"]=country
+        order_dict["points"]=points
+        order_dict["price"]=price
+        order_dict["title"]=title
+        order_dict["variety"]=variety
+        order_dict["vintage"]=vintage
+        orderDict.append(order_dict)
+    return jsonify(orderDict)
 
 
 if __name__ == '__main__':
