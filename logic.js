@@ -102,6 +102,13 @@ function init() {
     legend.addTo(myMap);
 
     });
+
+    // select the user input field
+    var dropDownMenu = d3.select("#selDataset");
+    dropDownMenu.append("option").text(idNumber[i]);
+    dropDownMenu.append("option").text(idNumber[i]);
+    dropDownMenu.append("option").text(idNumber[i]);
+    dropDownMenu.append("option").text(idNumber[i]);
 };
 
 // Create map event handler
