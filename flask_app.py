@@ -23,17 +23,10 @@ Base = automap_base()
 Base.prepare(engine, reflect=True)
 
 # Save reference to the table
-<<<<<<< HEAD
 CheeseFlavors = Base.classes.cheeseflavors
 CheeseData = Base.classes.cheesedata
 FlavorLookups = Base.classes.flavorlookups
 WineCheesePairingData = Base.classes.winecheesepairingdata
-=======
-# CheeseFlavors = Base.classes.cheeseflavors
-# WineCheesePairingData = Base.classes.winecheesepairingdata
-# CheeseData = Base.classes.cheesedata
-# FlavorLookups = Base.classes.flavorlookups
->>>>>>> mk/coding
 Wines = Base.classes.wines
 Wineries = Base.classes.wineries
 WorldMeats = Base.classes.worldmeats
