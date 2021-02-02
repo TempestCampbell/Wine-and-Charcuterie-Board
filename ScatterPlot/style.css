@@ -1,13 +1,14 @@
 .tooltip {
-    position: absolute;
-    width: 155px;
+    position: sticky;
+    width: 200px;
     height: 75px;
     padding: 2px;
     padding-top: 8px;
-    font: 12px sans-serif;
+    font: 11px sans-serif;
+    font-weight: bold;
     color: rgb(214, 218, 24);
     text-align: center;
-    background: #551aaf;
+    background: #380059;
     border: 0;
     border-radius: 10px;
   }
@@ -15,7 +16,7 @@
   .axisText {
     font-family: sans-serif;
     font-weight: bold;
-    fill: #551aaf;
+    fill: #380059;
     text-anchor: middle;
   }
   

@@ -20,11 +20,12 @@ var svg = d3.select(".chart")
 var chartGroup = svg.append("g")
   .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
+//--------------------------------------------------------------------------
 // Import Data
 d3.csv("globalWinePoints.csv").then(function(globalWinePoints) {
 
 temp=globalWinePoints
-temp=temp.filter(c=>c.country=="Hungary")
+temp=temp.filter(c=>c.country=="US")
     plotDots(temp)
     function plotDots(dada){
 
@@ -35,11 +36,12 @@ temp=temp.filter(c=>c.country=="Hungary")
       data.price = +data.price;
       data.points = +data.points;
     });
+//--------------------------------------------------------------------------
 
     // Step 2: Create scale functions
     // ==============================
     var xLinearScale = d3.scaleLinear()
-      .domain([-50, d3.max(dada, d => d.price)])
+      .domain([-50, d3.max(dada,function(d) { return d.price; })])
       .range([0, width]);
 
     var yLinearScale = d3.scaleLinear()
@@ -60,6 +62,8 @@ temp=temp.filter(c=>c.country=="Hungary")
     chartGroup.append("g")
       .call(leftAxis);
 
+//--------------------------------------------------------------------------
+
     // Step 5: Create Circles
     // ==============================
     var circlesGroup = chartGroup.selectAll("circle")
@@ -76,10 +80,12 @@ temp=temp.filter(c=>c.country=="Hungary")
         if (year<=1950){
             return "red"}
         else {
-            return "blue"
+            return " #380059"
         }  
     })
     .attr("opacity", ".25");
+
+//--------------------------------------------------------------------------
 
     // Step 6: Initialize tool tip
     // ==============================
@@ -93,6 +99,8 @@ temp=temp.filter(c=>c.country=="Hungary")
     // Step 7: Create tooltip in the chart
     // ==============================
     chartGroup.call(toolTip);
+
+//--------------------------------------------------------------------------
 
     // Step 8: Create event listeners to display and hide the tooltip
     // ==============================
