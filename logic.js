@@ -71,8 +71,8 @@ function init() {
                 // Binding a pop-up to each layer
                 onEachFeature: function(feature, layer) {
                 layer.bindPopup().on('dblclick', function(ev) {
-                    var countrySelect = features.properties.ADMIN;
-                    updateTable;
+                    var countrySelect = feature.properties.ADMIN;
+                    updateTable(countrySelect);
                 });
                 }
             }).addTo(myMap);
@@ -124,13 +124,13 @@ function init() {
 // mapSelect.on("click", updateTable);
 
 function updateTable(countrySelect) {
-    
-    fetch(`http://127.0.0.1:5000/api/v1.0/world/${countrySelect}`)
+    console.log("here again", countrySelect)
+    fetch(`http://127.0.0.1:5000/api/v1.0/buildtable/${countrySelect}`)
     .then(response => response.json())
     .then(function(data) {
 
         var tableData = data;
-
+        console.log("here",tableData)
         // Prevent the page from refreshing
         d3.event.preventDefault();
 
