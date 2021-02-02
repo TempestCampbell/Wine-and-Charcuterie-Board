@@ -102,6 +102,7 @@ def buildtable(countryIn=None,dropDown=None):
         order_dict["variety"]=variety
         order_dict["vintage"]=vintage
         orderDict.append(order_dict)
+        
     return jsonify(orderDict)
 
 
