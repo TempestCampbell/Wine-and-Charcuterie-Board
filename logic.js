@@ -31,7 +31,7 @@ function init() {
         maxZoom: 18,
         zoomOffset: -1,
         id: "mapbox/streets-v11",
-        accessToken: API_KEY
+        accessToken: "pk.eyJ1IjoicmJsZXZpbmUiLCJhIjoiY2tqenlwd2c2MDhxajJ2cGJwZ2w5YWt1eSJ9.CbH0egXe3ybOBDvV6bhVsw"
       }).addTo(myMap);
 
     // Read the csv file to get data
@@ -102,7 +102,7 @@ function init() {
     legend.addTo(myMap);
 
     });
-
+    idNumber=["Highest Ranked", "Lowest Ranked","Cheapest","Most Expensive"]
     // select the user input field
     var dropDownMenu = d3.select("#selDataset");
     dropDownMenu.append("option").text(idNumber[i]);
@@ -117,7 +117,7 @@ mapSelect.on("click", updateTable);
 
 function updateTable(countrySelect) {
     
-    fetch(`http://127.0.0.1:5000/api/v1.0/world/${countrySelect}`)
+    fetch(`http://127.0.0.1:5000/api/v1.0/updatetable/${countrySelect}`)
     .then(response => response.json())
     .then(function(data) {
 
