@@ -36,18 +36,22 @@ function init() {
 
     // Read the csv file to get data
     d3.json("https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson").then(function(data) {
-        console.log(data)
+        console.log(data);
 
-        // Fetch api from flasks
-        fetch("http://127.0.0.1:5000/api/v1.0/world/")
-        .then(response => response.json())
-        .then(function(response) {
+        // Fetch api from flask
+        // fetch("https://127.0.0.1:5000/api/v1.0/world", {
+        //     method: "GET",
+        //     headers: {
+        //         "Access-Control-Allow-Origin": "*"
+        //     }
+
+        // }).then(function(response) {
         
             // Create a new choropleth layer
             geojson = L.choropleth(data, {
     
                 // Define what  property in the features to use
-                valueProperty: response.country,
+                valueProperty: "title",
 
                 // Set color scale
                 scale: ["#fff7f3", "#49006a"],
@@ -67,53 +71,57 @@ function init() {
                 // Binding a pop-up to each layer
                 onEachFeature: function(feature, layer) {
                 layer.bindPopup().on('dblclick', function(ev) {
-                    var countrySelect = winereviews
+                    var countrySelect = features.properties.ADMIN;
+                    updateTable;
                 });
                 }
             }).addTo(myMap);
-        });
 
-    // Set up the legend
-    var legend = L.control({ position: "bottomright" });
-    legend.onAdd = function() {
-    var div = L.DomUtil.create("div", "info legend");
-    var limits = geojson.options.limits;
-    var colors = geojson.options.colors;
-    var labels = [];
+            // Set up the legend
+            var legend = L.control({ position: "bottomright" });
+            legend.onAdd = function() {
+            var div = L.DomUtil.create("div", "info legend");
+            var limits = geojson.options.limits;
+            var colors = geojson.options.colors;
+            var labels = [];
 
-    // Add min & max
-    var legendInfo = "<h1>Wines by Country</h1>" +
-        "<div class=\"labels\">" +
-        "<div class=\"min\">" + limits[0] + "</div>" +
-        "<div class=\"max\">" + limits[limits.length - 1] + "</div>" +
-        "</div>";
+            // Add min & max
+            var legendInfo = "<h1>Wines by Country</h1>" +
+                "<div class=\"labels\">" +
+                "<div class=\"min\">" + limits[0] + "</div>" +
+                "<div class=\"max\">" + limits[limits.length - 1] + "</div>" +
+                "</div>";
 
-    div.innerHTML = legendInfo;
+            div.innerHTML = legendInfo;
 
-    limits.forEach(function(limit, index) {
-        labels.push("<li style=\"background-color: " + colors[index] + "\"></li>");
-    });
+            limits.forEach(function(limit, index) {
+                labels.push("<li style=\"background-color: " + colors[index] + "\"></li>");
+            });
 
-    div.innerHTML += "<ul>" + labels.join("") + "</ul>";
-    return div;
-    };
+            div.innerHTML += "<ul>" + labels.join("") + "</ul>";
+            return div;
+            };
 
-    // Adding legend to the map
-    legend.addTo(myMap);
+            // Adding legend to the map
+            legend.addTo(myMap);
+
+        // });
 
     });
 
     // select the user input field
     var dropDownMenu = d3.select("#selDataset");
-    dropDownMenu.append("option").text(idNumber[i]);
-    dropDownMenu.append("option").text(idNumber[i]);
-    dropDownMenu.append("option").text(idNumber[i]);
-    dropDownMenu.append("option").text(idNumber[i]);
+    dropDownMenu.append("option").text("Highest Rated");
+    dropDownMenu.append("option").text("Lowest Rated");
+    dropDownMenu.append("option").text("Most Expensive");
+    dropDownMenu.append("option").text("Cheapest");
+    dropDownMenu.append("option").text("Newest Vintage");
+    dropDownMenu.append("option").text("Oldest Vintage");
 };
 
 // Create map event handler
-var mapSelect = d3.select("#map");
-mapSelect.on("click", updateTable);
+// var mapSelect = d3.select("#map");
+// mapSelect.on("click", updateTable);
 
 function updateTable(countrySelect) {
     
