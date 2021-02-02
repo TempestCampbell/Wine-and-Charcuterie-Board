@@ -17,6 +17,8 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
+		<!-- The div where we will inject our map -->
+		<div id="map"></div>
 		<div id="wrapper">
 			<div id="bg"></div>
 			<div id="overlay"></div>
@@ -36,28 +38,6 @@
 							</ul>
 						</nav> -->
 					</header>
-					<div class="col-md-10">
-						<div class="well">
-							<h5>Sort by:</h5>
-							<select id="selSort" onchange="optionChanged(this.value)"></select>
-						</div>
-						<div id="table-area" class="">
-						  <table id="wine-table" class="table table-striped">
-							<thead>
-							  <tr>
-								<th class="table-head">Date</th>
-								<th class="table-head">City</th>
-								<th class="table-head">State</th>
-								<th class="table-head">Country</th>
-								<th class="table-head">Shape</th>
-								<th class="table-head">Duration</th>
-								<th class="table-head">Comments</th>
-							  </tr>
-							</thead>
-							<tbody></tbody>
-						  </table>
-						</div>
-					  </div>
 			
 				<!-- Footer -->
 					<!-- <footer id="footer">
@@ -65,10 +45,28 @@
 					</footer> -->
 			</div>
 		</div>
-
-		<!-- The div where we will inject our map -->
-		<div id="map"></div>
-
+		<div class="col-md-10">
+			<div class="well">
+				<h5>Sort by:</h5>
+				<select id="selDataset" onchange="optionChanged(this.value)"></select>
+			</div>
+			<div id="table-area" class="">
+			  <table id="wine-table" class="table table-striped">
+				<thead>
+				  <tr>
+					<th class="table-head">Date</th>
+					<th class="table-head">City</th>
+					<th class="table-head">State</th>
+					<th class="table-head">Country</th>
+					<th class="table-head">Shape</th>
+					<th class="table-head">Duration</th>
+					<th class="table-head">Comments</th>
+				  </tr>
+				</thead>
+				<tbody></tbody>
+			  </table>
+			</div>
+		  </div>
 		<!-- Leaflet JS -->
 		<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
 			integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
