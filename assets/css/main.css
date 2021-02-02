@@ -380,35 +380,40 @@ input, select, textarea {
 		}
 
 /* remove default margin and padding from body */
-/* body {
+body {
 	padding: 0;
 	margin: 0;
-  } */
+  }
   
   /* set map, body, and html to 100% of the screen size */
-  /* #map,
+  #map,
   body,
   html {
-	height: 90%;
-  } */
+	height: 86%;
+  }
+  .well {
+	text-align: center;
 
-		#table-area th {
-			text-align: center;
-		}
-		
-		#table-area th:first-child,
-		#table-area th:nth-child(2),
-		#table-area th:nth-child(6) {
-			min-width: 70px;
-		}
-		
-		.loader {
-			margin-top: 50px;
-		}
-		
-		.margin-top-50 {
-			margin-top: 50px;
-		}
+  }
+
+  	/* Table Area */
+	#table-area th {
+		text-align: center;
+	}
+
+	#table-area th:first-child,
+	#table-area th:nth-child(2),
+	#table-area th:nth-child(6) {
+		min-width: 70px;
+	}
+
+	.loader {
+		margin-top: 50px;
+	}
+
+	.margin-top-50 {
+		margin-top: 50px;
+	}
 
 /* Header */
 
