@@ -20,10 +20,10 @@ Base = automap_base()
 Base.prepare(engine, reflect=True)
 
 # Save reference to the table
-#CheeseData = Base.classes.cheesedata
-#CheeseFlavors = Base.classes.cheeseflavors
-#FlavorLookups = Base.classes.flavorlookups
-#WineCheesePairingData = Base.classes.winecheesepairingdata
+CheeseFlavors = Base.classes.cheeseflavors
+CheeseData = Base.classes.cheesedata
+FlavorLookups = Base.classes.flavorlookups
+WineCheesePairingData = Base.classes.winecheesepairingdata
 Wines = Base.classes.wines
 Wineries = Base.classes.wineries
 WorldMeats = Base.classes.worldmeats
@@ -69,22 +69,27 @@ def world():
     #    response.headers.add('Access-Control-Allow-Origin', '*')
     #    return response
 
+@app.route("/api/v1.0/buildtable/<countryIn>")
 @app.route("/api/v1.0/buildtable/<countryIn>/<dropDown>")
-def buildtable(countryIn,dropDown):
+def buildtable(countryIn=None,dropDown=None):
     """Return Wine country, points, price, title, variety, and vintage for a specified country and filter."""
 
-    if dropDown == "HighestRated":
+    if dropDown==None:
         tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.points.desc()).limit(100)
-    elif dropDown == "LowestRated":
-        tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.points).limit(100)
-    elif dropDown == "Cheapest":
-        tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.price).limit(100)
-    elif dropDown == "MostExpensive":
-        tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.price.desc()).limit(100)
-    elif dropDown == "NewestVintage":
-        tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.vintage.desc()).limit(100)
-    elif dropDown == "OldestVintage":
-        tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.vintage).limit(100)
+    
+    else:
+        if dropDown == "HighestRated":
+            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.points.desc()).limit(100)
+        elif dropDown == "LowestRated":
+            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.points).limit(100)
+        elif dropDown == "Cheapest":
+            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.price).limit(100)
+        elif dropDown == "MostExpensive":
+            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.price.desc()).limit(100)
+        elif dropDown == "NewestVintage":
+            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.vintage.desc()).limit(100)
+        elif dropDown == "OldestVintage":
+            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.vintage).limit(100)
 
     # Set up dictionary
     orderDict=[]
