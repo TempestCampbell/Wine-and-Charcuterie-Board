@@ -391,6 +391,10 @@ body {
   html {
 	height: 86%;
   }
+  .well {
+	text-align: center;
+
+  }
 
   	/* Table Area */
 	#table-area th {
