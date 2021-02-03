@@ -124,13 +124,9 @@ function init() {
 // mapSelect.on("click", updateTable);
 
 function updateTable(countrySelect) {
-<<<<<<< HEAD
+
     console.log("here again", countrySelect)
     fetch(`http://127.0.0.1:5000/api/v1.0/buildtable/${countrySelect}`)
-=======
-    
-    fetch(`http://127.0.0.1:5000/api/v1.0/updatetable/${countrySelect}`)
->>>>>>> rblCoding
     .then(response => response.json())
     .then(function(data) {
 
