@@ -12,10 +12,9 @@
 //     accessToken: API_KEY
 //   }).addTo(myMap);
 
-
 // Create init event handler
 var form = d3.select(".is-preload");
-form.on("click", init);
+form.one("click", init);
 
 // Create the function for the initial data rendering
 function init() {
@@ -35,7 +34,7 @@ function init() {
       }).addTo(myMap);
 
     // Read the csv file to get data
-    d3.json("https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson").then(function(data) {
+    d3.json("GeoCountry.geojson").then(function(data) {
         console.log(data);
 
         // Fetch api from flask
@@ -71,7 +70,7 @@ function init() {
                 // Binding a pop-up to each layer
                 onEachFeature: function(feature, layer) {
                 layer.bindPopup().on('click', function(ev) {
-                    var countrySelect = feature.properties.ADMIN;
+                    var countrySelect = feature.properties.name;
                     updateTable(countrySelect);
                 });
                 }
