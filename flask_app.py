@@ -6,13 +6,13 @@ import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
-from config import pw
+#from config import pw
 
 ################################################
 # Database Setup
 #################################################
 
-engine = create_engine(f"postgresql://postgres:{pw}@localhost:5432/WineAndDined")
+engine = create_engine(f"postgresql://postgres:postgres@localhost:5432/WineAndDined")
 
 # engine = create_engine("postgresql://postgres:postgres@localhost:5432/WineAndDined")
 
@@ -40,7 +40,7 @@ session=Session(engine)
 app = Flask(__name__)
 
 # Use flask_sqlalchemy to set up sql connection locally
-app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://postgres:{pw}@localhost:5432/WineAndDined'
+app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://postgres:postgres@localhost:5432/WineAndDined'
 db = SQLAlchemy(app)
 
 @app.route("/")
@@ -78,6 +78,9 @@ def world():
 def buildtable(countryIn=None,dropDown=None):
     """Return Wine country, points, price, title, variety, and vintage for a specified country and filter."""
 
+    if countryIn=='United States of America':
+        countryIn="US"
+    
     if dropDown==None:
         tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.points.desc()).limit(100)
     
@@ -106,8 +109,22 @@ def buildtable(countryIn=None,dropDown=None):
         order_dict["variety"]=variety
         order_dict["vintage"]=vintage
         orderDict.append(order_dict)
+        
     return jsonify(orderDict)
 
+@app.route("/api/v1.0/cheesepair/<variety>")
+def cheesepair(variety):
+    """Returns 5 suggested cheese pairings for the wine."""
+    wVariety=session.query(WineCheesePairingData.cheesename).filter(WineCheesePairingData.wine==variety)
+
+    cheeseDict=[]
+    for cheesename in wVariety:
+        cheese_dict={}
+        cheese_dict["variety"]=variety
+        cheese_dict["cheesename"]=cheesename
+        cheeseDict.append(cheese_dict)
+        
+    return jsonify(cheeseDict)
 
 if __name__ == '__main__':
     app.run(debug=True)
