@@ -25,7 +25,7 @@ var chartGroup = svg.append("g")
 d3.csv("globalWinePoints.csv").then(function(globalWinePoints) {
 
 temp=globalWinePoints
-temp=temp.filter(c=>c.country=="US")
+temp=temp.filter(c=>c.country=="Germany")
     plotDots(temp)
     function plotDots(dada){
 
@@ -80,7 +80,7 @@ temp=temp.filter(c=>c.country=="US")
         if (year<=1950){
             return "red"}
         else {
-            return " #380059"
+            return "#380059"
         }  
     })
     .attr("opacity", ".25");
