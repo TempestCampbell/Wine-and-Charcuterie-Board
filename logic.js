@@ -12,10 +12,9 @@
 //     accessToken: API_KEY
 //   }).addTo(myMap);
 
-
 // Create init event handler
 var form = d3.select(".is-preload");
-form.on("click", init);
+form.one("click", init);
 
 // Create the function for the initial data rendering
 function init() {
@@ -35,7 +34,7 @@ function init() {
       }).addTo(myMap);
 
     // Read the csv file to get data
-    d3.json("https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson").then(function(data) {
+    d3.json("GeoCountry.geojson").then(function(data) {
         console.log(data);
 
         // Fetch api from flask
@@ -70,8 +69,8 @@ function init() {
 
                 // Binding a pop-up to each layer
                 onEachFeature: function(feature, layer) {
-                layer.bindPopup().on('dblclick', function(ev) {
-                    var countrySelect = feature.properties.ADMIN;
+                layer.bindPopup().on('click', function(ev) {
+                    var countrySelect = feature.properties.name;
                     updateTable(countrySelect);
                 });
                 }
@@ -110,13 +109,23 @@ function init() {
     });
     idNumber=["Highest Ranked", "Lowest Ranked","Cheapest","Most Expensive"]
     // select the user input field
-    var dropDownMenu = d3.select("#selDataset");
-    dropDownMenu.append("option").text("Highest Rated");
-    dropDownMenu.append("option").text("Lowest Rated");
-    dropDownMenu.append("option").text("Most Expensive");
-    dropDownMenu.append("option").text("Cheapest");
-    dropDownMenu.append("option").text("Newest Vintage");
-    dropDownMenu.append("option").text("Oldest Vintage");
+    // var dropDownMenu = d3.select("#selDataset");
+    // dropDownMenu.append("option").text("HighestRated");
+    // dropDownMenu.append("option").text("LowestRated");
+    // dropDownMenu.append("option").text("MostExpensive");
+    // dropDownMenu.append("option").text("Cheapest");
+    // dropDownMenu.append("option").text("NewestVintage");
+    // dropDownMenu.append("option").text("OldestVintage");
+    // let dropdownBtn = document.querySelector('.menu-btn');
+    // let menuContent = document.querySelector('.menu-content');
+    // dropdownBtn.addEventListener('click',()=>{
+    // if(menuContent.style.display===""){
+    //     menuContent.style.display="block";
+    // } 
+    // else {
+    //     menuContent.style.display="";
+    // }
+    // });
 };
 
 // Create map event handler
@@ -126,42 +135,69 @@ function init() {
 function updateTable(countrySelect) {
 
     console.log("here again", countrySelect)
-    fetch(`http://127.0.0.1:5000/api/v1.0/buildtable/${countrySelect}`)
-    .then(response => response.json())
-    .then(function(data) {
 
-        var tableData = data;
-        console.log("here",tableData)
-        // Prevent the page from refreshing
-        d3.event.preventDefault();
+    // dropdown menu to filter table
+    let dropdownBtn = document.querySelector('.menu-btn');
+    let menuContent = document.querySelector('.menu-content');
+    dropdownBtn.addEventListener('click',()=>{
+    if(menuContent.style.display===""){
+        menuContent.style.display="block";
+    } 
+    else {
+        menuContent.style.display="";
+    }
+    });
 
-        // Clear out current contents in the table
-        tbody.html("");
+    // Select the input element and get the raw HTML node
+    var inputElement = d3.select(".menu-content");
 
-        // Select the input element and get the raw HTML node
-        var inputElement = d3.select(".form-control");
+    // Get the value property of the input element
+    var dropDown = inputElement.property("value");
 
-        // Get the value property of the input element
-        var inputValue = inputElement.property("value");
+    // handle on click event
+    d3.select('.menu-content')
+    .on('change', function() {
 
-        // Filter Data with country equal to input value
-        var filteredData = tableData.filter(wineObject => wineObject.country === inputValue);
+        // Read the csv file to get data
+        d3.json(`http://127.0.0.1:5000/api/v1.0/buildtable/${countrySelect}/${dropDown}`).then(function(data) {
+            console.log("here we go", data);
+        // fetch(`http://127.0.0.1:5000/api/v1.0/buildtable/${countrySelect}`)
+        // .then(response => response.json())
+        // .then(function(data) {
 
-        // Get a reference to the table body
-        var tbody = d3.select("tbody");
+            var tableData = data;
+            console.log("here", tableData)
+            // Prevent the page from refreshing
+            d3.event.preventDefault();
 
-        // Loop through each wine object in the data array
-        filteredData.forEach((wineObject) => {
+            // Clear out current contents in the table
+            tbody.html("");
 
-            // Append one table row for each wine object
-            var row = tbody.append("tr");
+            // // Select the input element and get the raw HTML node
+            // var inputElement = d3.select(".form-control");
 
-            // Use `Object.entries` and forEach to iterate through keys and values of wine object
-            Object.entries(wineObject).forEach(([key, value]) => {
+            // // Get the value property of the input element
+            // var inputValue = inputElement.property("value");
 
-                // Append one cell per wine object value 
-                var cell = row.append("td");
-                cell.text(value);
+            // // Filter Data with country equal to input value
+            // var filteredData = tableData.filter(wineObject => wineObject.country === inputValue);
+
+            // Get a reference to the table body
+            var tbody = d3.select("tbody");
+
+            // Loop through each wine object in the data array
+            tableData.forEach((wineObject) => {
+
+                // Append one table row for each wine object
+                var row = tbody.append("tr");
+
+                // Use `Object.entries` and forEach to iterate through keys and values of wine object
+                Object.entries(wineObject).forEach(([key, value]) => {
+
+                    // Append one cell per wine object value 
+                    var cell = row.append("td");
+                    cell.text(value);
+                });
             });
         });
     });
