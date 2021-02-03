@@ -31,7 +31,7 @@ function init() {
         maxZoom: 18,
         zoomOffset: -1,
         id: "mapbox/streets-v11",
-        accessToken: API_KEY
+        accessToken: "pk.eyJ1IjoicmJsZXZpbmUiLCJhIjoiY2tqenlwd2c2MDhxajJ2cGJwZ2w5YWt1eSJ9.CbH0egXe3ybOBDvV6bhVsw"
       }).addTo(myMap);
 
     // Read the csv file to get data
@@ -71,8 +71,8 @@ function init() {
                 // Binding a pop-up to each layer
                 onEachFeature: function(feature, layer) {
                 layer.bindPopup().on('dblclick', function(ev) {
-                    var countrySelect = features.properties.ADMIN;
-                    updateTable;
+                    var countrySelect = feature.properties.ADMIN;
+                    updateTable(countrySelect);
                 });
                 }
             }).addTo(myMap);
@@ -108,7 +108,7 @@ function init() {
         // });
 
     });
-
+    idNumber=["Highest Ranked", "Lowest Ranked","Cheapest","Most Expensive"]
     // select the user input field
     var dropDownMenu = d3.select("#selDataset");
     dropDownMenu.append("option").text("Highest Rated");
@@ -124,13 +124,14 @@ function init() {
 // mapSelect.on("click", updateTable);
 
 function updateTable(countrySelect) {
-    
-    fetch(`http://127.0.0.1:5000/api/v1.0/world/${countrySelect}`)
+
+    console.log("here again", countrySelect)
+    fetch(`http://127.0.0.1:5000/api/v1.0/buildtable/${countrySelect}`)
     .then(response => response.json())
     .then(function(data) {
 
         var tableData = data;
-
+        console.log("here",tableData)
         // Prevent the page from refreshing
         d3.event.preventDefault();
 
