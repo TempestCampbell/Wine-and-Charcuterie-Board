@@ -70,7 +70,11 @@ function init() {
                 // Binding a pop-up to each layer
                 onEachFeature: function(feature, layer) {
                 layer.bindPopup().on('click', function(ev) {
+<<<<<<< HEAD
                     var countrySelect = feature.properties.name;
+=======
+                    var countrySelect = feature.properties.ADMIN;
+>>>>>>> 8c35a6ffbaeae7737250328789f7db01beed50cb
                     updateTable(countrySelect);
                 });
                 }
@@ -153,6 +157,7 @@ function updateTable(countrySelect) {
 
     // Get the value property of the input element
     var dropDown = inputElement.property("value");
+<<<<<<< HEAD
 
     // handle on click event
     d3.select('.menu-content')
@@ -188,6 +193,43 @@ function updateTable(countrySelect) {
             // Loop through each wine object in the data array
             tableData.forEach((wineObject) => {
 
+=======
+
+    // handle on click event
+    d3.select('.menu-content')
+    .on('change', function() {
+
+        // Read the csv file to get data
+        d3.json(`http://127.0.0.1:5000/api/v1.0/buildtable/${countrySelect}/${dropDown}`).then(function(data) {
+            console.log("here we go", data);
+        // fetch(`http://127.0.0.1:5000/api/v1.0/buildtable/${countrySelect}`)
+        // .then(response => response.json())
+        // .then(function(data) {
+
+            var tableData = data;
+            console.log("here", tableData)
+            // Prevent the page from refreshing
+            d3.event.preventDefault();
+
+            // Clear out current contents in the table
+            tbody.html("");
+
+            // // Select the input element and get the raw HTML node
+            // var inputElement = d3.select(".form-control");
+
+            // // Get the value property of the input element
+            // var inputValue = inputElement.property("value");
+
+            // // Filter Data with country equal to input value
+            // var filteredData = tableData.filter(wineObject => wineObject.country === inputValue);
+
+            // Get a reference to the table body
+            var tbody = d3.select("tbody");
+
+            // Loop through each wine object in the data array
+            tableData.forEach((wineObject) => {
+
+>>>>>>> 8c35a6ffbaeae7737250328789f7db01beed50cb
                 // Append one table row for each wine object
                 var row = tbody.append("tr");
 
