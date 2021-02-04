@@ -82,21 +82,21 @@ def buildtable(countryIn=None,dropDown=None):
         countryIn="US"
     
     if dropDown==None:
-        tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.points.desc()).limit(100)
+        tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn.capitalize()).order_by(Wines.points.desc()).limit(100)
     
     else:
         if dropDown == "HighestRated":
-            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.points.desc()).limit(100)
+            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn.capitalize()).order_by(Wines.points.desc()).limit(100)
         elif dropDown == "LowestRated":
-            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.points).limit(100)
+            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn.capitalize()).order_by(Wines.points).limit(100)
         elif dropDown == "Cheapest":
-            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.price).limit(100)
+            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn.capitalize()).order_by(Wines.price).limit(100)
         elif dropDown == "MostExpensive":
-            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.price.desc()).limit(100)
+            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn.capitalize()).order_by(Wines.price.desc()).limit(100)
         elif dropDown == "NewestVintage":
-            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.vintage.desc()).limit(100)
+            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn.capitalize()).order_by(Wines.vintage.desc()).limit(100)
         elif dropDown == "OldestVintage":
-            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.vintage).limit(100)
+            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn.capitalize()).order_by(Wines.vintage).limit(100)
 
     # Set up dictionary
     orderDict=[]
@@ -114,17 +114,52 @@ def buildtable(countryIn=None,dropDown=None):
 
 @app.route("/api/v1.0/cheesepair/<variety>")
 def cheesepair(variety):
-    """Returns 5 suggested cheese pairings for the wine."""
-    wVariety=session.query(WineCheesePairingData.cheesename).filter(WineCheesePairingData.wine==variety)
-
+    """Returns the cheese ID given a varietal."""
+    
+    cheeseID=session.query(CheeseData.cheeseid,CheeseData.name).filter(CheeseData.name==session.query(WineCheesePairingData.cheesename).filter(WineCheesePairingData.wine==variety.capitalize()))
     cheeseDict=[]
-    for cheesename in wVariety:
+    for cheeseid, name in cheeseID:
         cheese_dict={}
-        cheese_dict["variety"]=variety
-        cheese_dict["cheesename"]=cheesename
+        cheese_dict["cheeseID"]=cheeseid
+        cheese_dict["name"]=name
         cheeseDict.append(cheese_dict)
-        
-    return jsonify(cheeseDict)
+    cheeseVarID=cheeseDict[0]['cheeseID']
+
+    suggestions=session.query()
+    session.query(FlavorLookups.flavorid, FlavorLookups.cheeseid).filter(FlavorLookups.cheeseid==cheeseVarID)
+    suggDict=[]
+    for flavorid, cheeseid in suggestions:
+        sugg_dict={}
+        sugg_dict["cheeseID"]=cheeseid
+        sugg_dict["flavorid"]=flavorid
+        suggDict.append(sugg_dict)
+
+    return jsonify(suggDict)
+
+@app.route("/api/v1.0/cheeses/<cheeseID>")
+def cheeses(cheeseID):
+    """Returns 5 cheese suggestions given a cheese ID"""
+
+
+    
+
+@app.route("/api/v1.0/meatpair/<countryIn>")
+def meatpair(countryIn):
+    """Returns a suggested meat pairing for the wine."""
+    
+    if countryIn=='United States of America':
+        countryIn="US"
+    
+    meatPair=session.query(WorldMeats.name, WorldMeats.region, WorldMeats.description).filter(WorldMeats.country==countryIn.capitalize()).limit(5)
+
+    meatDict=[]
+    for name, region, description in meatPair:
+        meat_dict={}
+        meat_dict["name"]=name
+        meat_dict["region"]=region
+        meat_dict["description"]=description
+        meatDict.append(meat_dict)
+    return jsonify(meatDict)
 
 if __name__ == '__main__':
     app.run(debug=True)
