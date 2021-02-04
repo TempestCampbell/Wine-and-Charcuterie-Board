@@ -12,16 +12,9 @@
 //     accessToken: API_KEY
 //   }).addTo(myMap);
 
-<<<<<<< HEAD
-// Create init event handler
-var form = d3.select(".is-preload");
-form.one("click", init);
-=======
-
 // Create init event handler
 var form = d3.select(".is-preload");
 form.on("click", init);
->>>>>>> f03dd78f9ee7fd36284ed03875bcb760c54f7b76
 
 // Create the function for the initial data rendering
 function init() {
@@ -41,11 +34,8 @@ function init() {
       }).addTo(myMap);
 
     // Read the csv file to get data
-<<<<<<< HEAD
     d3.json("GeoCountry.geojson").then(function(data) {
-=======
-    d3.json("https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson").then(function(data) {
->>>>>>> f03dd78f9ee7fd36284ed03875bcb760c54f7b76
+
         console.log(data);
 
         // Fetch api from flask
@@ -80,13 +70,8 @@ function init() {
 
                 // Binding a pop-up to each layer
                 onEachFeature: function(feature, layer) {
-<<<<<<< HEAD
                 layer.bindPopup().on('click', function(ev) {
                     var countrySelect = feature.properties.name;
-=======
-                layer.bindPopup().on('dblclick', function(ev) {
-                    var countrySelect = feature.properties.ADMIN;
->>>>>>> f03dd78f9ee7fd36284ed03875bcb760c54f7b76
                     updateTable(countrySelect);
                 });
                 }
@@ -125,7 +110,6 @@ function init() {
     });
     idNumber=["Highest Ranked", "Lowest Ranked","Cheapest","Most Expensive"]
     // select the user input field
-<<<<<<< HEAD
     // var dropDownMenu = d3.select("#selDataset");
     // dropDownMenu.append("option").text("HighestRated");
     // dropDownMenu.append("option").text("LowestRated");
@@ -143,15 +127,6 @@ function init() {
     //     menuContent.style.display="";
     // }
     // });
-=======
-    var dropDownMenu = d3.select("#selDataset");
-    dropDownMenu.append("option").text("Highest Rated");
-    dropDownMenu.append("option").text("Lowest Rated");
-    dropDownMenu.append("option").text("Most Expensive");
-    dropDownMenu.append("option").text("Cheapest");
-    dropDownMenu.append("option").text("Newest Vintage");
-    dropDownMenu.append("option").text("Oldest Vintage");
->>>>>>> f03dd78f9ee7fd36284ed03875bcb760c54f7b76
 };
 
 // Create map event handler
@@ -161,7 +136,6 @@ function init() {
 function updateTable(countrySelect) {
 
     console.log("here again", countrySelect)
-<<<<<<< HEAD
 
     // dropdown menu to filter table
     let dropdownBtn = document.querySelector('.menu-btn');
@@ -225,44 +199,6 @@ function updateTable(countrySelect) {
                     var cell = row.append("td");
                     cell.text(value);
                 });
-=======
-    fetch(`http://127.0.0.1:5000/api/v1.0/buildtable/${countrySelect}`)
-    .then(response => response.json())
-    .then(function(data) {
-
-        var tableData = data;
-        console.log("here",tableData)
-        // Prevent the page from refreshing
-        d3.event.preventDefault();
-
-        // Clear out current contents in the table
-        tbody.html("");
-
-        // Select the input element and get the raw HTML node
-        var inputElement = d3.select(".form-control");
-
-        // Get the value property of the input element
-        var inputValue = inputElement.property("value");
-
-        // Filter Data with country equal to input value
-        var filteredData = tableData.filter(wineObject => wineObject.country === inputValue);
-
-        // Get a reference to the table body
-        var tbody = d3.select("tbody");
-
-        // Loop through each wine object in the data array
-        filteredData.forEach((wineObject) => {
-
-            // Append one table row for each wine object
-            var row = tbody.append("tr");
-
-            // Use `Object.entries` and forEach to iterate through keys and values of wine object
-            Object.entries(wineObject).forEach(([key, value]) => {
-
-                // Append one cell per wine object value 
-                var cell = row.append("td");
-                cell.text(value);
->>>>>>> f03dd78f9ee7fd36284ed03875bcb760c54f7b76
             });
         });
     });
