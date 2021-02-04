@@ -79,12 +79,18 @@ input, select, textarea {
 
 	body {
 		background: #fff;
+<<<<<<< HEAD
 	}
 
 	.body-container {
 		-webkit-overflow-scrolling: touch;
 	  }
 
+=======
+		overflow: hidden;
+	}
+
+>>>>>>> f03dd78f9ee7fd36284ed03875bcb760c54f7b76
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
 			-moz-animation: none !important;
 			-webkit-animation: none !important;
@@ -394,6 +400,7 @@ body {
   html {
 	height: 86%;
   }
+<<<<<<< HEAD
  
   .menu-btn {
 	background-color: #7e32d4;
@@ -430,6 +437,12 @@ body {
  .dropdown-menu:hover .menu-btn {
 	background-color: #3e8e41;
  }
+=======
+  .well {
+	text-align: center;
+
+  }
+>>>>>>> f03dd78f9ee7fd36284ed03875bcb760c54f7b76
 
   	/* Table Area */
 	#table-area th {
