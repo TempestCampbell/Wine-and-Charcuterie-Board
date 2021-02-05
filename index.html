@@ -17,80 +17,62 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
-		<!-- The div where we will inject our map -->
-		<div id="map"></div>
-		<div id="wrapper">
-			<div id="bg"></div>
-			<div id="overlay"></div>
-			<div id="main">
+			<!-- The div where we will inject our map -->
+			<div id="map" name="map"></div>
+			<div id="wrapper">
+				<div id="bg"></div>
+				<div id="overlay"></div>
+				<div id="main">
 
-				<!-- Header -->
-					<header id="header">
-						<h1>Wine and Charcuterie</h1>
-						<p>Press &nbsp;&bull;&nbsp; Any Key &nbsp;&bull;&nbsp; To Begin</p>
-						<!-- <nav>
-							<ul>
-								<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-								<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-								<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-							</ul>
-						</nav> -->
-					</header>
+					<!-- Header -->
+						<header id="header">
+							<h1>Wine and Charcuterie</h1>
+							<p>Press &nbsp;&bull;&nbsp; Any Key &nbsp;&bull;&nbsp; To Begin</p>
+							<!-- <nav>
+								<ul>
+									<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+									<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+									<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+							</nav> -->
+						</header>
+				</div>
 			</div>
-		</div>
-		<div class="col-md-10">
-<<<<<<< HEAD
-			<div class="dropdown-menu">
-				<button class="menu-btn">Filter By</button>
-					<div class="menu-content">
-<<<<<<< HEAD
-						<a class="links" href="#">Highest Rated</a>
-						<a class="links" href="#">Lowest Rated</a>
-						<a class="links" href="#">Most Expensive</a>
-						<a class="links" href="#">Cheapest</a>
-						<a class="links" href="#">Newest Vintage</a>
-						<a class="links" href="#">Oldest Vintage</a>
-=======
-							<a class="links" href="#">Highest Rated</a>
-							<a class="links" href="#">Lowest Rated</a>
-							<a class="links" href="#">Most Expensive</a>
-							<a class="links" href="#">Cheapest</a>
-							<a class="links" href="#">Newest Vintage</a>
-							<a class="links" href="#">Oldest Vintage</a>
->>>>>>> mk/coding
-					</div>
-=======
-			<div class="custom-select" style="width:200px;">
-				<select>
-					<option value="0">Filter By:</option>
-					<option value="HighestRated">Highest Rated</option>
-					<option value="LowestRated">Lowest Rated</option>
-					<option value="MostExpensive">Most Expensive</option>
-					<option value="Cheapest">Cheapest</option>
-					<option value="NewestVintage">Newest Vintage</option>
-					<option value="OldestVintage">Oldest Vintage</option>
-				</select>
->>>>>>> mk/coding
+		<form action = "http://127.0.0.1:5000/api/v1.0/buildtable/${countrySelect}/${dropDown}" method = "post">
+			<div class="col-md-10">
+				<label for="countryIn">Country: </label>
+				<input type="text" id="countryIn" name="countrySelect" readonly> 
+				<div class="custom-select" style="width:200px;">
+					<select id="mySelect" name = "filter">
+						<option value="0">Filter By:</option>
+						<option value="HighestRated">Highest Rated</option>
+						<option value="LowestRated">Lowest Rated</option>
+						<option value="MostExpensive">Most Expensive</option>
+						<option value="Cheapest">Cheapest</option>
+						<option value="NewestVintage">Newest Vintage</option>
+						<option value="OldestVintage">Oldest Vintage</option>
+					</select>
+				</div>
+				<div id="table-area" class="">
+				<table id="wine-table" class="table table-striped">
+					<thead>
+					<tr>
+						<th class="table-head">Date</th>
+						<th class="table-head">City</th>
+						<th class="table-head">State</th>
+						<th class="table-head">Country</th>
+						<th class="table-head">Shape</th>
+						<th class="table-head">Duration</th>
+						<th class="table-head">Comments</th>
+					</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+				</div>
 			</div>
-			<div id="table-area" class="">
-			  <table id="wine-table" class="table table-striped">
-				<thead>
-				  <tr>
-					<th class="table-head">Date</th>
-					<th class="table-head">City</th>
-					<th class="table-head">State</th>
-					<th class="table-head">Country</th>
-					<th class="table-head">Shape</th>
-					<th class="table-head">Duration</th>
-					<th class="table-head">Comments</th>
-				  </tr>
-				</thead>
-				<tbody></tbody>
-			  </table>
-			</div>
-		  </div>
+		</form>
 		<!-- Leaflet JS -->
 		<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
 			integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="

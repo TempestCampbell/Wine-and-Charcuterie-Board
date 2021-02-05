@@ -394,8 +394,6 @@ body {
   html {
 	height: 86%;
   }
-<<<<<<< HEAD
-=======
 
   .leaflet-popup-content {
 	text-align: center;
@@ -434,9 +432,8 @@ body {
   .legend .max {
 	float: right;
   }
->>>>>>> mk/coding
  
-  .menu-btn {
+  /* .menu-btn {
 	background-color: #7e32d4;
 	color: white;
 	padding: 16px;
@@ -455,8 +452,38 @@ body {
 	background-color: #017575;
 	min-width: 160px;
 	z-index: 1;
- }
+ } */
+ input {
+	border: black;
+	order: -1;
+	color: rgb(255, 30, 30);
+	font-size: 25px;
+	font-weight: 2000;
+	background: black;
+}
+label {
+	border: black;
+	order: -1;
+	color: rgb(255, 30, 30);
+	font-size: 25px;
+	font-weight: 2000;
+	background: black;
+	
+}
+/* input:focus {
+    border: 1px solid red;
+}
+input:focus + label{
+    color: red;
+} */
+/* label:focus-within {
+	background: none;
+ } */
 
+.col-md-10 {
+	position: relative;
+	font-family: Arial;
+}
 /*the container must be positioned relative:*/
 .custom-select {
 	position: relative;
@@ -517,21 +544,6 @@ body {
   .select-items div:hover, .same-as-selected {
 	background-color: rgba(0, 0, 0, 0.1);
   }
- /* .links {
-	color: rgb(255, 255, 255);
-	padding: 12px 16px;
-	text-decoration: none;
-	display: block;
-	font-size: 18px;
-	font-weight: bold;
-	border-bottom: 1px solid black;
- }
- .links:hover {
-	background-color: rgb(8, 107, 46);
- } */
- .dropdown-menu:hover .menu-btn {
-	background-color: #3e8e41;
- }
 
   	/* Table Area */
 	#table-area th {

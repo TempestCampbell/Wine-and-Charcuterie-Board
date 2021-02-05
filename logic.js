@@ -1,17 +1,3 @@
-// var myMap = L.map("map", {
-//     center: [37.09, -95.71],
-//     zoom: 2
-//   });
-  
-//   L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
-//     attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
-//     tileSize: 512,
-//     maxZoom: 18,
-//     zoomOffset: -1,
-//     id: "mapbox/streets-v11",
-//     accessToken: API_KEY
-//   }).addTo(myMap);
-
 // Create init event handler
 var form = d3.select(".is-preload");
 form.on("keypress", init);
@@ -35,20 +21,8 @@ function init() {
 
     // Read the csv file to get data
     d3.json("GeoCountry.geojson").then(function(data) {
-<<<<<<< HEAD
 
-=======
->>>>>>> mk/coding
         console.log(data);
-
-        // Fetch api from flask
-        // fetch("https://127.0.0.1:5000/api/v1.0/world", {
-        //     method: "GET",
-        //     headers: {
-        //         "Access-Control-Allow-Origin": "*"
-        //     }
-
-        // }).then(function(response) {
         
             // Create a new choropleth layer
             geojson = L.choropleth(data, {
@@ -73,13 +47,10 @@ function init() {
 
                 // Binding a pop-up to each layer
                 onEachFeature: function(feature, layer) {
-<<<<<<< HEAD
-                layer.bindPopup().on('click', function(ev) {
-=======
                 layer.bindPopup(feature.properties.name + "<br># of Wines: "
                 + feature.properties.title).on('click', function(ev) {
->>>>>>> mk/coding
                     var countrySelect = feature.properties.name;
+                    document.getElementById("countryIn").value = countrySelect
                     updateTable(countrySelect);
                 });
                 }
@@ -114,28 +85,7 @@ function init() {
             legend.addTo(myMap);
         
     });
-<<<<<<< HEAD
-    idNumber=["Highest Ranked", "Lowest Ranked","Cheapest","Most Expensive"]
-    // select the user input field
-    // var dropDownMenu = d3.select("#selDataset");
-    // dropDownMenu.append("option").text("HighestRated");
-    // dropDownMenu.append("option").text("LowestRated");
-    // dropDownMenu.append("option").text("MostExpensive");
-    // dropDownMenu.append("option").text("Cheapest");
-    // dropDownMenu.append("option").text("NewestVintage");
-    // dropDownMenu.append("option").text("OldestVintage");
-    // let dropdownBtn = document.querySelector('.menu-btn');
-    // let menuContent = document.querySelector('.menu-content');
-    // dropdownBtn.addEventListener('click',()=>{
-    // if(menuContent.style.display===""){
-    //     menuContent.style.display="block";
-    // } 
-    // else {
-    //     menuContent.style.display="";
-    // }
-    // });
-=======
->>>>>>> mk/coding
+
 };
 
 var x, i, j, l, ll, selElmnt, a, b, c;
@@ -223,111 +173,36 @@ for (i = 0; i < xl; i++) {
 // if the user clicks anywhere outside the select box,
 // then close all select boxes:
 document.addEventListener("click", closeAllSelect);
-// Create map event handler
-// var mapSelect = d3.select("#map");
-// mapSelect.on("click", updateTable);
 
 function updateTable(countrySelect) {
 
     console.log("here again", countrySelect)
-
-<<<<<<< HEAD
-    // dropdown menu to filter table
-    let dropdownBtn = document.querySelector('.menu-btn');
-    let menuContent = document.querySelector('.menu-content');
-    dropdownBtn.addEventListener('click',()=>{
-    if(menuContent.style.display===""){
-        menuContent.style.display="block";
-    } 
-    else {
-        menuContent.style.display="";
-    }
-    });
-<<<<<<< HEAD
-
-    // Select the input element and get the raw HTML node
-    var inputElement = d3.select(".menu-content");
-
-    // Get the value property of the input element
-    var dropDown = inputElement.property("value");
-
-    // handle on click event
-    d3.select('.menu-content')
-    .on('change', function() {
-
-        // Read the csv file to get data
-        d3.json(`http://127.0.0.1:5000/api/v1.0/buildtable/${countrySelect}/${dropDown}`).then(function(data) {
-            console.log("here we go", data);
-        // fetch(`http://127.0.0.1:5000/api/v1.0/buildtable/${countrySelect}`)
-        // .then(response => response.json())
-        // .then(function(data) {
-
-            var tableData = data;
-            console.log("here", tableData)
-            // Prevent the page from refreshing
-            d3.event.preventDefault();
-
-            // Clear out current contents in the table
-            tbody.html("");
-
-            // // Select the input element and get the raw HTML node
-            // var inputElement = d3.select(".form-control");
-
-            // // Get the value property of the input element
-            // var inputValue = inputElement.property("value");
-
-            // // Filter Data with country equal to input value
-            // var filteredData = tableData.filter(wineObject => wineObject.country === inputValue);
-
-            // Get a reference to the table body
-            var tbody = d3.select("tbody");
-
-            // Loop through each wine object in the data array
-            tableData.forEach((wineObject) => {
-
-=======
-=======
-    // // dropdown menu to filter table
-    // let dropdownBtn = document.querySelector('.menu-btn');
-    // let menuContent = document.querySelector('#menu-content');
-    // dropdownBtn.addEventListener('click',()=>{
-    // if(menuContent.style.display===""){
-    //     menuContent.style.display="block";
-    // } 
-    // else {
-    //     menuContent.style.display="";
-    // }
-    // });
->>>>>>> mk/coding
-
-    // Select the input element and get the raw HTML node
-    // var inputElement = d3.select(".menu-content");
-
-    // var x = document.getElementById("menu-content");
-    // var i = x.selectedIndex;
-    // var dropDown = x.options[i].text;
 
     // handle on click event
     // d3.select("select")
     // .on('change', function() {
 
         var dropDown = d3.select('select').property('value');
-        // var dropDown = this.options[this.selectedIndex].value
 
-        // var sel = document.getElementById("menu-content");
-        // var dropDown= sel.options[sel.selectedIndex].text;
-        // var dropDown = eval(d3.select(this).options[this.selectedIndex].text());
+        console.log("selection", dropDown);
 
-        // Get the value property of the input element
-        // var dropDown = inputElement.property("value");
-        console.log("selection", dropDown)
         // Read the csv file to get data
-        d3.json(`http://127.0.0.1:5000/api/v1.0/buildtable/${countrySelect}/${dropDown}`).then(function(tableData) {
-            console.log("here we go", tableData);
-        // fetch(`http://127.0.0.1:5000/api/v1.0/buildtable/${countrySelect}`)
-        // .then(response => response.json())
-        // .then(function(data) {
+        // d3.json(`http://127.0.0.1:5000/api/v1.0/buildtable/${countrySelect}/${dropDown}`).then(function(tableData) {
+            // console.log("here we go", tableData);
 
+        fetch(`http://127.0.0.1:5000/api/v1.0/buildtable/${countrySelect}/${dropDown}`,{
+            method: 'POST',
+            headers: {
+                "Access-Control-Allow-Origin":"*",
+            //     'Accept': 'application/json',
+            //    'Content-Type': 'application/json;charset=utf-8',
+            },
+            // body: JSON.stringify({a: 1, b: 2})
+        })
+        .then(response => response.json())
+        .then(function(data) {
+
+            console.log(data);
             // Prevent the page from refreshing
             // d3.event.preventDefault();
 
@@ -349,7 +224,6 @@ function updateTable(countrySelect) {
             // Loop through each wine object in the data array
             tableData.forEach((wineObject) => {
 
->>>>>>> mk/coding
                 // Append one table row for each wine object
                 var row = tbody.append("tr");
 
