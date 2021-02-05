@@ -116,32 +116,28 @@ def buildtable(countryIn=None,dropDown=None):
 def cheesepair(variety):
     """Returns the cheese ID given a varietal."""
     
-    cheeseID=session.query(CheeseData.cheeseid,CheeseData.name).filter(CheeseData.name==session.query(WineCheesePairingData.cheesename).filter(WineCheesePairingData.wine==variety.capitalize()))
-    cheeseDict=[]
-    for cheeseid, name in cheeseID:
-        cheese_dict={}
-        cheese_dict["cheeseID"]=cheeseid
-        cheese_dict["name"]=name
-        cheeseDict.append(cheese_dict)
-    cheeseVarID=cheeseDict[0]['cheeseID']
-
-    suggestions=session.query()
-    session.query(FlavorLookups.flavorid, FlavorLookups.cheeseid).filter(FlavorLookups.cheeseid==cheeseVarID)
-    suggDict=[]
-    for flavorid, cheeseid in suggestions:
-        sugg_dict={}
-        sugg_dict["cheeseID"]=cheeseid
-        sugg_dict["flavorid"]=flavorid
-        suggDict.append(sugg_dict)
-
-    return jsonify(suggDict)
-
-@app.route("/api/v1.0/cheeses/<cheeseID>")
-def cheeses(cheeseID):
-    """Returns 5 cheese suggestions given a cheese ID"""
-
-
+    cheeseID=session.query(FlavorLookups.flavorid, FlavorLookups.cheeseid).filter(FlavorLookups.cheeseid==session.query(CheeseData.cheeseid).filter(CheeseData.name==session.query(WineCheesePairingData.cheesename).filter(WineCheesePairingData.wine==variety.capitalize())))
+    justFlavors=[]
+    for flavorid, cheeseid in cheeseID:
+        justFlavors.append(flavorid)
     
+    cheeseFlav=session.query(FlavorLookups.cheeseid,FlavorLookups.flavorid).filter(FlavorLookups.flavorid.in_(justFlavors))
+    justIDS=[]
+    for cheeseid, flavorid in cheeseFlav:
+        justIDS.append(cheeseid)
+
+
+    cheeseNames=session.query(CheeseData.name, CheeseData.cheeseid).filter(CheeseData.cheeseid.in_(justIDS)).limit(5)
+    cnDict=[]
+    for name, cheeseid in cheeseNames:
+        cn_dic={}
+        cn_dic["name"]=name
+        cn_dic["cheeseid"]=cheeseid
+        cnDict.append(cn_dic)
+    
+
+    return jsonify(cnDict)
+
 
 @app.route("/api/v1.0/meatpair/<countryIn>")
 def meatpair(countryIn):
