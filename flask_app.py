@@ -12,7 +12,11 @@ from sqlalchemy import create_engine, func
 # Database Setup
 #################################################
 
+<<<<<<< HEAD
 engine = create_engine(f"postgresql://postgres:Playt1me!@localhost:5432/WineAndDined")
+=======
+engine = create_engine(f"postgresql://postgres:Deez^nout3@localhost:5432/WineAndDined")
+>>>>>>> mk/coding
 
 # engine = create_engine("postgresql://postgres:postgres@localhost:5432/WineAndDined")
 
@@ -40,7 +44,7 @@ session=Session(engine)
 app = Flask(__name__)
 
 # Use flask_sqlalchemy to set up sql connection locally
-app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://postgres:postgres@localhost:5432/WineAndDined'
+app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://postgres:Deez^nout3@localhost:5432/WineAndDined'
 db = SQLAlchemy(app)
 
 @app.route("/")
