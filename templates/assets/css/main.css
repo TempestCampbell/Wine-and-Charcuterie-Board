@@ -79,8 +79,11 @@ input, select, textarea {
 
 	body {
 		background: #fff;
-		overflow: hidden;
 	}
+
+	.body-container {
+		-webkit-overflow-scrolling: touch;
+	  }
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
 			-moz-animation: none !important;
@@ -391,9 +394,155 @@ body {
   html {
 	height: 86%;
   }
-  .well {
-	text-align: center;
 
+  .leaflet-popup-content {
+	text-align: center;
+  }
+  
+  /* CSS from the Leaflet-Choropleth documentation */
+  .legend {
+	padding: 6px 8px;
+	font: 12px Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #555;
+	background: #fff;
+	background: rgba(255, 255, 255, 0.8);
+	border-radius: 5px;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .legend ul {
+	padding: 0;
+	margin: 0;
+	clear: both;
+	list-style-type: none;
+  }
+  
+  .legend li {
+	display: inline-block;
+	width: 30px;
+	height: 22px;
+  }
+  
+  .legend .min {
+	float: left;
+	padding-bottom: 5px;
+  }
+  
+  .legend .max {
+	float: right;
+  }
+ 
+  /* .menu-btn {
+	background-color: #7e32d4;
+	color: white;
+	padding: 16px;
+	font-size: 20px;
+	font-weight: bolder;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	border: none;
+ }
+ .dropdown-menu {
+	position: relative;
+	display: inline-block;
+ }
+ #menu-content * {
+	display: none;
+	position: absolute;
+	background-color: #017575;
+	min-width: 160px;
+	z-index: 1;
+ } */
+ input {
+	border: black;
+	order: -1;
+	color: rgb(255, 30, 30);
+	font-size: 25px;
+	font-weight: 2000;
+	background: black;
+}
+label {
+	border: black;
+	order: -1;
+	color: rgb(255, 30, 30);
+	font-size: 25px;
+	font-weight: 2000;
+	background: black;
+	
+}
+/* input:focus {
+    border: 1px solid red;
+}
+input:focus + label{
+    color: red;
+} */
+/* label:focus-within {
+	background: none;
+ } */
+
+.col-md-10 {
+	position: relative;
+	font-family: Arial;
+}
+/*the container must be positioned relative:*/
+.custom-select {
+	position: relative;
+	font-family: Arial;
+  }
+  
+  .custom-select select {
+	display: none; /*hide original SELECT element:*/
+  }
+  
+  .select-selected {
+	background-color: rgb(184, 30, 255);
+  }
+  
+  /*style the arrow inside the select element:*/
+  .select-selected:after {
+	position: absolute;
+	content: "";
+	top: 14px;
+	right: 10px;
+	width: 0;
+	height: 0;
+	border: 6px solid transparent;
+	border-color: #fff transparent transparent transparent;
+  }
+  
+  /*point the arrow upwards when the select box is open (active):*/
+  .select-selected.select-arrow-active:after {
+	border-color: transparent transparent #fff transparent;
+	top: 7px;
+  }
+  
+  /*style the items (options), including the selected item:*/
+  .select-items div,.select-selected {
+	color: #ffffff;
+	padding: 8px 16px;
+	border: 1px solid transparent;
+	border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+	cursor: pointer;
+	user-select: none;
+  }
+  
+  /*style items (options):*/
+  .select-items {
+	position: absolute;
+	background-color: rgb(184, 30, 255);
+	top: 100%;
+	left: 0;
+	right: 0;
+	z-index: 99;
+  }
+  
+  /*hide the items when the select box is closed:*/
+  .select-hide {
+	display: none;
+  }
+  
+  .select-items div:hover, .same-as-selected {
+	background-color: rgba(0, 0, 0, 0.1);
   }
 
   	/* Table Area */
