@@ -12,7 +12,7 @@ from sqlalchemy import create_engine, func
 # Database Setup
 #################################################
 
-engine = create_engine(f"postgresql://postgres:Playt1me!@localhost:5432/WineAndDined")
+engine = create_engine(f"postgresql://postgres:postgres@localhost:5432/WineAndDined")
 
 # engine = create_engine("postgresql://postgres:postgres@localhost:5432/WineAndDined")
 
