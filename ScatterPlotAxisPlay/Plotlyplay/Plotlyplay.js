@@ -11,11 +11,16 @@ function buildPlot(country) {
         temp.forEach(function(d){
             yy.push(parseFloat(d.points))
         })
-        
+    
         hovertext=[]
+        // layout = {
+        //     hovermode:'closest',
+        //     title:'Hover on Points'
+        // };
         temp.forEach(function(d){
             string=`${d.title}<br> Price:$${d.price} <br> Points: ${d.points}`
             hovertext.push(string)
+            
         })
         
         console.log(xx)
