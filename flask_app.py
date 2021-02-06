@@ -1,6 +1,5 @@
 from flask import Flask, jsonify,  make_response, after_this_request, render_template, redirect, request
 from flask_sqlalchemy import SQLAlchemy
-import os
 import numpy as np
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
@@ -42,21 +41,26 @@ app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://postgres:{pw}@localhost:5
 db = SQLAlchemy(app)
 
 @app.route("/")
-def welcome():
-    """List all available api routes."""
-    return (
-        f"Welcome to the Wine API! <br/>"
-        f"Available Routes:<br/>"
-        f"For country and recurrence number:<br/>"
-        f"/api/v1.0/world<br/>"
-        f"For top 100 of 'filter' for 'country': <br/>"
-        f"/api/v1.0/buildtable/<countryIn>/<dropDown><br/>"
-    )
+def index():
+    session = Session(engine)
+    session.close()
+        # """List all available api routes."""
+        # return (
+        #     f"Welcome to the Wine API! <br/>"
+        #     f"Available Routes:<br/>"
+        #     f"For country and recurrence number:<br/>"
+        #     f"/api/v1.0/world<br/>"
+        #     f"For top 100 of 'filter' for 'country': <br/>"
+        #     f"/api/v1.0/buildtable/<countryIn>/<dropDown><br/>"
+        # )
+    return render_template("index.html", title='Wine and Dine')
 
-@app.route("/api/v1.0/world", methods=['GET','POST'])
+@app.route("/api/v1.0/world")
 def world():
+    session = Session(engine)
     """Query to retrieve the country and the number of wines associated with each."""
     countryCount=session.query(Wines.country, func.count(Wines.country)).group_by(Wines.country).order_by(func.count(Wines.country).desc()).all()
+    session.close()
     countryDict=[]
     for country, count in countryCount:
         country_dict={}
@@ -71,11 +75,12 @@ def world():
     
     return jsonify(countryDict)
 
-@app.route("/api/v1.0/buildtable/<countryIn>", methods=['GET','POST'])
-@app.route("/api/v1.0/buildtable/<countryIn>/<dropDown>")
+@app.route("/api/v1.0/buildtable/<countryIn>", methods=['GET', 'POST'])
+@app.route("/api/v1.0/buildtable/<countryIn>/<dropDown>", methods=['GET', 'POST'])
 def buildtable(countryIn=None,dropDown=None):
     if request.method == 'POST':
-        countryIn = request.form.get("countrySelect")
+        session = Session(engine)
+        countryIn == request.form.get("countrySelect")
         dropDown = request.form.get("filter")
         """Return Wine country, points, price, title, variety, and vintage for a specified country and filter."""
 
@@ -98,7 +103,8 @@ def buildtable(countryIn=None,dropDown=None):
                 tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn.capitalize()).order_by(Wines.vintage.desc()).limit(100)
             elif dropDown == "OldestVintage":
                 tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn.capitalize()).order_by(Wines.vintage).limit(100)
-
+        
+        session.close()
         # Set up dictionary
         orderDict=[]
         for country, points, price, title, variety, vintage in tableQ:
@@ -115,8 +121,8 @@ def buildtable(countryIn=None,dropDown=None):
         def _add_header(response):
             response.headers.add("Access-Control-Allow-Origin","*")
             return response  
-        return jsonify(orderDict)
-    return render_template("index.html")
+        return jsonify(orderDict), render_template("index.html", title='Wine and Dine', orderDict=orderDict)
+
 @app.route("/api/v1.0/cheesepair/<variety>")
 def cheesepair(variety):
     """Returns the cheese ID given a varietal."""

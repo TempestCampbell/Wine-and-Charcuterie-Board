@@ -40,12 +40,12 @@
 						</header>
 				</div>
 			</div>
-		<form action = "http://127.0.0.1:5000/api/v1.0/buildtable/${countrySelect}/${dropDown}" method = "post">
+		<form action = "http://127.0.0.1:5000/api/v1.0/buildtable/${countrySelect}/${dropDown}", method = "post" enctype="application/json; charset=UTF-8">
 			<div class="col-md-10">
 				<label for="countryIn">Country: </label>
 				<input type="text" id="countryIn" name="countrySelect" readonly> 
 				<div class="custom-select" style="width:200px;">
-					<select id="mySelect" name = "filter">
+					<select id="mySelect" name = "filter" onchange="updateTable(countryIn)">
 						<option value="0">Filter By:</option>
 						<option value="HighestRated">Highest Rated</option>
 						<option value="LowestRated">Lowest Rated</option>
@@ -68,7 +68,9 @@
 						<th class="table-head">Comments</th>
 					</tr>
 					</thead>
-					<tbody></tbody>
+					{% for order in orderDict %}
+					<tbody>{{ order }}</tbody>
+					{% endfor %}
 				</table>
 				</div>
 			</div>

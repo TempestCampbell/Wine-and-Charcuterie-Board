@@ -48,10 +48,10 @@ function init() {
                 // Binding a pop-up to each layer
                 onEachFeature: function(feature, layer) {
                 layer.bindPopup(feature.properties.name + "<br># of Wines: "
-                + feature.properties.title).on('click', function(ev) {
-                    var countrySelect = feature.properties.name;
-                    document.getElementById("countryIn").value = countrySelect
-                    updateTable(countrySelect);
+                + feature.properties.title).on('click', function() {
+                    var countryIn = feature.properties.name;
+                    document.getElementById("countryIn").value = countryIn
+                    updateTable(countryIn);
                 });
                 }
             }).addTo(myMap);
@@ -174,15 +174,15 @@ for (i = 0; i < xl; i++) {
 // then close all select boxes:
 document.addEventListener("click", closeAllSelect);
 
-function updateTable(countrySelect) {
+d3.select("select")
+.on('change', updateTable);
 
-    console.log("here again", countrySelect)
+function updateTable(countryIn) {
 
-    // handle on click event
-    // d3.select("select")
-    // .on('change', function() {
+    console.log("here again", countryIn)
 
         var dropDown = d3.select('select').property('value');
+        // var dropDown = document.getElementById("myselect").value
 
         console.log("selection", dropDown);
 
@@ -190,21 +190,21 @@ function updateTable(countrySelect) {
         // d3.json(`http://127.0.0.1:5000/api/v1.0/buildtable/${countrySelect}/${dropDown}`).then(function(tableData) {
             // console.log("here we go", tableData);
 
-        fetch(`http://127.0.0.1:5000/api/v1.0/buildtable/${countrySelect}/${dropDown}`,{
+        fetch(`http://127.0.0.1:5000/api/v1.0/buildtable/${countryIn}/${dropDown}`, {
             method: 'POST',
+            mode: 'cors',
             headers: {
                 "Access-Control-Allow-Origin":"*",
+                // 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
             //     'Accept': 'application/json',
-            //    'Content-Type': 'application/json;charset=utf-8',
+                // 'Content-Type': 'application/json;charset=utf-8'
             },
-            // body: JSON.stringify({a: 1, b: 2})
+            body: JSON.stringify({countryIn:countryIn, dropDown:dropDown})
         })
         .then(response => response.json())
         .then(function(data) {
 
             console.log(data);
-            // Prevent the page from refreshing
-            // d3.event.preventDefault();
 
             // Clear out current contents in the table
             tbody.html("");
@@ -238,5 +238,3 @@ function updateTable(countrySelect) {
         });
     };
 
-    d3.select("select")
-    .on('change', updateTable);
