@@ -48,8 +48,7 @@ db = SQLAlchemy(app)
 
 @app.route("/")
 def index():
-    session = Session(engine)
-    session.close()
+    
         # """List all available api routes."""
         # return (
         #     f"Welcome to the Wine API! <br/>"
@@ -66,7 +65,7 @@ def world():
     session = Session(engine)
     """Query to retrieve the country and the number of wines associated with each."""
     countryCount=session.query(Wines.country, func.count(Wines.country)).group_by(Wines.country).order_by(func.count(Wines.country).desc()).all()
-    session.close()
+    
     countryDict=[]
     for country, count in countryCount:
         country_dict={}
@@ -78,56 +77,57 @@ def world():
     def _add_header(response):
         response.headers.add("Access-Control-Allow-Origin","*")
         return response
-    
+    session.close()
     return jsonify(countryDict)
 
 @app.route("/api/v1.0/buildtable/<countryIn>", methods=['GET', 'POST'])
 @app.route("/api/v1.0/buildtable/<countryIn>/<dropDown>", methods=['GET', 'POST'])
 def buildtable(countryIn=None,dropDown=None):
-    if request.method == 'POST':
-        session = Session(engine)
-        countryIn == request.form.get("countrySelect")
-        dropDown = request.form.get("filter")
-        """Return Wine country, points, price, title, variety, and vintage for a specified country and filter."""
+    # if request.method == 'POST':
+    session = Session(engine)
+    # countryIn == request.form.get("countrySelect")
+    # dropDown = request.form.get("filter")
+    """Return Wine country, points, price, title, variety, and vintage for a specified country and filter."""
 
-        if countryIn=='United States of America':
-            countryIn="US"
-        
-        if dropDown==None:
+    if countryIn=='United States of America':
+        countryIn="US"
+    
+    if dropDown==None:
+        tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn.capitalize()).order_by(Wines.points.desc()).limit(100)
+    
+    else:
+        if dropDown == "HighestRated":
             tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn.capitalize()).order_by(Wines.points.desc()).limit(100)
+        elif dropDown == "LowestRated":
+            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn.capitalize()).order_by(Wines.points).limit(100)
+        elif dropDown == "Cheapest":
+            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn.capitalize()).order_by(Wines.price).limit(100)
+        elif dropDown == "MostExpensive":
+            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn.capitalize()).order_by(Wines.price.desc()).limit(100)
+        elif dropDown == "NewestVintage":
+            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn.capitalize()).order_by(Wines.vintage.desc()).limit(100)
+        elif dropDown == "OldestVintage":
+            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn.capitalize()).order_by(Wines.vintage).limit(100)
+
+    # Set up dictionary
+    orderDict=[]
+    for country, points, price, title, variety, vintage in tableQ:
+        order_dict={}
+        order_dict["country"]=country
+        order_dict["points"]=points
+        order_dict["price"]=price
+        order_dict["title"]=title
+        order_dict["variety"]=variety
+        order_dict["vintage"]=vintage
+        orderDict.append(order_dict)
         
-        else:
-            if dropDown == "HighestRated":
-                tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn.capitalize()).order_by(Wines.points.desc()).limit(100)
-            elif dropDown == "LowestRated":
-                tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn.capitalize()).order_by(Wines.points).limit(100)
-            elif dropDown == "Cheapest":
-                tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn.capitalize()).order_by(Wines.price).limit(100)
-            elif dropDown == "MostExpensive":
-                tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn.capitalize()).order_by(Wines.price.desc()).limit(100)
-            elif dropDown == "NewestVintage":
-                tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn.capitalize()).order_by(Wines.vintage.desc()).limit(100)
-            elif dropDown == "OldestVintage":
-                tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn.capitalize()).order_by(Wines.vintage).limit(100)
-        
-        session.close()
-        # Set up dictionary
-        orderDict=[]
-        for country, points, price, title, variety, vintage in tableQ:
-            order_dict={}
-            order_dict["country"]=country
-            order_dict["points"]=points
-            order_dict["price"]=price
-            order_dict["title"]=title
-            order_dict["variety"]=variety
-            order_dict["vintage"]=vintage
-            orderDict.append(order_dict)
-            
-        @after_this_request
-        def _add_header(response):
-            response.headers.add("Access-Control-Allow-Origin","*")
-            return response  
-        return jsonify(orderDict), render_template("index.html", title='Wine and Dine', orderDict=orderDict)
+    # @after_this_request
+    # def _add_header(response):
+    #     response.headers.add("Access-Control-Allow-Origin","*")
+    #     return response
+
+    session.close()
+    return jsonify(orderDict), render_template("index.html", title='Wine and Dine', orderDict=orderDict)
 
 @app.route("/api/v1.0/cheesepair/<variety>")
 def cheesepair(variety):

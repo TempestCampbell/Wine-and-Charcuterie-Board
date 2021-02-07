@@ -1,7 +1,7 @@
 // Create init event handler
 var form = d3.select(".is-preload");
 form.on("keypress", init);
-
+console.log("I am lost")
 // Create the function for the initial data rendering
 function init() {
 
@@ -18,7 +18,7 @@ function init() {
         id: "mapbox/streets-v11",
         accessToken: "pk.eyJ1IjoicmJsZXZpbmUiLCJhIjoiY2tqenlwd2c2MDhxajJ2cGJwZ2w5YWt1eSJ9.CbH0egXe3ybOBDvV6bhVsw"
       }).addTo(myMap);
-
+      console.log("here i am")
     // Read the csv file to get data
     d3.json("GeoCountry.geojson").then(function(data) {
 
@@ -191,15 +191,15 @@ function updateTable(countryIn) {
             // console.log("here we go", tableData);
 
         fetch(`http://127.0.0.1:5000/api/v1.0/buildtable/${countryIn}/${dropDown}`, {
-            method: 'POST',
-            mode: 'cors',
+            method: 'GET',
+            // mode: 'cors',
             headers: {
                 "Access-Control-Allow-Origin":"*",
                 // 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
             //     'Accept': 'application/json',
                 // 'Content-Type': 'application/json;charset=utf-8'
             },
-            body: JSON.stringify({countryIn:countryIn, dropDown:dropDown})
+            // body: JSON.stringify({countryIn:countryIn, dropDown:dropDown})
         })
         .then(response => response.json())
         .then(function(data) {
@@ -235,6 +235,9 @@ function updateTable(countryIn) {
                     cell.text(value);
                 });
             });
+        })
+        .catch(error => {
+            throw(error);
         });
-    };
+};
 
