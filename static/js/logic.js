@@ -2,6 +2,7 @@
 var form = d3.select(".is-preload");
 form.on("keypress", init);
 console.log("I am lost")
+
 // Create the function for the initial data rendering
 function init() {
 
@@ -16,7 +17,7 @@ function init() {
         maxZoom: 18,
         zoomOffset: -1,
         id: "mapbox/streets-v11",
-        accessToken: "pk.eyJ1IjoicmJsZXZpbmUiLCJhIjoiY2tqenlwd2c2MDhxajJ2cGJwZ2w5YWt1eSJ9.CbH0egXe3ybOBDvV6bhVsw"
+        accessToken: API_KEY
       }).addTo(myMap);
       console.log("here i am")
     // Read the csv file to get data
@@ -24,7 +25,7 @@ function init() {
 
         console.log(data);
         
-            // Create a new choropleth layer
+            // CREATE A NEW CHOROPLETH LAYER
             geojson = L.choropleth(data, {
     
                 // Define what  property in the features to use
@@ -49,6 +50,7 @@ function init() {
                 onEachFeature: function(feature, layer) {
                 layer.bindPopup(feature.properties.name + "<br># of Wines: "
                 + feature.properties.title).on('click', function() {
+                    // countryIn VARIABLE
                     var countryIn = feature.properties.name;
                     document.getElementById("countryIn").value = countryIn
                     updateTable(countryIn);
@@ -88,34 +90,34 @@ function init() {
 
 };
 
+// CREATE CUSTOM SELECT TABLE FILTER
+
 var x, i, j, l, ll, selElmnt, a, b, c;
 
-// look for any elements with the class "custom-select":
+// Look for any elements with the class "custom-select"
 x = document.getElementsByClassName("custom-select");
 l = x.length;
 for (i = 0; i < l; i++) {
 selElmnt = x[i].getElementsByTagName("select")[0];
 ll = selElmnt.length;
 
-// for each element, create a new DIV that will act as the selected item:
+// For each element, create a new DIV that will act as the selected item
 a = document.createElement("DIV");
 a.setAttribute("class", "select-selected");
 a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
 x[i].appendChild(a);
 
-// for each element, create a new DIV that will contain the option list:
+// For each element, create a new DIV that will contain the option list
 b = document.createElement("DIV");
 b.setAttribute("class", "select-items select-hide");
 for (j = 1; j < ll; j++) {
 
-    // for each option in the original select element,
-    // create a new DIV that will act as an option item:
+    // For each option in the original select element, create a new DIV that will act as an option item
     c = document.createElement("DIV");
     c.innerHTML = selElmnt.options[j].innerHTML;
     c.addEventListener("click", function(e) {
 
-        // when an item is clicked, update the original select box,
-        // and the selected item:
+        // When an item is clicked, update the original select box, and the selected item
         var y, i, k, s, h, sl, yl;
         s = this.parentNode.parentNode.getElementsByTagName("select")[0];
         sl = s.length;
@@ -140,8 +142,7 @@ for (j = 1; j < ll; j++) {
 x[i].appendChild(b);
 a.addEventListener("click", function(e) {
 
-    // when the select box is clicked, close any other select boxes,
-    // and open/close the current select box:
+    // When the select box is clicked, close any other select boxes, and open/close the current select box
     e.stopPropagation();
     closeAllSelect(this);
     this.nextSibling.classList.toggle("select-hide");
@@ -150,8 +151,7 @@ a.addEventListener("click", function(e) {
 }
 function closeAllSelect(elmnt) {
 
-// a function that will close all select boxes in the document,
-// except the current select box:
+// Function that will close all select boxes in the document, except the current select box
 var x, y, i, xl, yl, arrNo = [];
 x = document.getElementsByClassName("select-items");
 y = document.getElementsByClassName("select-selected");
@@ -170,13 +170,14 @@ for (i = 0; i < xl; i++) {
     }
 }
 }
-// if the user clicks anywhere outside the select box,
-// then close all select boxes:
+// If the user clicks anywhere outside the select box, then close all select boxes
 document.addEventListener("click", closeAllSelect);
+
 
 d3.select("select")
 .on('change', updateTable);
 
+// Function to update table with selection data
 function updateTable(countryIn) {
 
     console.log("here again", countryIn)
@@ -187,10 +188,13 @@ function updateTable(countryIn) {
         // Clear out current contents in the table
         tbody.html("");
 
+        // Get a reference to the scatter plot
         var scatter = d3.select("plot")
 
+        // Clear out current contents in scatter plot
         scatter.html("")
 
+        // dropDown selection variable
         var dropDown = d3.select('select').property('value');
 
         console.log("selection", dropDown);
@@ -212,6 +216,7 @@ function updateTable(countryIn) {
 
             console.log(tableData);
 
+            // CREATE SCATTER PLOT
             temp=tableData
             temp=temp.filter(c=>c.country==countryIn)
             xx=[]
@@ -263,6 +268,7 @@ function updateTable(countryIn) {
             };
             Plotly.newPlot("plot", data, layout);
         
+            // CREATE WINE DATA TABLE
 
             // Loop through each wine object in the data array
             tableData.forEach((wineObject) => {
