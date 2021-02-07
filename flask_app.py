@@ -80,8 +80,8 @@ def world():
     session.close()
     return jsonify(countryDict)
 
-@app.route("/api/v1.0/buildtable/<countryIn>", methods=['GET', 'POST'])
-@app.route("/api/v1.0/buildtable/<countryIn>/<dropDown>", methods=['GET', 'POST'])
+@app.route("/api/v1.0/buildtable/<countryIn>", methods=['GET'])
+@app.route("/api/v1.0/buildtable/<countryIn>/<dropDown>", methods=['GET'])
 def buildtable(countryIn=None,dropDown=None):
     # if request.method == 'POST':
     session = Session(engine)
@@ -89,8 +89,8 @@ def buildtable(countryIn=None,dropDown=None):
     # dropDown = request.form.get("filter")
     """Return Wine country, points, price, title, variety, and vintage for a specified country and filter."""
 
-    if countryIn=='United States of America':
-        countryIn="US"
+    # if countryIn=='United States of America':
+    #     countryIn="US"
     
     if dropDown==None:
         tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn.capitalize()).order_by(Wines.points.desc()).limit(100)
@@ -127,7 +127,8 @@ def buildtable(countryIn=None,dropDown=None):
     #     return response
 
     session.close()
-    return jsonify(orderDict), render_template("index.html", title='Wine and Dine', orderDict=orderDict)
+    print(orderDict)
+    return jsonify(orderDict)
 
 @app.route("/api/v1.0/cheesepair/<variety>")
 def cheesepair(variety):
