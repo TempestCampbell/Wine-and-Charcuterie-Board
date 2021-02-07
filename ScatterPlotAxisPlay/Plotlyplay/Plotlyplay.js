@@ -2,7 +2,7 @@ function buildPlot(country) {
     d3.csv("globalWinePoints.csv").then(function(globalWinePoints) {
 
         temp=globalWinePoints
-        temp=temp.filter(c=>c.country==country)
+        temp=temp.filter(c=>c.country==countryIn)
         xx=[]
         temp.forEach(function(d){
             xx.push(parseFloat(d.price))

@@ -121,7 +121,8 @@ def buildtable(countryIn=None,dropDown=None):
     #     return response
 
     session.close()
-    return jsonify(orderDict), render_template("index.html", title='Wine and Dine', orderDict=orderDict)
+    print(orderDict)
+    return jsonify(orderDict)
 
 @app.route("/api/v1.0/cheesepair/<variety>")
 def cheesepair(variety):

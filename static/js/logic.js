@@ -20,7 +20,7 @@ function init() {
       }).addTo(myMap);
       console.log("here i am")
     // Read the csv file to get data
-    d3.json("GeoCountry.geojson").then(function(data) {
+    d3.json("static/js/GeoCountry.geojson").then(function(data) {
 
         console.log(data);
         
@@ -206,6 +206,61 @@ function updateTable(countryIn) {
 
             console.log(data);
 
+            temp=data
+            temp=temp.filter(c=>c.country==countryIn)
+            xx=[]
+            temp.forEach(function(d){
+                xx.push(parseFloat(d.price))
+            })
+            yy=[]
+            temp.forEach(function(d){
+                yy.push(parseFloat(d.points))
+            })
+            
+            hovertext=[]
+            temp.forEach(function(d){
+                string=`${d.title}<br> Price:$${d.price} <br> Points: ${d.points}`
+                hovertext.push(string)
+            })
+            
+            console.log(xx)
+
+            var trace1 = {
+                type: "scatter",
+                mode: "markers",
+                text: hovertext,
+                x: xx,
+                y: yy,
+                line: {
+                color: "#380059"
+                }
+            };
+        
+            var data = [trace1];
+            var layout = {
+                title: `Wine`,
+        
+                xaxis: {
+                    title: "Price($)",
+                    //Attempt at slider
+                    automargin: true,
+                    showticklabels: true,
+                    rangeslider:{
+                    },
+                },
+                yaxis: {
+                autorange: true,
+                title: "Points",
+                type: "linear"
+                },
+                showlegend: false
+            };
+            Plotly.newPlot("plot", data, layout);
+        
+
+            // Get a reference to the table body
+            var tbody = d3.select("tbody");
+
             // Clear out current contents in the table
             tbody.html("");
 
@@ -217,9 +272,6 @@ function updateTable(countryIn) {
 
             // // Filter Data with country equal to input value
             // var filteredData = tableData.filter(wineObject => wineObject.country === inputValue);
-
-            // Get a reference to the table body
-            var tbody = d3.select("tbody");
 
             // Loop through each wine object in the data array
             tableData.forEach((wineObject) => {
@@ -236,8 +288,5 @@ function updateTable(countryIn) {
                 });
             });
         })
-        .catch(error => {
-            throw(error);
-        });
 };
 
