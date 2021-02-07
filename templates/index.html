@@ -59,18 +59,26 @@
 				<table id="wine-table" class="table table-striped">
 					<thead>
 					<tr>
-						<th class="table-head">Date</th>
-						<th class="table-head">City</th>
-						<th class="table-head">State</th>
 						<th class="table-head">Country</th>
-						<th class="table-head">Shape</th>
-						<th class="table-head">Duration</th>
-						<th class="table-head">Comments</th>
+						<th class="table-head">Points</th>
+						<th class="table-head">Price</th>
+						<th class="table-head">Title</th>
+						<th class="table-head">Variety</th>
+						<th class="table-head">Vintage</th>
 					</tr>
 					</thead>
-					{% for order in orderDict %}
-					<tbody></tbody>
-					{% endfor %}
+					<tbody>
+						{% for x in orderDict %}
+							<tr>
+								<td> {{ x.country }} </td>
+								<td> {{ x.points }} </td>
+								<td> {{ x.price }} </td>
+								<td> {{ x.title }} </td>
+								<td> {{ x.variety }} </td>
+								<td> {{ x.vintage }} </td>
+							</tr>
+						{% endfor %}
+					</tbody>
 				</table>
 				</div>
 			</div>

@@ -181,14 +181,20 @@ function updateTable(countryIn) {
 
     console.log("here again", countryIn)
 
+        // Get a reference to the table body
+        var tbody = d3.select("tbody");
+
+        // Clear out current contents in the table
+        tbody.html("");
+
+        var scatter = d3.select("plot")
+
+        scatter.html("")
+
         var dropDown = d3.select('select').property('value');
-        // var dropDown = document.getElementById("myselect").value
 
         console.log("selection", dropDown);
 
-        // Read the csv file to get data
-        // d3.json(`http://127.0.0.1:5000/api/v1.0/buildtable/${countrySelect}/${dropDown}`).then(function(tableData) {
-            // console.log("here we go", tableData);
 
         fetch(`http://127.0.0.1:5000/api/v1.0/buildtable/${countryIn}/${dropDown}`, {
             method: 'GET',
@@ -202,11 +208,11 @@ function updateTable(countryIn) {
             // body: JSON.stringify({countryIn:countryIn, dropDown:dropDown})
         })
         .then(response => response.json())
-        .then(function(data) {
+        .then(function(tableData) {
 
-            console.log(data);
+            console.log(tableData);
 
-            temp=data
+            temp=tableData
             temp=temp.filter(c=>c.country==countryIn)
             xx=[]
             temp.forEach(function(d){
@@ -258,23 +264,9 @@ function updateTable(countryIn) {
             Plotly.newPlot("plot", data, layout);
         
 
-            // Get a reference to the table body
-            var tbody = d3.select("tbody");
-
-            // Clear out current contents in the table
-            tbody.html("");
-
-            // // Select the input element and get the raw HTML node
-            // var inputElement = d3.select(".form-control");
-
-            // // Get the value property of the input element
-            // var inputValue = inputElement.property("value");
-
-            // // Filter Data with country equal to input value
-            // var filteredData = tableData.filter(wineObject => wineObject.country === inputValue);
-
             // Loop through each wine object in the data array
             tableData.forEach((wineObject) => {
+
 
                 // Append one table row for each wine object
                 var row = tbody.append("tr");
@@ -283,7 +275,7 @@ function updateTable(countryIn) {
                 Object.entries(wineObject).forEach(([key, value]) => {
 
                     // Append one cell per wine object value 
-                    var cell = row.append("td");
+                    var cell = row.append("td")
                     cell.text(value);
                 });
             });

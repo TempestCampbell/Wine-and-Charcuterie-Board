@@ -556,6 +556,11 @@ input:focus + label{
 		min-width: 70px;
 	}
 
+	td{ 
+        padding: 8px 8px; 
+        border: 1px solid black; 
+    } 
+
 	.loader {
 		margin-top: 50px;
 	}
