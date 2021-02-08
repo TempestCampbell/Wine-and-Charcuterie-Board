@@ -9,17 +9,17 @@ function init() {
     var myMap = L.map("map", {
         center: [37.09, -95.71],
         zoom: 1
-      });
-      
-      L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
+    });
+
+    L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
         attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
         tileSize: 512,
         maxZoom: 18,
         zoomOffset: -1,
         id: "mapbox/streets-v11",
-        accessToken: API_KEY
-      }).addTo(myMap);
-      console.log("here i am")
+        accessToken: 'pk.eyJ1IjoicmJsZXZpbmUiLCJhIjoiY2tqenlwd2c2MDhxajJ2cGJwZ2w5YWt1eSJ9.CbH0egXe3ybOBDvV6bhVsw'
+    }).addTo(myMap);
+    console.log("here i am")
     // Read the csv file to get data
     d3.json("static/js/GeoCountry.geojson").then(function(data) {
 
@@ -175,7 +175,7 @@ document.addEventListener("click", closeAllSelect);
 
 
 d3.select("select")
-.on('change', updateTable);
+.on('change', updateTable(countryIn));
 
 // Function to update table with selection data
 function updateTable(countryIn) {
