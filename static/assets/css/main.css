@@ -420,8 +420,8 @@ body {
   
   .legend li {
 	display: inline-block;
-	width: 30px;
-	height: 22px;
+	width: 20px;
+	height: 20px;
   }
   
   .legend .min {
@@ -555,6 +555,11 @@ input:focus + label{
 	#table-area th:nth-child(6) {
 		min-width: 70px;
 	}
+
+	td{ 
+        padding: 8px 8px; 
+        border: 1px solid black; 
+    } 
 
 	.loader {
 		margin-top: 50px;
