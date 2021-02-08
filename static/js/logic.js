@@ -249,10 +249,23 @@ function updateTable(countryIn) {
         
             var data = [trace1];
             var layout = {
-                title: `Wine`,
-        
-                xaxis: {
-                    title: "Price($)",
+                title: {
+                    text: `Wine`,
+                    font: {
+                        family: 'Times',
+                        size:25
+                    }
+                },
+                hovermode: "closest",
+                hoverlabel: { bgcolor: "#380059" },
+                xaxis: { 
+                    title: {
+                        text:"Price($)",
+                        font: {
+                            family: 'Times',
+                            size:20
+                        }
+                    },
                     //Attempt at slider
                     automargin: true,
                     showticklabels: true,
@@ -261,8 +274,14 @@ function updateTable(countryIn) {
                 },
                 yaxis: {
                 autorange: true,
-                title: "Points",
-                type: "linear"
+                title: {
+                    text: 'Points',
+                    font: {
+                        family: 'Times',
+                        size:20
+                    }
+                },
+                // type: "linear"
                 },
                 showlegend: false
             };
