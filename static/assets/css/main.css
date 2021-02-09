@@ -555,7 +555,7 @@ input:focus + label{
 	#table-area th:nth-child(6) {
 		min-width: 70px;
 	}
-
+	
 	td{ 
         padding: 8px 8px; 
         border: 1px solid black; 

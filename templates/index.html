@@ -63,7 +63,7 @@
 								<th class="table-head">Vintage</th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody style="cursor:pointer">
 							{% for x in orderDict %}
 								<tr>
 									<td> {{ x.country }} </td>
@@ -101,11 +101,14 @@
 			window.ontouchmove = function() { return false; }
 			window.onorientationchange = function() { document.body.scrollTop = 0; }
 		</script>
-		<!-- JQuery-->
+
+		<!-- JQuery
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 		<script>
+			console.log("before doc.ready")
 			$(document).ready(function(){
 				//
+				console.log("after doc.ready")
 				// click on table body
 				$("#wine-table tbody tr").on('click','tr',function(){
 					// get row contents into an array
@@ -116,6 +119,6 @@
 					alert(td);
 				});
 			});
-		</script>
+		</script> -->
 	</body>
 </html>

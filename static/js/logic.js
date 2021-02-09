@@ -82,6 +82,7 @@ function init() {
                     // countryIn VARIABLE
                     var countryIn = feature.properties.name;
                     document.getElementById("countryIn").value = countryIn;
+<<<<<<< HEAD
                     // updateTable(countryIn);
 
                     // CREATE CUSTOM SELECT TABLE FILTER
@@ -173,10 +174,20 @@ function init() {
                     }
                     // If the user clicks anywhere outside the select box, then close all select boxes
                     document.addEventListener("click", closeAllSelect);
+<<<<<<< HEAD
                     };
                     // e.stopPropagation();
                 });
             }
+=======
+                    });
+                
+=======
+                    updateTable(countryIn);
+                });
+>>>>>>> rblCoding
+                }
+>>>>>>> d0de7954de363d443e148b2ca0b3e842bd77199f
             }).addTo(myMap);
 
                 // Set up the legend
@@ -337,5 +348,34 @@ function updateTable(countryIn) {
                     cell.text(value);
                 });
             });
+<<<<<<< HEAD
         });
 };
+=======
+        })
+
+};
+
+d3.select("table")
+    .on('click', onRowClick("wine-table", function (row) {
+        var value = row.getElementsByTagName("td")[0].innerHTML;
+        document.getElementById('wine-table').text = value + " clicked!";
+        console.log("value>>", value);
+    }));
+
+function onRowClick(tableId, callback){
+    console.log("row clicked");
+    var table=document.getElementById(tableId);
+    var rows=table.getElementsByTagName("tr");
+    for (i=0; i<rows.length; i++){
+        table.rows[i].onclick=function(row){
+            return function(){
+                callback(row);
+            };
+        }(table.rows[i]);
+    }
+};
+
+
+
+>>>>>>> rblCoding
