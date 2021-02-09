@@ -11,22 +11,21 @@ var scatter = d3.select("plot");
 
 // CREATE CUSTOM SELECT TABLE FILTER
 
-var x, i, j, l, ll, selElmnt, a, b, c;
+// var x, i, j, l, ll, selElmnt, a, b, c;
 
-// Look for any elements with the class "custom-select"
-x = document.getElementsByClassName("custom-select");
-l = x.length;
-for (i = 0; i < l; i++) {
-selElmnt = x[i].getElementsByTagName("select")[0];
-ll = selElmnt.length;
+// // Look for any elements with the class "custom-select"
+// x = document.getElementsByClassName("custom-select");
+// l = x.length;
+// for (i = 0; i < l; i++) {
+// selElmnt = x[i].getElementsByTagName("select")[0];
+// ll = selElmnt.length;
 
-// For each element, create a new DIV that will act as the selected item
-a = document.createElement("DIV");
-a.setAttribute("class", "select-selected");
-a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-x[i].appendChild(a);
-};
-
+// // For each element, create a new DIV that will act as the selected item
+// a = document.createElement("DIV");
+// a.setAttribute("class", "select-selected");
+// a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+// x[i].appendChild(a);
+// };
 
 // Create the function for the initial data rendering
 function init() {
@@ -74,7 +73,7 @@ function init() {
                 // Binding a pop-up to each layer
                 onEachFeature: function(feature, layer) {
                 layer.bindPopup(feature.properties.name + "<br># of Wines: "
-                + feature.properties.title).on('click', function() {
+                + feature.properties.title).on('click', function(e) {
                     // Clear out current contents in the table
                     tbody.html("");
                     // Clear out current contents in scatter plot
@@ -87,20 +86,23 @@ function init() {
 
                     // CREATE CUSTOM SELECT TABLE FILTER
 
-                    // var x, i, j, l, ll, selElmnt, a, b, c;
+                    var x, i, j, l, ll, selElmnt, a, b, c;
 
-                    // // Look for any elements with the class "custom-select"
-                    // x = document.getElementsByClassName("custom-select");
-                    // l = x.length;
-                    // for (i = 0; i < l; i++) {
-                    // selElmnt = x[i].getElementsByTagName("select")[0];
-                    // ll = selElmnt.length;
-
-                    // // For each element, create a new DIV that will act as the selected item
-                    // a = document.createElement("DIV");
-                    // a.setAttribute("class", "select-selected");
-                    // a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-                    // x[i].appendChild(a);
+                    // Look for any elements with the class "custom-select"
+                    x = document.getElementsByClassName("custom-select");
+                    l = x.length;
+                    
+                    for (i = 0; i < l; i++) {
+                    selElmnt = x[i].getElementsByTagName("select")[0];
+                    ll = selElmnt.length;
+                    // For each element, create a new DIV that will act as the selected item
+                    // var a = document.getElementsByClassName("select-selected");
+                    if (a==null) {
+                    a = document.createElement("DIV");
+                    a.setAttribute("class", "select-selected");
+                    a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+                    x[i].appendChild(a);
+                    };
                     for (i = 0; i < l; i++) {
                     // For each element, create a new DIV that will contain the option list
                     b = document.createElement("DIV");
@@ -127,6 +129,7 @@ function init() {
                                 y[k].removeAttribute("class");
                                 }
                                 this.setAttribute("class", "same-as-selected");
+                                
                                 break;
                             }
                             }
@@ -136,6 +139,8 @@ function init() {
                         b.appendChild(c);
                     }
                     x[i].appendChild(b);
+                    };
+                    
                     a.addEventListener("click", function(e) {
 
                         // When the select box is clicked, close any other select boxes, and open/close the current select box
@@ -144,7 +149,7 @@ function init() {
                         this.nextSibling.classList.toggle("select-hide");
                         this.classList.toggle("select-arrow-active");
                         });
-                    };
+                    
                     function closeAllSelect(elmnt) {
 
                     // Function that will close all select boxes in the document, except the current select box
@@ -168,9 +173,10 @@ function init() {
                     }
                     // If the user clicks anywhere outside the select box, then close all select boxes
                     document.addEventListener("click", closeAllSelect);
-                    });
-                
-                }
+                    };
+                    // e.stopPropagation();
+                });
+            }
             }).addTo(myMap);
 
                 // Set up the legend
@@ -203,10 +209,7 @@ function init() {
         
     });
 };
-// function changeFilter(dropDown) {
-//     // var dropDown = d3.select('select').property('value');
-//     updateTable(dropDown);
-// }
+
 
 // Function to update table with selection data
 function updateTable(countryIn) {

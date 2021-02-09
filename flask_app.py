@@ -83,8 +83,8 @@ def buildtable(countryIn=None,dropDown=None):
     # dropDown = request.form.get("filter")
     """Return Wine country, points, price, title, variety, and vintage for a specified country and filter."""
 
-    # if countryIn=='United States of America':
-    #     countryIn="US"
+    if countryIn=='United States':
+        countryIn="US"
     
     if dropDown==None:
         tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn.capitalize()).order_by(Wines.points.desc()).limit(100)
@@ -97,7 +97,7 @@ def buildtable(countryIn=None,dropDown=None):
         elif dropDown == "Cheapest":
             tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn.capitalize()).order_by(Wines.price).limit(100)
         elif dropDown == "MostExpensive":
-            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn.capitalize()).order_by(Wines.price.desc()).limit(100)
+            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn, Wines.price!=null).order_by(Wines.price.desc()).limit(100)
         elif dropDown == "NewestVintage":
             tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn.capitalize()).order_by(Wines.vintage.desc()).limit(100)
         elif dropDown == "OldestVintage":
