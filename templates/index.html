@@ -52,30 +52,30 @@
 					</select>
 				</div>
 				<div id="table-area" class="">
-				<table id="wine-table" class="table table-striped">
-					<thead>
-					<tr>
-						<th class="table-head">Country</th>
-						<th class="table-head">Points</th>
-						<th class="table-head">Price</th>
-						<th class="table-head">Title</th>
-						<th class="table-head">Variety</th>
-						<th class="table-head">Vintage</th>
-					</tr>
-					</thead>
-					<tbody>
-						{% for x in orderDict %}
+					<table id="wine-table" class="table table-striped">
+						<thead>
 							<tr>
-								<td> {{ x.country }} </td>
-								<td> {{ x.points }} </td>
-								<td> {{ x.price }} </td>
-								<td> {{ x.title }} </td>
-								<td> {{ x.variety }} </td>
-								<td> {{ x.vintage }} </td>
+								<th class="table-head">Country</th>
+								<th class="table-head">Points</th>
+								<th class="table-head">Price</th>
+								<th class="table-head">Title</th>
+								<th class="table-head">Variety</th>
+								<th class="table-head">Vintage</th>
 							</tr>
-						{% endfor %}
-					</tbody>
-				</table>
+						</thead>
+						<tbody>
+							{% for x in orderDict %}
+								<tr>
+									<td> {{ x.country }} </td>
+									<td> {{ x.points }} </td>
+									<td> {{ x.price }} </td>
+									<td> {{ x.title }} </td>
+									<td> {{ x.variety }} </td>
+									<td> {{ x.vintage }} </td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
 				</div>
 			</div>
 			<div class="col-md-10">
@@ -100,6 +100,22 @@
 			window.onload = function() { document.body.classList.remove('is-preload'); }
 			window.ontouchmove = function() { return false; }
 			window.onorientationchange = function() { document.body.scrollTop = 0; }
+		</script>
+		<!-- JQuery-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				//
+				// click on table body
+				$("#wine-table tbody tr").on('click','tr',function(){
+					// get row contents into an array
+					var tableData = $(this).children("td").map(function () {
+						return $(this).text();
+					}).get();
+					var td = tableData[3]+': ' + tableData[4];
+					alert(td);
+				});
+			});
 		</script>
 	</body>
 </html>

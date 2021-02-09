@@ -33,9 +33,9 @@ function init() {
     var myMap = L.map("map", {
         center: [37.09, -95.71],
         zoom: 1
-      });
-      
-      L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
+    });
+
+    L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
         attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
         tileSize: 512,
         maxZoom: 18,
@@ -210,7 +210,6 @@ function init() {
     });
 };
 
-
 // Function to update table with selection data
 function updateTable(countryIn) {
 
@@ -283,10 +282,23 @@ function updateTable(countryIn) {
         
             var data = [trace1];
             var layout = {
-                title: `Wine`,
-        
-                xaxis: {
-                    title: "Price($)",
+                title: {
+                    text: `Wine`,
+                    font: {
+                        family: 'Times',
+                        size:25
+                    }
+                },
+                hovermode: "closest",
+                hoverlabel: { bgcolor: "#380059" },
+                xaxis: { 
+                    title: {
+                        text:"Price($)",
+                        font: {
+                            family: 'Times',
+                            size:20
+                        }
+                    },
                     //Attempt at slider
                     automargin: true,
                     showticklabels: true,
@@ -295,8 +307,14 @@ function updateTable(countryIn) {
                 },
                 yaxis: {
                 autorange: true,
-                title: "Points",
-                type: "linear"
+                title: {
+                    text: 'Points',
+                    font: {
+                        family: 'Times',
+                        size:20
+                    }
+                },
+                // type: "linear"
                 },
                 showlegend: false
             };

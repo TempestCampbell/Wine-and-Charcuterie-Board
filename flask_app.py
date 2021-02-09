@@ -7,11 +7,13 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 from config import pw
 
+
 ################################################
 # Database Setup
 ################################################
 
 engine = create_engine(f"postgresql://postgres:{pw}@localhost:5432/WineAndDined")
+
 
 # reflect an existing database into a new model
 Base = automap_base()
@@ -38,6 +40,7 @@ app = Flask(__name__)
 
 # Use flask_sqlalchemy to set up sql connection locally
 app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://postgres:{pw}@localhost:5432/WineAndDined'
+
 db = SQLAlchemy(app)
 
 @app.route("/")
@@ -85,23 +88,36 @@ def buildtable(countryIn=None,dropDown=None):
 
     if countryIn=='United States':
         countryIn="US"
-    
+
+
+    print("here", countryIn)
+    spl=countryIn.split(" ")
+    if len(spl)==1:
+        countryIn=countryIn.title()
+    else:
+        countryIn=spl[0].capitalize()+" "+spl[1].capitalize()    
+    print("after", countryIn)
+
+    if countryIn=='United States':
+        countryIn="US"
+
     if dropDown==None:
-        tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn.capitalize()).order_by(Wines.points.desc()).limit(100)
+        tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.points.desc()).limit(100)
     
     else:
         if dropDown == "HighestRated":
-            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn.capitalize()).order_by(Wines.points.desc()).limit(100)
+            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.points.desc()).limit(100)
         elif dropDown == "LowestRated":
-            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn.capitalize()).order_by(Wines.points).limit(100)
+            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.points).limit(100)
         elif dropDown == "Cheapest":
-            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn.capitalize()).order_by(Wines.price).limit(100)
+            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.price).limit(100)
         elif dropDown == "MostExpensive":
             tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn, Wines.price!=null).order_by(Wines.price.desc()).limit(100)
+
         elif dropDown == "NewestVintage":
-            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn.capitalize()).order_by(Wines.vintage.desc()).limit(100)
+            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.vintage.desc()).limit(100)
         elif dropDown == "OldestVintage":
-            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn.capitalize()).order_by(Wines.vintage).limit(100)
+            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.vintage).limit(100)
 
     # Set up dictionary
     orderDict=[]
@@ -155,10 +171,18 @@ def cheesepair(variety):
 def meatpair(countryIn):
     """Returns a suggested meat pairing for the wine."""
     
-    if countryIn=='United States of America':
+    print("here", countryIn)
+    spl=countryIn.split(" ")
+    if len(spl)==1:
+        countryIn=countryIn.title()
+    else:
+        countryIn=spl[0].capitalize()+" "+spl[1].capitalize()    
+    print("after", countryIn)
+
+    if countryIn=='United States':
         countryIn="US"
-    
-    meatPair=session.query(WorldMeats.name, WorldMeats.region, WorldMeats.description).filter(WorldMeats.country==countryIn.capitalize()).limit(5)
+
+    meatPair=session.query(WorldMeats.name, WorldMeats.region, WorldMeats.description).filter(WorldMeats.country==countryIn).limit(5)
 
     meatDict=[]
     for name, region, description in meatPair:
