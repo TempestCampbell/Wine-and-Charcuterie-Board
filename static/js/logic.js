@@ -52,7 +52,7 @@ function init() {
                 + feature.properties.title).on('click', function() {
                     // countryIn VARIABLE
                     var countryIn = feature.properties.name;
-                    document.getElementById("countryIn").value = countryIn
+                    document.getElementById("countryIn").value = countryIn;
                     updateTable(countryIn);
                 });
                 }
@@ -305,5 +305,28 @@ function updateTable(countryIn) {
                 });
             });
         })
+
 };
+
+d3.select("table")
+    .on('click', onRowClick("wine-table", function (row) {
+        var value = row.getElementsByTagName("td")[0].innerHTML;
+        document.getElementById('wine-table').text = value + " clicked!";
+        console.log("value>>", value);
+    }));
+
+function onRowClick(tableId, callback){
+    console.log("row clicked");
+    var table=document.getElementById(tableId);
+    var rows=table.getElementsByTagName("tr");
+    for (i=0; i<rows.length; i++){
+        table.rows[i].onclick=function(row){
+            return function(){
+                callback(row);
+            };
+        }(table.rows[i]);
+    }
+};
+
+
 
