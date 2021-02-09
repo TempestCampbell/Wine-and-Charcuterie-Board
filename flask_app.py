@@ -5,22 +5,14 @@ import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
-<<<<<<< HEAD
-
-=======
 #from config import pw
->>>>>>> rblCoding
 
 ################################################
 # Database Setup
 ################################################
 #>>>>>>> bc4d66704a9166980030cca852e22d67e82c835b
 
-<<<<<<< HEAD
-engine = create_engine(f"postgresql://postgres:Playt1me!@localhost:5432/WineAndDined")
-=======
 engine = create_engine(f"postgresql://postgres:postgres@localhost:5432/WineAndDined")
->>>>>>> rblCoding
 
 # reflect an existing database into a new model
 Base = automap_base()
@@ -46,11 +38,7 @@ session=Session(engine)
 app = Flask(__name__)
 
 # Use flask_sqlalchemy to set up sql connection locally
-<<<<<<< HEAD
-app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://postgres:Playt1me!@localhost:5432/WineAndDined'
-=======
 app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://postgres:postgres@localhost:5432/WineAndDined'
->>>>>>> rblCoding
 db = SQLAlchemy(app)
 
 @app.route("/")
@@ -97,13 +85,12 @@ def buildtable(countryIn=None,dropDown=None):
     """Return Wine country, points, price, title, variety, and vintage for a specified country and filter."""
 
 
-    print("here", countryIn)
     spl=countryIn.split(" ")
     if len(spl)==1:
         countryIn=countryIn.title()
     else:
         countryIn=spl[0].capitalize()+" "+spl[1].capitalize()    
-    print("after", countryIn)
+
 
     if countryIn=='United States':
         countryIn="US"
@@ -119,7 +106,7 @@ def buildtable(countryIn=None,dropDown=None):
         elif dropDown == "Cheapest":
             tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.price).limit(100)
         elif dropDown == "MostExpensive":
-            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn and Wines.price!=None).order_by(Wines.price.desc()).limit(100)
+            tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn, Wines.price!=None).order_by(Wines.price.desc()).limit(100)
         elif dropDown == "NewestVintage":
             tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.vintage.desc()).limit(100)
         elif dropDown == "OldestVintage":
