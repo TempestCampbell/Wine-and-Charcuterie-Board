@@ -8,8 +8,9 @@ var tbody = d3.select("tbody");
 // Get a reference to the scatter plot
 var scatter = d3.select("plot");
 
+let countryIn;
 
-// CREATE CUSTOM SELECT TABLE FILTER
+// // CREATE CUSTOM SELECT TABLE FILTER
 
 // var x, i, j, l, ll, selElmnt, a, b, c;
 
@@ -48,6 +49,7 @@ function init() {
     d3.json("static/js/GeoCountry.geojson").then(function(data) {
 
         console.log(data);
+
         
             // CREATE A NEW CHOROPLETH LAYER
             geojson = L.choropleth(data, {
@@ -80,114 +82,15 @@ function init() {
                     scatter.html("");
 
                     // countryIn VARIABLE
-                    var countryIn = feature.properties.name;
+                    countryIn = feature.properties.name;
                     document.getElementById("countryIn").value = countryIn;
-<<<<<<< HEAD
-                    // updateTable(countryIn);
 
-                    // CREATE CUSTOM SELECT TABLE FILTER
+                    console.log("countryIN", countryIn);
 
-                    var x, i, j, l, ll, selElmnt, a, b, c;
-
-                    // Look for any elements with the class "custom-select"
-                    x = document.getElementsByClassName("custom-select");
-                    l = x.length;
-                    
-                    for (i = 0; i < l; i++) {
-                    selElmnt = x[i].getElementsByTagName("select")[0];
-                    ll = selElmnt.length;
-                    // For each element, create a new DIV that will act as the selected item
-                    // var a = document.getElementsByClassName("select-selected");
-                    if (a==null) {
-                    a = document.createElement("DIV");
-                    a.setAttribute("class", "select-selected");
-                    a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-                    x[i].appendChild(a);
-                    };
-                    for (i = 0; i < l; i++) {
-                    // For each element, create a new DIV that will contain the option list
-                    b = document.createElement("DIV");
-                    b.setAttribute("class", "select-items select-hide");
-                    for (j = 1; j < ll; j++) {
-
-                        // For each option in the original select element, create a new DIV that will act as an option item
-                        c = document.createElement("DIV");
-                        c.innerHTML = selElmnt.options[j].innerHTML;
-                        c.addEventListener("click", function(e) {
-
-                            // When an item is clicked, update the original select box, and the selected item
-                            var y, i, k, s, h, sl, yl;
-                            s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-                            sl = s.length;
-                            h = this.parentNode.previousSibling;
-                            for (i = 0; i < sl; i++) {
-                            if (s.options[i].innerHTML == this.innerHTML) {
-                                s.selectedIndex = i;
-                                h.innerHTML = this.innerHTML;
-                                y = this.parentNode.getElementsByClassName("same-as-selected");
-                                yl = y.length;
-                                for (k = 0; k < yl; k++) {
-                                y[k].removeAttribute("class");
-                                }
-                                this.setAttribute("class", "same-as-selected");
-                                
-                                break;
-                            }
-                            }
-                            h.click();
-                            updateTable(countryIn);
-                        });
-                        b.appendChild(c);
-                    }
-                    x[i].appendChild(b);
-                    };
-                    
-                    a.addEventListener("click", function(e) {
-
-                        // When the select box is clicked, close any other select boxes, and open/close the current select box
-                        e.stopPropagation();
-                        closeAllSelect(this);
-                        this.nextSibling.classList.toggle("select-hide");
-                        this.classList.toggle("select-arrow-active");
-                        });
-                    
-                    function closeAllSelect(elmnt) {
-
-                    // Function that will close all select boxes in the document, except the current select box
-                    var x, y, i, xl, yl, arrNo = [];
-                    x = document.getElementsByClassName("select-items");
-                    y = document.getElementsByClassName("select-selected");
-                    xl = x.length;
-                    yl = y.length;
-                    for (i = 0; i < yl; i++) {
-                        if (elmnt == y[i]) {
-                        arrNo.push(i)
-                        } else {
-                        y[i].classList.remove("select-arrow-active");
-                        }
-                    }
-                    for (i = 0; i < xl; i++) {
-                        if (arrNo.indexOf(i)) {
-                        x[i].classList.add("select-hide");
-                        }
-                    }
-                    }
-                    // If the user clicks anywhere outside the select box, then close all select boxes
-                    document.addEventListener("click", closeAllSelect);
-<<<<<<< HEAD
-                    };
-                    // e.stopPropagation();
-                });
-            }
-=======
-                    });
-                
-=======
                     updateTable(countryIn);
-                });
->>>>>>> rblCoding
-                }
->>>>>>> d0de7954de363d443e148b2ca0b3e842bd77199f
+                
+            });
+            }
             }).addTo(myMap);
 
                 // Set up the legend
@@ -220,6 +123,127 @@ function init() {
         
     });
 };
+// // CREATE CUSTOM SELECT TABLE FILTER
+// var x, i, j, l, ll, selElmnt, a, b, c;
+
+// // Look for any elements with the class "custom-select"
+// x = document.getElementsByClassName("custom-select");
+// l = x.length;
+
+// for (i = 0; i < l; i++) {
+// selElmnt = x[i].getElementsByTagName("select")[0];
+// ll = selElmnt.length;
+// // For each element, create a new DIV that will act as the selected item
+// a = document.querySelector("[class='select-selected']");
+// // a = document.createElement("DIV");
+// // a.setAttribute("class", "select-selected");
+// a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+// // x[i].appendChild(a);
+// };
+
+// function updateFilter(countryIn) {
+
+// // Clear out current contents in the table
+// tbody.html("");
+// // Clear out current contents in scatter plot
+// scatter.html("");
+
+
+// // CREATE CUSTOM SELECT TABLE FILTER
+var x, i, j, l, ll, selElmnt, a, b, c;
+// Look for any elements with the class "custom-select"
+x = document.getElementsByClassName("custom-select");
+l = x.length;
+
+for (i = 0; i < l; i++) {
+selElmnt = x[i].getElementsByTagName("select")[0];
+ll = selElmnt.length;
+// For each element, create a new DIV that will act as the selected item
+// a = document.querySelector("[class='select-selected']");
+a = document.createElement("DIV");
+a.setAttribute("class", "select-selected");
+// a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+x[i].appendChild(a);
+
+console.log("Maybe it is here", countryIn)
+for (i = 0; i < l; i++) {
+    console.log ("Try to find I", countryIn)
+// For each element, create a new DIV that will contain the option list
+b = document.createElement("DIV");
+b.setAttribute("class", "select-items select-hide");
+for (j = 1; j < ll; j++) {
+    console.log("I am really lost now", countryIn)
+    // For each option in the original select element, create a new DIV that will act as an option item
+    c = document.createElement("DIV");
+    c.innerHTML = selElmnt.options[j].innerHTML;
+    c.addEventListener("click", function(e) {
+
+        // When an item is clicked, update the original select box, and the selected item
+        var y, i, k, s, h, sl, yl;
+        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+        sl = s.length;
+
+        console.log("here is our S", countryIn);
+
+        h = this.parentNode.previousSibling;
+        for (i = 0; i < sl; i++) {
+            console.log("here we are at it again", countryIn)
+        if (s.options[i].innerHTML == this.innerHTML) {
+            s.selectedIndex = i;
+            h.innerHTML = this.innerHTML;
+            y = this.parentNode.getElementsByClassName("same-as-selected");
+            yl = y.length;
+            for (k = 0; k < yl; k++) {
+            y[k].removeAttribute("class");
+            }
+            this.setAttribute("class", "same-as-selected");
+            
+            console.log("countrySelect2", countryIn)
+            break;
+        }
+        }
+        h.click();
+    
+    });
+    b.appendChild(c);
+}
+x[i].appendChild(b);
+
+
+a.addEventListener("click", function(e) {
+
+    // When the select box is clicked, close any other select boxes, and open/close the current select box
+    e.stopPropagation();
+    closeAllSelect(this);
+    this.nextSibling.classList.toggle("select-hide");
+    this.classList.toggle("select-arrow-active");
+    });
+};
+};
+function closeAllSelect(elmnt) {
+
+// Function that will close all select boxes in the document, except the current select box
+var x, y, i, xl, yl, arrNo = [];
+x = document.getElementsByClassName("select-items");
+y = document.getElementsByClassName("select-selected");
+xl = x.length;
+yl = y.length;
+for (i = 0; i < yl; i++) {
+    if (elmnt == y[i]) {
+    arrNo.push(i)
+    } else {
+    y[i].classList.remove("select-arrow-active");
+    }
+}
+for (i = 0; i < xl; i++) {
+    if (arrNo.indexOf(i)) {
+    x[i].classList.add("select-hide");
+    }
+}
+}
+// If the user clicks anywhere outside the select box, then close all select boxes
+document.addEventListener("click", closeAllSelect);
+
 
 // Function to update table with selection data
 function updateTable(countryIn) {
@@ -242,7 +266,6 @@ function updateTable(countryIn) {
         var dropDown = d3.select('select').property('value');
 
         console.log("selection", dropDown);
-
 
         fetch(`http://127.0.0.1:5000/api/v1.0/buildtable/${countryIn}/${dropDown}`, {
             method: 'GET',
@@ -348,34 +371,52 @@ function updateTable(countryIn) {
                     cell.text(value);
                 });
             });
-<<<<<<< HEAD
-        });
-};
-=======
         })
 
 };
 
-d3.select("table")
-    .on('click', onRowClick("wine-table", function (row) {
-        var value = row.getElementsByTagName("td")[0].innerHTML;
-        document.getElementById('wine-table').text = value + " clicked!";
-        console.log("value>>", value);
-    }));
+// d3.select("table")
+//     .on('click', onRowClick("wine-table", function (row) {
+//         var value = row.getElementsByTagName("td")[0].innerHTML;
+//         document.getElementById('wine-table').text = value + " clicked!";
+//         console.log("value>>", value);
+//     }));
 
-function onRowClick(tableId, callback){
-    console.log("row clicked");
-    var table=document.getElementById(tableId);
-    var rows=table.getElementsByTagName("tr");
-    for (i=0; i<rows.length; i++){
-        table.rows[i].onclick=function(row){
-            return function(){
-                callback(row);
-            };
-        }(table.rows[i]);
-    }
-};
+// function onRowClick(tableID, callback){
+//     console.log("row clicked");
+//     var table=document.getElementById(tableId);
+//     var rows=table.getElementsByTagName("tr");
+//     for (i=0; i<rows.length; i++){
+//         table.rows[i].onclick=function(row){
+//             return function(){
+//                 callback(row);
+//             };
+//         }(table.rows[i]);
+//     }
+// };
 
+// // Get the modal
+// var modal = document.getElementById("myModal");
 
+// var table=document.getElementById("wine-table");
+// var rows=table.getElementsByTagName("tr");
 
->>>>>>> rblCoding
+// // Get the <span> element that closes the modal
+// var span = document.getElementsByClassName("close")[0];
+
+// // When the user clicks on the button, open the modal
+// rows.onclick = function() {
+//   modal.style.display = "block";
+// }
+
+// // When the user clicks on <span> (x), close the modal
+// span.onclick = function() {
+//   modal.style.display = "none";
+// }
+
+// // When the user clicks anywhere outside of the modal, close it
+// window.onclick = function(event) {
+//   if (event.target == modal) {
+//     modal.style.display = "none";
+//   }
+// }
