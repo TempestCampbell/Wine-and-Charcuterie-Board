@@ -41,7 +41,7 @@ function init() {
         maxZoom: 18,
         zoomOffset: -1,
         id: "mapbox/streets-v11",
-        accessToken: API_KEY
+        accessToken: "API_KEY"
       }).addTo(myMap);
 
     // Read the csv file to get data
@@ -82,7 +82,6 @@ function init() {
                     // countryIn VARIABLE
                     var countryIn = feature.properties.name;
                     document.getElementById("countryIn").value = countryIn;
-<<<<<<< HEAD
                     // updateTable(countryIn);
 
                     // CREATE CUSTOM SELECT TABLE FILTER
@@ -174,20 +173,17 @@ function init() {
                     }
                     // If the user clicks anywhere outside the select box, then close all select boxes
                     document.addEventListener("click", closeAllSelect);
-<<<<<<< HEAD
                     };
                     // e.stopPropagation();
                 });
             }
-=======
+
                     });
                 
-=======
+
                     updateTable(countryIn);
                 });
->>>>>>> rblCoding
                 }
->>>>>>> d0de7954de363d443e148b2ca0b3e842bd77199f
             }).addTo(myMap);
 
                 // Set up the legend
@@ -348,10 +344,10 @@ function updateTable(countryIn) {
                     cell.text(value);
                 });
             });
-<<<<<<< HEAD
+
         });
 };
-=======
+
         })
 
 };
@@ -375,7 +371,3 @@ function onRowClick(tableId, callback){
         }(table.rows[i]);
     }
 };
-
-
-
->>>>>>> rblCoding
