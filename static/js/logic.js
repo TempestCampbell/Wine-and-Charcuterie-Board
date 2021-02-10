@@ -8,25 +8,9 @@ var tbody = d3.select("tbody");
 // Get a reference to the scatter plot
 var scatter = d3.select("plot");
 
+// Country selection variable
 let countryIn;
 
-// // CREATE CUSTOM SELECT TABLE FILTER
-
-// var x, i, j, l, ll, selElmnt, a, b, c;
-
-// // Look for any elements with the class "custom-select"
-// x = document.getElementsByClassName("custom-select");
-// l = x.length;
-// for (i = 0; i < l; i++) {
-// selElmnt = x[i].getElementsByTagName("select")[0];
-// ll = selElmnt.length;
-
-// // For each element, create a new DIV that will act as the selected item
-// a = document.createElement("DIV");
-// a.setAttribute("class", "select-selected");
-// a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-// x[i].appendChild(a);
-// };
 
 // Create the function for the initial data rendering
 function init() {
@@ -86,7 +70,7 @@ function init() {
                     document.getElementById("countryIn").value = countryIn;
 
                     console.log("countryIN", countryIn);
-
+                    // Call updateTable function with country selection
                     updateTable(countryIn);
                 
             });
@@ -123,30 +107,6 @@ function init() {
         
     });
 };
-// // CREATE CUSTOM SELECT TABLE FILTER
-// var x, i, j, l, ll, selElmnt, a, b, c;
-
-// // Look for any elements with the class "custom-select"
-// x = document.getElementsByClassName("custom-select");
-// l = x.length;
-
-// for (i = 0; i < l; i++) {
-// selElmnt = x[i].getElementsByTagName("select")[0];
-// ll = selElmnt.length;
-// // For each element, create a new DIV that will act as the selected item
-// a = document.querySelector("[class='select-selected']");
-// // a = document.createElement("DIV");
-// // a.setAttribute("class", "select-selected");
-// a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-// // x[i].appendChild(a);
-// };
-
-// function updateFilter(countryIn) {
-
-// // Clear out current contents in the table
-// tbody.html("");
-// // Clear out current contents in scatter plot
-// scatter.html("");
 
 
 // // CREATE CUSTOM SELECT TABLE FILTER
@@ -268,14 +228,9 @@ function updateTable(countryIn) {
 
         fetch(`http://127.0.0.1:5000/api/v1.0/buildtable/${countryIn}/${dropDown}`, {
             method: 'GET',
-            // mode: 'cors',
             headers: {
                 "Access-Control-Allow-Origin":"*",
-                // 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-            //     'Accept': 'application/json',
-                // 'Content-Type': 'application/json;charset=utf-8'
             },
-            // body: JSON.stringify({countryIn:countryIn, dropDown:dropDown})
         })
         .then(response => response.json())
         .then(function(tableData) {
