@@ -104,7 +104,7 @@
 		<!-- Plotly -->
 		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 		<!-- API key -->
-		<script src="{{ url_for('static', filename='js/config.js') }}"></script>
+		<!-- <script src="{{ url_for('static', filename='js/config.js') }}"></script> -->
 		<!-- Our JS -->
 		<script src="{{ url_for('static', filename='js/logic.js') }}"></script>
 		<script>
@@ -115,6 +115,7 @@
 
 		JQuery
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<<<<<<< HEAD
 		<script>
 			// console.log("before doc.ready")
 			// $(document).ready(function(){
@@ -133,6 +134,16 @@
 
 			$(document).ready(function() {
 				$(document.body).on("click", "tr", function(){
+=======
+		<!-- <script>
+			console.log("before doc.ready")
+			$(document).ready(function(){
+				//
+				console.log("after doc.ready")
+				// click on table body
+				$(document.body).on('click','tr',function(){
+					// get row contents into an array
+>>>>>>> rblCoding
 					var tblData = $(this).children("td").map(function () {
 						return $(this).text();
 					}).get();
