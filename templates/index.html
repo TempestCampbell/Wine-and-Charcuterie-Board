@@ -113,29 +113,9 @@
 			window.onorientationchange = function() { document.body.scrollTop = 0; }
 		</script>
 
-		JQuery
+		<!-- JQuery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<<<<<<< HEAD
 		<script>
-			// console.log("before doc.ready")
-			// $(document).ready(function(){
-			// 	//
-			// 	console.log("after doc.ready")
-			// 	// click on table body
-			// 	$("#wine-table tbody tr").click(function() {
-			// 		// get row contents into an array
-			// 		var tblData = $(this).children("td").map(function () {
-			// 			return $(this).text();
-			// 		}).get();
-			// 		var td = tblData[3]+': ' + tblData[4];
-			// 		alert(td);
-			// 	});
-			// });
-
-			$(document).ready(function() {
-				$(document.body).on("click", "tr", function(){
-=======
-		<!-- <script>
 			console.log("before doc.ready")
 			$(document).ready(function(){
 				//
@@ -143,7 +123,6 @@
 				// click on table body
 				$(document.body).on('click','tr',function(){
 					// get row contents into an array
->>>>>>> rblCoding
 					var tblData = $(this).children("td").map(function () {
 						return $(this).text();
 					}).get();

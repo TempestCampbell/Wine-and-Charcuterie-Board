@@ -5,23 +5,14 @@ import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
-<<<<<<< HEAD
-from config import pw
-=======
 #from config import pw
->>>>>>> rblCoding
 
 
 ################################################
 # Database Setup
 ################################################
 
-<<<<<<< HEAD
-engine = create_engine(f"postgresql://postgres:{pw}@localhost:5432/WineAndDined")
-
-=======
 engine = create_engine(f"postgresql://postgres:postgres@localhost:5432/WineAndDined")
->>>>>>> rblCoding
 
 # reflect an existing database into a new model
 Base = automap_base()
@@ -47,12 +38,7 @@ session=Session(engine)
 app = Flask(__name__)
 
 # Use flask_sqlalchemy to set up sql connection locally
-<<<<<<< HEAD
-app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://postgres:{pw}@localhost:5432/WineAndDined'
-
-=======
 app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://postgres:postgres@localhost:5432/WineAndDined'
->>>>>>> rblCoding
 db = SQLAlchemy(app)
 
 @app.route("/")
