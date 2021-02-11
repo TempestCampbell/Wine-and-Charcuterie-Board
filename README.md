@@ -9,7 +9,7 @@ Welcome to the Wine and Charcuterie Dashboard. We used data from [data.world](ht
 
 Click _any key_ on your keyboard to view the choropleth that shows the density of wines that we have information on, per country.
 
-![Images/Choropleth.png](Images.Choropleth.png)
+![Images/Choropleth.png](Images/Choropleth.png)
 
 Click a country to view information.
 
