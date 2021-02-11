@@ -5,16 +5,14 @@ import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
-
-
 #from config import pw
+
 
 ################################################
 # Database Setup
 ################################################
 
-engine = create_engine(f"postgresql://postgres:Playt1me!@localhost:5432/WineAndDined")
-
+engine = create_engine(f"postgresql://postgres:postgres@localhost:5432/WineAndDined")
 
 # reflect an existing database into a new model
 Base = automap_base()
@@ -40,7 +38,6 @@ session=Session(engine)
 app = Flask(__name__)
 
 # Use flask_sqlalchemy to set up sql connection locally
-
 app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://postgres:postgres@localhost:5432/WineAndDined'
 db = SQLAlchemy(app)
 
@@ -81,15 +78,9 @@ def world():
 @app.route("/api/v1.0/buildtable/<countryIn>", methods=['GET'])
 @app.route("/api/v1.0/buildtable/<countryIn>/<dropDown>", methods=['GET'])
 def buildtable(countryIn=None,dropDown=None):
-    # if request.method == 'POST':
+
     session = Session(engine)
-    # countryIn == request.form.get("countrySelect")
-    # dropDown = request.form.get("filter")
     """Return Wine country, points, price, title, variety, and vintage for a specified country and filter."""
-
-    if countryIn=='United States':
-        countryIn="US"
-
 
     spl=countryIn.split(" ")
     if len(spl)==1:
@@ -129,11 +120,6 @@ def buildtable(countryIn=None,dropDown=None):
         order_dict["variety"]=variety
         order_dict["vintage"]=vintage
         orderDict.append(order_dict)
-        
-    # @after_this_request
-    # def _add_header(response):
-    #     response.headers.add("Access-Control-Allow-Origin","*")
-    #     return response
 
     session.close()
     print(orderDict)
@@ -142,8 +128,21 @@ def buildtable(countryIn=None,dropDown=None):
 @app.route("/api/v1.0/cheesepair/<variety>")
 def cheesepair(variety):
     """Returns the cheese ID given a varietal."""
+    print(variety)
+    spl=variety.split(" ")
+    if len(spl)==1:
+        variety=variety.title()
+    else:
+        variety=spl[0].capitalize()+" "+spl[1].capitalize()   
+    print(variety)
+
+    # Handle naming differences:
+    if variety=='Cabernet Sauvignon':
+        variety='Cabernet'
+    elif variety=='Bordeaux-style Red':
+        variety='Bordeaux'
     
-    cheeseID=session.query(FlavorLookups.flavorid, FlavorLookups.cheeseid).filter(FlavorLookups.cheeseid==session.query(CheeseData.cheeseid).filter(CheeseData.name==session.query(WineCheesePairingData.cheesename).filter(WineCheesePairingData.wine==variety.capitalize())))
+    cheeseID=session.query(FlavorLookups.flavorid, FlavorLookups.cheeseid).filter(FlavorLookups.cheeseid==session.query(CheeseData.cheeseid).filter(CheeseData.name==session.query(WineCheesePairingData.cheesename).filter(WineCheesePairingData.wine==variety)))
     justFlavors=[]
     for flavorid, cheeseid in cheeseID:
         justFlavors.append(flavorid)

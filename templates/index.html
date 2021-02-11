@@ -41,7 +41,7 @@
 				<label for="countryIn">Country: </label>
 				<input type="text" id="countryIn" name="countrySelect" readonly> 
 				<div class="custom-select" style="width:200px;">
-					<select id="mySelect" onchange="updateTable(this.text)">
+					<select id="mySelect">
 						<option value="Filter">Filter By:</option>
 						<option value="HighestRated">Highest Rated</option>
 						<option value="LowestRated">Lowest Rated</option>
@@ -77,6 +77,17 @@
 						</tbody>
 					</table>
 				</div>
+				<!-- The Modal -->
+				<!-- <div id="myModal" class="modal">
+
+					Modal content
+					<div class="modal-content">
+					<span class="close">&times;</span>
+					<p>Some text in the Modal..</p>
+					</div>
+				
+				</div> -->
+
 			</div>
 			<div class="col-md-10">
 				<div id="plot" name="plot"></div>
@@ -93,7 +104,7 @@
 		<!-- Plotly -->
 		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 		<!-- API key -->
-		<script src="{{ url_for('static', filename='js/config.js') }}"></script>
+		<!-- <script src="{{ url_for('static', filename='js/config.js') }}"></script> -->
 		<!-- Our JS -->
 		<script src="{{ url_for('static', filename='js/logic.js') }}"></script>
 		<script>
@@ -102,7 +113,7 @@
 			window.onorientationchange = function() { document.body.scrollTop = 0; }
 		</script>
 
-		<!-- JQuery
+		<!-- JQuery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 		<script>
 			console.log("before doc.ready")
@@ -110,15 +121,15 @@
 				//
 				console.log("after doc.ready")
 				// click on table body
-				$("#wine-table tbody tr").on('click','tr',function(){
+				$(document.body).on('click','tr',function(){
 					// get row contents into an array
-					var tableData = $(this).children("td").map(function () {
+					var tblData = $(this).children("td").map(function () {
 						return $(this).text();
 					}).get();
-					var td = tableData[3]+': ' + tableData[4];
+					var td = tblData[3]+': ' + tblData[4];
 					alert(td);
 				});
 			});
-		</script> -->
+		</script>
 	</body>
 </html>
