@@ -18,6 +18,7 @@ section, summary, time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
+	margin-bottom: 20px;
 	vertical-align: baseline;}
 
 article, aside, details, figcaption, figure,
@@ -44,6 +45,7 @@ blockquote, q {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+	margin: 20px;
 }
 
 body {
@@ -83,7 +85,7 @@ input, select, textarea {
 
 	.body-container {
 		-webkit-overflow-scrolling: touch;
-	  }
+	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
 			-moz-animation: none !important;
@@ -454,20 +456,22 @@ body {
 	z-index: 1;
  } */
  input {
-	border: black;
+	border: #f4f4f4;
 	order: -1;
-	color: rgb(255, 30, 30);
+	color: BLack;
 	font-size: 25px;
 	font-weight: 2000;
-	background: black;
+	background: white;
+	vertical-align:middle;
 }
 label {
-	border: black;
+	border: WHITE;
 	order: -1;
-	color: rgb(255, 30, 30);
+	color: BLACK;
 	font-size: 25px;
 	font-weight: 2000;
-	background: black;
+	background: wHITE;
+	vertical-align:middle;
 	
 }
 /* input:focus {
@@ -495,7 +499,7 @@ input:focus + label{
   }
   
   .select-selected {
-	background-color: rgb(184, 30, 255);
+	background-color: #855297;
   }
   
   /*style the arrow inside the select element:*/
@@ -529,7 +533,7 @@ input:focus + label{
   /*style items (options):*/
   .select-items {
 	position: absolute;
-	background-color: rgb(184, 30, 255);
+	background-color: #855297;
 	top: 100%;
 	left: 0;
 	right: 0;
@@ -542,12 +546,15 @@ input:focus + label{
   }
   
   .select-items div:hover, .same-as-selected {
-	background-color: rgba(0, 0, 0, 0.1);
+	background-color: #855297;
+	;
   }
 
   	/* Table Area */
 	#table-area th {
 		text-align: center;
+		border: 1px solid black;
+	    background-color: #855297;
 	}
 
 	#table-area th:first-child,
@@ -558,11 +565,15 @@ input:focus + label{
 	
 	td{ 
         padding: 8px 8px; 
-        border: 1px solid black; 
+		text-align: center;
+        border: 1px solid black;
+	    background-color: #996da6c2;
     } 
 
 	.loader {
 		margin-top: 50px;
+		background-color: #855297c2;
+
 	}
 
 	.margin-top-50 {
