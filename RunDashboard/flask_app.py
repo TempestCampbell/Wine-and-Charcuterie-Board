@@ -89,9 +89,6 @@ def buildtable(countryIn=None,dropDown=None):
         countryIn=spl[0].capitalize()+" "+spl[1].capitalize()    
 
 
-    if countryIn=='United States':
-        countryIn="US"
-
     if dropDown==None:
         tableQ=session.query(Wines.country, Wines.points, Wines.price, Wines.title, Wines.variety, Wines.vintage).filter(Wines.country==countryIn).order_by(Wines.points.desc()).limit(100)
     
