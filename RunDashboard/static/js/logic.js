@@ -389,8 +389,8 @@ function updateTable(countryIn) {
                             console.log("THE MEAT RECS ARE:");
                             console.log(meatNames);
                         
-                            // Build a nice Alert popup message
-                            var newLine = "\r\n";
+                            // Build a nice Modal popup message
+                            var newLine = "<br/>";
                             var message = `The wine you selected is a ${wineVariety} varietal.`;
                             message += newLine;
                             
@@ -448,71 +448,41 @@ function updateTable(countryIn) {
                             else{
                                 message += "Unfortunately, we do not have any meat or cheese suggestions at this time.";
                             };
-
-                            alert(message);
                             
-                            //alert(`${wineTitle}: \r\n${cheeseNames},    \r\n ${wineVariety}: \r\n${meatNames}`);
+
+                            // // Get the modal
+                            var modal = document.getElementById("myModal");
+
+                            var modalContent = document.getElementsByClassName("modal-content")[0];
+                            modalContent.innerHTML = message;
+
+                            // open the modal
+                            modal.style.display = "block";
+                            
                         });
             
             });
         });
+
+        // // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+            }
     });
         
 };
 
-// // When the user clicks on the button, open the modal
-// rows.onclick = function() {
-//   modal.style.display = "block";
-// }
 
-// // When the user clicks on <span> (x), close the modal
-// span.onclick = function() {
-//   modal.style.display = "none";
-// }
-
-
-// d3.select("table")
-//     .on('click', onRowClick("wine-table", function (row) {
-//         var value = row.getElementsByTagName("td")[0].innerHTML;
-//         document.getElementById('wine-table').text = value + " clicked!";
-//         console.log("value>>", value);
-//     }));
-
-// function onRowClick(tableID, callback) {
-//     console.log("row clicked");
-//     var table = document.getElementById(tableID);
-//     var rows = table.getElementsByTagName("tr");
-//     for (i = 0; i < rows.length; i++) {
-//         table.rows[i].onclick = function (row) {
-//             return function () {
-//                 callback(row);
-//             };
-//         }(table.rows[i]);
-//     }
-// };
-
-// // Get the modal
-// var modal = document.getElementById("myModal");
-
-// var table=document.getElementById("wine-table");
-// var rows=table.getElementsByTagName("tr");
-
-// // Get the <span> element that closes the modal
-// var span = document.getElementsByClassName("close")[0];
-
-// // When the user clicks on the button, open the modal
-// rows.onclick = function() {
-//   modal.style.display = "block";
-// }
-
-// // When the user clicks on <span> (x), close the modal
-// span.onclick = function() {
-//   modal.style.display = "none";
-// }
-
-// // When the user clicks anywhere outside of the modal, close it
-// window.onclick = function(event) {
-//   if (event.target == modal) {
-//     modal.style.display = "none";
-//   }
-// }
