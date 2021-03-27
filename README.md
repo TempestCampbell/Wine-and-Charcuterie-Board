@@ -1,5 +1,5 @@
 
-**Wine and Charcuterie Dashboard**
+# **Wine and Charcuterie Dashboard**
 
 Welcome to the Wine and Charcuterie Dashboard. We used data from [data.world](https://data.world/markpowell/global-wine-points) to get information on different wines, as well as the country they were made in, variety, vintage, etc. We web-scraped cheese information from [cheese.com](https://cheese.com/), and also got meat information from [tasteatlas.com](https://www.tasteatlas.com/). We created an interactive dashboard to display wine by country, visualize wine rating vs price, and provide meat and cheese pairing suggestions. 
 
